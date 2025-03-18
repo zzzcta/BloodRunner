@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=4 uid="uid://be2sry3bp483h"]
+
+[ext_resource type="TileSet" uid="uid://c24lxocxen4eq" path="res://Prefabs/TileMaps/test.tres" id="1_jf0na"]
+
+[node name="Testing_Santiago" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAAADAB4AAAABAAAAAAADAB4AAAACAAAAAAADAB4AAAADAAAAAAADAB4AAAAEAAAAAAADAB4AAAAFAAAAAAADAB4AAAAGAAAAAAADAB4AAAAHAAAAAAADAB4AAAAIAAAAAAADAB4AAAAAAP//AAADAB0AAAABAP//AAADAB0AAAACAP//AAADAB0AAAADAP//AAADAB0AAAAEAP//AAADAB0AAAAFAP//AAADAB0AAAAGAP//AAADAB0AAAAHAP//AAADAB0AAAAIAP//AAADAB0AAAA=")
+tile_set = ExtResource("1_jf0na")
