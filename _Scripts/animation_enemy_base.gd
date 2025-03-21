@@ -1,6 +1,8 @@
 extends AnimationPlayer
 
+@onready var enemy_base: CharacterBody2D = $".."
 @onready var sprite_2d: Sprite2D = $"../Sprite2D"
+
 var sprite_right_pos : float
 var sprite_left_pos : float 
 
@@ -36,9 +38,11 @@ func change_dir(direction:int) -> void:
 	if direction == -1:
 		sprite_2d.flip_h = true
 		sprite_2d.position.x = sprite_left_pos
+		enemy_base.attack_pos = enemy_base.attack_pos_left
 	else:
 		sprite_2d.flip_h = false
 		sprite_2d.position.x = sprite_right_pos
+		enemy_base.attack_pos = enemy_base.attack_pos_right
 
 
 func end_of_priority_anim() -> void:

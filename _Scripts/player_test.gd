@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name PlayerTest
 
+@onready var health_component: HealthComponent = $HealthComponent
+
 @export var max_speed: float = 250.0 
 @export var accel: float = 800.0  
 @export var air_accel: float = 1000.0 
@@ -8,6 +10,11 @@ class_name PlayerTest
 @export var air_friction: float = 100.0 
 @export var jump_force: float = -350.0  
 @export var gravity: float = 900.0  
+
+
+func _ready() -> void:
+	health_component.connect("died",dead)
+
 
 func _physics_process(delta):
 	var input_dir = Input.get_axis("move_left", "move_right")
@@ -28,3 +35,7 @@ func _physics_process(delta):
 		velocity.y = jump_force
 	
 	move_and_slide()
+
+
+func dead() -> void:
+	print("Player muerto")
