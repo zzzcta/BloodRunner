@@ -12,7 +12,6 @@ func _on_area_entered(area: Area2D) -> void:
 	var body : HitboxComponent = area as HitboxComponent
 	if body != null:
 		body.damage(attack)
-		print("Daño infligido")
 	queue_free()
 
 
