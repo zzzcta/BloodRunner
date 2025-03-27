@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=4 uid="uid://be2sry3bp483h"]
+
+[ext_resource type="TileSet" uid="uid://c24lxocxen4eq" path="res://Prefabs/TileMaps/test.tres" id="1_jf0na"]
+[ext_resource type="PackedScene" uid="uid://c4lkmd6mjj7kd" path="res://Prefabs/Characters/player_test.tscn" id="2_us3gd"]
+[ext_resource type="PackedScene" uid="uid://byjy8hfyofb3h" path="res://Prefabs/Characters/torreta.tscn" id="4_c5rfm"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_i3321"]
+vertices = PackedVector2Array(279.203, 15, 471.977, 5.59375, 414.617, 332.852, -87.7813, 324.172, -81.2031, 12.0703)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(279, 5, 484, -5, 423, 343, -98, 334, -91, 2)])
+
+[node name="Testing_Santiago" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(112, 260)
+tile_map_data = PackedByteArray("AAAAAAAAAAADAB4AAAABAAAAAAADAB4AAAACAAAAAAADAB4AAAADAAAAAAADAB4AAAAEAAAAAAADAB4AAAAFAAAAAAADAB4AAAAGAAAAAAADAB4AAAAHAAAAAAADAB4AAAAIAAAAAAADAB4AAAAAAP//AAADAB0AAAABAP//AAADAB0AAAACAP//AAADAB0AAAADAP//AAADAB0AAAAEAP//AAADAB0AAAAFAP//AAADAB0AAAAGAP//AAADAB0AAAAIAP//AAADAB0AAAAHAP//AAADAB0AAAAJAP//AAADAB0AAAAKAP//AAADAB0AAAALAP//AAADAB0AAAAMAP//AAADAB0AAAANAP//AAADAB0AAAAOAP//AAADAB0AAAAPAP//AAADAB0AAAD/////AAADAB0AAAD+////AAADAB0AAAD9////AAADAB0AAAD8////AAADAB0AAAD7////AAADAB0AAAD6////AAADAB0AAAD5////AAADAB0AAAD4////AAADAB0AAAD//wAAAAADAB4AAAD+/wAAAAADAB4AAAD9/wAAAAADAB4AAAD8/wAAAAADAB4AAAD7/wAAAAADAB4AAAD6/wAAAAADAB4AAAD5/wAAAAADAB4AAAAJAAAAAAADAB4AAAAKAAAAAAADAB4AAAALAAAAAAADAB4AAAAMAAAAAAADAB4AAAANAAAAAAADAB4AAAAOAAAAAAADAB4AAAAPAAAAAAADAB4AAAD4/wAAAAADAB4AAAA=")
+tile_set = ExtResource("1_jf0na")
+
+[node name="player_test" parent="." instance=ExtResource("2_us3gd")]
+position = Vector2(58, 226)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_i3321")
+
+[node name="Torreta" parent="." instance=ExtResource("4_c5rfm")]
+position = Vector2(168, 216)
+
+[editable path="Torreta"]
