@@ -1,0 +1,85 @@
+[gd_scene load_steps=16 format=3 uid="uid://bxxp3xne2v7oa"]
+
+[ext_resource type="Script" uid="uid://wi74q6nvn6ys" path="res://_Scripts/player/player.gd" id="1_y6xdh"]
+[ext_resource type="Script" path="res://_Scripts/state_machine.gd" id="2_5wxv7"]
+[ext_resource type="Script" uid="uid://sdnm7c3581hd" path="res://_Scripts/player/idle_state.gd" id="3_y5hcb"]
+[ext_resource type="Script" uid="uid://cke0u5yvlug3f" path="res://_Scripts/player/move_state.gd" id="4_2nftw"]
+[ext_resource type="Script" uid="uid://daxmalqmx8vyj" path="res://_Scripts/player/jump_state.gd" id="5_knrd4"]
+[ext_resource type="Script" uid="uid://bjkbgjq1ucuu" path="res://_Scripts/player/base_attack.gd" id="6_hck1p"]
+[ext_resource type="Script" uid="uid://doaehkbxx6jfx" path="res://_Scripts/player/range_attack.gd" id="7_juxdh"]
+[ext_resource type="Script" uid="uid://tukrks52ckbq" path="res://_Scripts/player/transform_state.gd" id="8_4qbli"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of3e5"]
+size = Vector2(15, 30)
+
+[sub_resource type="Animation" id="Animation_y5hcb"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_3icqa"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y6xdh"]
+_data = {
+&"RESET": SubResource("Animation_y5hcb"),
+&"idle": SubResource("Animation_3icqa")
+}
+
+[sub_resource type="Gradient" id="Gradient_juxdh"]
+colors = PackedColorArray(0.712692, 2.93598e-06, 5.77569e-07, 1, 0.396078, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4qbli"]
+gradient = SubResource("Gradient_juxdh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_08u7w"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(5, 0, 1)
+angle_min = -4.99999
+angle_max = 5.00001
+gravity = Vector3(0, 98, 0)
+scale_max = 1.15
+color_ramp = SubResource("GradientTexture1D_4qbli")
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_y6xdh")
+base_attack_cooldown = 0.2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_of3e5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_y6xdh")
+}
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 45
+lifetime = 0.15
+speed_scale = 0.2
+process_material = SubResource("ParticleProcessMaterial_08u7w")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_5wxv7")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_y5hcb")
+
+[node name="Move" type="Node" parent="StateMachine"]
+script = ExtResource("4_2nftw")
+
+[node name="Jump" type="Node" parent="StateMachine"]
+script = ExtResource("5_knrd4")
+
+[node name="BaseAttack" type="Node" parent="StateMachine"]
+script = ExtResource("6_hck1p")
+
+[node name="RangeAttack" type="Node" parent="StateMachine"]
+script = ExtResource("7_juxdh")
+
+[node name="Transform" type="Node" parent="StateMachine"]
+script = ExtResource("8_4qbli")
