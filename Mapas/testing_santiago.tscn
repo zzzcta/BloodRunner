@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://c24lxocxen4eq" path="res://Prefabs/TileMaps/test.tres" id="1_jf0na"]
 [ext_resource type="PackedScene" uid="uid://c4lkmd6mjj7kd" path="res://Prefabs/Characters/player_test.tscn" id="2_us3gd"]
-[ext_resource type="PackedScene" uid="uid://l13vchhleoe" path="res://Prefabs/Characters/enemy_base.tscn" id="3_avdpw"]
+[ext_resource type="PackedScene" uid="uid://byjy8hfyofb3h" path="res://Prefabs/Characters/torreta.tscn" id="4_c5rfm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_i3321"]
 vertices = PackedVector2Array(279.203, 15, 471.977, 5.59375, 414.617, 332.852, -87.7813, 324.172, -81.2031, 12.0703)
@@ -19,8 +19,10 @@ tile_set = ExtResource("1_jf0na")
 [node name="player_test" parent="." instance=ExtResource("2_us3gd")]
 position = Vector2(58, 226)
 
-[node name="EnemyBase" parent="." instance=ExtResource("3_avdpw")]
-position = Vector2(166, 107)
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_i3321")
+
+[node name="Torreta" parent="." instance=ExtResource("4_c5rfm")]
+position = Vector2(168, 216)
+
+[editable path="Torreta"]
