@@ -20,11 +20,16 @@ extends CharacterBody2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var state_machine: StateMachine = $StateMachine
 @onready var blood: GPUParticles2D = $GPUParticles2D
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var spawn_attack
+
 
 
 # Estado del actor
 var can_base_attack: bool = true  ## Indica si el actor puede atacar
 var can_range_attack: bool = true  ## Indica si el actor puede atacar
+var is_base_attacking: bool 
+var is_range_attacking: bool 
 var on_air: bool ## Indica si el actor esta en el aire
 var is_transformed: bool = false  ## Indica si el actor esta transformado
 var can_transform: bool ## Indica si el actor se puede transformar
@@ -32,22 +37,40 @@ var can_transform: bool ## Indica si el actor se puede transformar
 
 func _ready() -> void:
 	blood.visible = false
+	collision_shape.scale = Vector2(1, 1)
+	collision_shape.rotation_degrees = 0
 	state_machine.state_changed.connect(_on_state_changed) # Para monitoreo
-   
-
+	
+func _process(delta: float) -> void:
+	pass
+	
 # Imprimira por la terminal el new_state en el cual se encuentra el actor
 func _on_state_changed(new_state: String) -> void:
 	print("Jugador cambió al estado: " + new_state)
-
 
 # Aplicar la gravedad al actor
 func apply_gravity(delta: float) -> void:
 	velocity.y += gravity * delta
 
 # Aplica el movimiento al actor
-func move() -> void:
-	move_and_slide()
+func move() -> float:
+	
+	var move_direction: float = Input.get_axis("move_left", "move_right")
+	
+	if move_direction != 0:
+		# Ajustamos la velocidad horizontal basada en la direccion
+		velocity.x = move_direction * speed
+		# Giramos el sprite segun la direccion
+		flip_sprite(move_direction < 0)
+	else:
+		# Si no hay input de movimiento, desaceleramos hasta detenernos
+		velocity.x = move_toward(velocity.x, 0, speed)
+		
+	return move_direction
 
+func jump() -> void:
+	velocity.y -= jump_force
+	
 func play_animation(animation_name: String) -> void:
 	# Ejecuta la animacion si existe en el animation_player
 	if animation_player.has_animation(animation_name): 
@@ -59,3 +82,4 @@ func play_animation(animation_name: String) -> void:
 # Da la vuelta al sprite segun si el parametro es true o false
 func flip_sprite(flip: bool) -> void:
 	sprite.flip_h = flip
+	
