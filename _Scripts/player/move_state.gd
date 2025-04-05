@@ -7,25 +7,21 @@ func enter():
 	
 	actor.play_animation("Move")
 	
-	
 func update(_delta: float):
 	pass
-	
-	
+
 func physics_update(delta: float) -> void:
 	
-	var move_input_direction: float = Input.get_axis("move_left", "move_right")
+	var move_direction: float = actor.move()
 	
-	if move_input_direction != 0:
-		actor.velocity.x = move_input_direction * actor.speed
-		actor.flip_sprite(move_input_direction < 0)
-		
-	else:
+	 # Si estamos casi detenidos, transicionamos a idle
+	if move_direction == 0 and abs(actor.velocity.x) < 10:
 		transition_to("idle")
+	
 	
 	actor.apply_gravity(delta)
 	
-	actor.move()
+	actor.move_and_slide()
 	
 func handle_input(_event: InputEvent) -> void:
 	
