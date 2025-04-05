@@ -11,14 +11,14 @@ var states: Dictionary = {} # Mapeo de nombres de estados a instancias de State
 
 func _ready() -> void:
 	await owner.ready # Esperamos a que el nodo padre este reeeady
-	actor = owner as CharacterBody2D  # Guardamos una referencia al dueño de esta máquina de estados
+	actor = owner as CharacterBody2D  # Guardamos una referencia al dueño de esta maquina de estados
 	# Si nuestro actor no es un tipo CharacterBody2D crash
 	if not actor: 
 		push_error("actor is not CharacterBody2D")
 		return
 	 # Registramos los estados hijos
 	for child in get_children():
-		if child is State: # Solo guardaremos los hijos que sean States
+		if child is State: # Solo guardaremos los hijos que sean extiendan la clase States
 			var state: State = child as State
 			# Guardamos el estado en nuestro diccionario para acceso rapido
 			states[state.name.to_lower()] = state
@@ -49,7 +49,7 @@ func _input(event: InputEvent) -> void:
 
 ## Cambia el estado actual a uno nuevo
 func change_state(state_name: String) -> void:
-	# Si ya tenemos un estado activo, lo desactivamos ordenadamente
+	# Si ya tenemos un estado activo, lo desactivamos 
 	if current_state:
 		current_state.exit()
 	
