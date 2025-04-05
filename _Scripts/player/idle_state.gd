@@ -5,10 +5,9 @@ func enter():
 	
 	super.enter()
 	
-	actor.play_animation("idle")
+	actor.play_animation("Idle")
 	
 	actor.velocity.x = 0
-	
 	
 func update(_delta: float):
 	pass
@@ -17,7 +16,7 @@ func physics_update(delta: float) -> void:
 	# Aplicamos gravedad para asegurarnos de que el jugador se mantenga en el suelo
 	actor.apply_gravity(delta)
 	# Movemos el personaje (necesario para que la gravedad funcione)
-	actor.move()
+	actor.move_and_slide()
 	
 	## Bloque para que transicione de estado a salto en caso de que se este cayendo
 	#if not actor.is_on_floor() and actor.velocity.y > 0:
