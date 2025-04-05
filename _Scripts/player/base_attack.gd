@@ -6,9 +6,11 @@ func enter():
 	
 	actor.play_animation("BaseAttack")
 	
+	actor.is_base_attacking = true
 	actor.can_base_attack = false
-	await get_tree().create_timer(actor.base_attack_cooldown).timeout
+	await get_tree().create_timer(0.7).timeout
 	actor.can_base_attack = true
+	actor.is_base_attacking = false
 	
 func update(_delta: float):
 	
@@ -17,13 +19,13 @@ func update(_delta: float):
 	
 func physics_update(delta: float) -> void:
 	
-	if actor.is_on_floor() and actor.velocity.x == 0:
+	if actor.is_on_floor() and actor.velocity.x == 0 and !actor.is_base_attacking:
 		transition_to("idle")
 	
-	if actor.is_on_floor() and (abs(actor.velocity.x) > 0):
+	if actor.is_on_floor() and (abs(actor.velocity.x) > 0) and !actor.is_base_attacking:
 		transition_to("move")
 		
-	if actor.on_air:
+	if actor.on_air and !actor.is_base_attacking:
 		transition_to("jump")
 	
 	# Aplicamos gravedad para asegurarnos de que el jugador se mantenga en el suelo
