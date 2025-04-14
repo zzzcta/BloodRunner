@@ -24,6 +24,7 @@ func _ready() -> void:
 	if flip:
 		arriba.flip_h = true
 		abajo.flip_h = true
+		shoot_point.position.x = -30
 
 
 func _process(delta: float) -> void:
@@ -73,4 +74,5 @@ func shoot() -> void:
 	var instance = loaded_bullet.instantiate()
 	instance.position = shoot_point.global_position
 	instance.rotation = shoot_point.global_rotation
+	if flip: instance.rotation += PI
 	get_tree().current_scene.add_child(instance)
