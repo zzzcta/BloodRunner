@@ -1,8 +1,15 @@
 extends Area2D
-class_name HitboxComponent
+class_name HitBoxComponent
 
-@export var health_component : HealthComponent
+signal attack (actor)
 
-func damage(attack: Attack):
-	if health_component:
-		health_component.damage(attack)
+func _ready() -> void:
+	body_entered.connect(_on_body_entered)
+	
+func _on_body_entered(actor: Node2D) -> void:
+		print("Body entered: ", actor.name)
+		if actor.has_node("HealthComponent"):
+			print("HealthComponent found, emitting attack signal")
+			attack.emit(actor)
+		else:
+			print("No HealthComponent found on ", actor.name)
