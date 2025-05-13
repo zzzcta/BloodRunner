@@ -139,7 +139,8 @@ func flip_sprite(flip: bool) -> void:
 
 ## Accede a la state_machine y cambia el estado actual por "dead"
 func dead() -> void:
-	state_machine.change_state("dead")
+	if !is_dead:
+		state_machine.change_state("dead")
 
 #region funciones cooldown habilidades
 ## En el caso de que el cooldown haya terminado devolvemos true 

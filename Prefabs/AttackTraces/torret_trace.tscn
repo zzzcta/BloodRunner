@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cxf5jjkjutjpo"]
 
 [ext_resource type="PackedScene" uid="uid://dhmilqoeflyd2" path="res://Componentes/punch_component.tscn" id="1_05ggi"]
-[ext_resource type="Script" path="res://_Scripts/torret_trace.gd" id="1_msel0"]
+[ext_resource type="Script" uid="uid://b7xiskw2d247t" path="res://_Scripts/Enemys/torret_trace.gd" id="1_msel0"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7u7a8"]
 

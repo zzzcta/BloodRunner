@@ -1,19 +1,19 @@
 [gd_scene load_steps=39 format=3 uid="uid://cbubjqnrm73ug"]
 
-[ext_resource type="Script" uid="uid://wi74q6nvn6ys" path="res://_Scripts/player/player.gd" id="1_y6xdh"]
+[ext_resource type="Script" uid="uid://wi74q6nvn6ys" path="res://_Scripts/Player/player.gd" id="1_y6xdh"]
 [ext_resource type="Script" uid="uid://dmfhj3tajaetn" path="res://_Scripts/state_machine.gd" id="2_5wxv7"]
-[ext_resource type="Script" uid="uid://cb7l10sfny1mr" path="res://_Scripts/SpawnBaseAttack.gd" id="3_q7l0e"]
-[ext_resource type="Script" uid="uid://sdnm7c3581hd" path="res://_Scripts/player/idle_state.gd" id="3_y5hcb"]
-[ext_resource type="Script" uid="uid://cke0u5yvlug3f" path="res://_Scripts/player/move_state.gd" id="4_2nftw"]
-[ext_resource type="Texture2D" uid="uid://cdoch3acmmir2" path="res://Recursos/Sprites/Personaje_entero-Sheet.png" id="5_b30ri"]
-[ext_resource type="Script" uid="uid://daxmalqmx8vyj" path="res://_Scripts/player/jump_state.gd" id="5_knrd4"]
-[ext_resource type="Script" uid="uid://bjkbgjq1ucuu" path="res://_Scripts/player/base_attack_state.gd" id="6_hck1p"]
-[ext_resource type="Script" uid="uid://bjl1tic2v8kfe" path="res://_Scripts/health_component.gd" id="6_m62uw"]
-[ext_resource type="Script" uid="uid://doaehkbxx6jfx" path="res://_Scripts/player/range_attack_state.gd" id="7_juxdh"]
+[ext_resource type="Script" uid="uid://cb7l10sfny1mr" path="res://_Scripts/Player/SpawnBaseAttack.gd" id="3_q7l0e"]
+[ext_resource type="Script" uid="uid://sdnm7c3581hd" path="res://_Scripts/Player/idle_state.gd" id="3_y5hcb"]
+[ext_resource type="Script" uid="uid://cke0u5yvlug3f" path="res://_Scripts/Player/move_state.gd" id="4_2nftw"]
+[ext_resource type="Texture2D" uid="uid://cdoch3acmmir2" path="res://Recursos/Sprites/Player/Personaje_entero-Sheet.png" id="5_b30ri"]
+[ext_resource type="Script" uid="uid://daxmalqmx8vyj" path="res://_Scripts/Player/jump_state.gd" id="5_knrd4"]
+[ext_resource type="Script" uid="uid://bjkbgjq1ucuu" path="res://_Scripts/Player/base_attack_state.gd" id="6_hck1p"]
+[ext_resource type="Script" uid="uid://bjl1tic2v8kfe" path="res://_Scripts/Components/health_component.gd" id="6_m62uw"]
+[ext_resource type="Script" uid="uid://doaehkbxx6jfx" path="res://_Scripts/Player/range_attack_state.gd" id="7_juxdh"]
 [ext_resource type="PackedScene" uid="uid://b25ondfso70wi" path="res://Componentes/hitbox_component.tscn" id="7_ms580"]
-[ext_resource type="Script" uid="uid://tukrks52ckbq" path="res://_Scripts/player/transform_state.gd" id="8_4qbli"]
-[ext_resource type="Script" uid="uid://ohy55jhdhx1i" path="res://_Scripts/player/fall_state.gd" id="14_b30ri"]
-[ext_resource type="Script" uid="uid://bn7pc326ajl6l" path="res://_Scripts/player/dead_state.gd" id="15_ms580"]
+[ext_resource type="Script" uid="uid://tukrks52ckbq" path="res://_Scripts/Player/transform_state.gd" id="8_4qbli"]
+[ext_resource type="Script" uid="uid://ohy55jhdhx1i" path="res://_Scripts/Player/fall_state.gd" id="14_b30ri"]
+[ext_resource type="Script" uid="uid://bn7pc326ajl6l" path="res://_Scripts/Player/dead_state.gd" id="15_ms580"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b30ri"]
 radius = 11.5
@@ -796,6 +796,7 @@ libraries = {
 
 [node name="HealthComponent" type="Node2D" parent="."]
 script = ExtResource("6_m62uw")
+max_health = 50.0
 metadata/_custom_type_script = "uid://bjl1tic2v8kfe"
 
 [node name="RayCastUp" type="RayCast2D" parent="."]

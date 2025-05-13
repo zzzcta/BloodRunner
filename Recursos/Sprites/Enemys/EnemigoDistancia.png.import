@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://crkadiecksq58"
-path="res://.godot/imported/EnemigoDistancia.png-8ed673887fd41246e4f5ddf688de65e3.ctex"
+path="res://.godot/imported/EnemigoDistancia.png-272d0d24ad633e19f0152dc742797753.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Sprites/EnemigoDistancia.png"
-dest_files=["res://.godot/imported/EnemigoDistancia.png-8ed673887fd41246e4f5ddf688de65e3.ctex"]
+source_file="res://Recursos/Sprites/Enemys/EnemigoDistancia.png"
+dest_files=["res://.godot/imported/EnemigoDistancia.png-272d0d24ad633e19f0152dc742797753.ctex"]
 
 [params]
 

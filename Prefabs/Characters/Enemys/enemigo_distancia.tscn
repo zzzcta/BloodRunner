@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://d2vg2cnxxpf0k"]
 
-[ext_resource type="Script" path="res://_Scripts/enemigo_distancia.gd" id="1_dd471"]
-[ext_resource type="Texture2D" uid="uid://crkadiecksq58" path="res://Recursos/Sprites/EnemigoDistancia.png" id="1_l2pch"]
-[ext_resource type="PackedScene" uid="uid://cfy8bs13s2rro" path="res://Componentes/hitbox_component.tscn" id="2_esiwq"]
-[ext_resource type="Script" path="res://_Scripts/enemy_distance_animator.gd" id="3_avfgc"]
+[ext_resource type="Script" uid="uid://c6df7gsv1houj" path="res://_Scripts/Enemys/enemigo_distancia.gd" id="1_dd471"]
+[ext_resource type="Texture2D" uid="uid://crkadiecksq58" path="res://Recursos/Sprites/Enemys/EnemigoDistancia.png" id="1_l2pch"]
+[ext_resource type="PackedScene" uid="uid://b25ondfso70wi" path="res://Componentes/hitbox_component.tscn" id="2_esiwq"]
+[ext_resource type="Script" uid="uid://cusxhiwprdfmq" path="res://_Scripts/Enemys/enemy_distance_animator.gd" id="3_avfgc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5mn7"]
 size = Vector2(14, 31)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://bclotswb7kp4u"]
 
-[ext_resource type="Script" uid="uid://dpom70036wa5f" path="res://_Scripts/rejilla_ventilacion.gd" id="1_msquh"]
-[ext_resource type="Texture2D" uid="uid://cx2uhfbjya24e" path="res://Recursos/Sprites/Ventilador-Sheet.png" id="2_0ayug"]
+[ext_resource type="Script" uid="uid://dpom70036wa5f" path="res://_Scripts/Props/rejilla_ventilacion.gd" id="1_msquh"]
+[ext_resource type="Texture2D" uid="uid://cx2uhfbjya24e" path="res://Recursos/Sprites/Props/Ventilador-Sheet.png" id="2_0ayug"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ayug"]
 radius = 4.5

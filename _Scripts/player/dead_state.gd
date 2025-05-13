@@ -1,7 +1,13 @@
 extends State
 
 func enter():
+	
+	actor.hitbox_component.monitoring = false
+	actor.hitbox_component.set_deferred("monitorable", false)
+	
 	actor.player_sprite.visible = true
+	
+	actor.remove_from_group("Player")
 	
 	actor.play_animation(actor.animation_player, "dead")
 	

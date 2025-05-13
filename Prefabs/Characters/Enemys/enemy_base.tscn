@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://l13vchhleoe"]
 
-[ext_resource type="Script" path="res://_Scripts/enemy_base.gd" id="1_4xm5x"]
-[ext_resource type="Texture2D" uid="uid://brki1w7qjq1s7" path="res://Recursos/Sprites/Biker.png" id="2_plycj"]
+[ext_resource type="Script" uid="uid://c0r7kgn78tu7p" path="res://_Scripts/Enemys/enemy_base.gd" id="1_4xm5x"]
+[ext_resource type="Texture2D" uid="uid://brki1w7qjq1s7" path="res://Recursos/Sprites/Enemys/Biker.png" id="2_plycj"]
 [ext_resource type="PackedScene" uid="uid://c00f00wc0vjva" path="res://Componentes/health_component.tscn" id="3_obccg"]
-[ext_resource type="PackedScene" uid="uid://cfy8bs13s2rro" path="res://Componentes/hitbox_component.tscn" id="4_1bku7"]
-[ext_resource type="Script" path="res://_Scripts/animation_enemy_base.gd" id="5_m445v"]
+[ext_resource type="PackedScene" uid="uid://b25ondfso70wi" path="res://Componentes/hitbox_component.tscn" id="4_1bku7"]
+[ext_resource type="Script" uid="uid://cshpp8nqexl4g" path="res://_Scripts/Enemys/animation_enemy_base.gd" id="5_m445v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_broj1"]
 size = Vector2(17, 25)
@@ -211,13 +211,13 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_25k1n"]
 _data = {
-"RESET": SubResource("Animation_hg5ni"),
-"attack": SubResource("Animation_nad3n"),
-"attack2": SubResource("Animation_m0lfi"),
-"attack3": SubResource("Animation_h8aov"),
-"idle": SubResource("Animation_x1cba"),
-"jump": SubResource("Animation_q5nok"),
-"run": SubResource("Animation_m82oa")
+&"RESET": SubResource("Animation_hg5ni"),
+&"attack": SubResource("Animation_nad3n"),
+&"attack2": SubResource("Animation_m0lfi"),
+&"attack3": SubResource("Animation_h8aov"),
+&"idle": SubResource("Animation_x1cba"),
+&"jump": SubResource("Animation_q5nok"),
+&"run": SubResource("Animation_m82oa")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5tl6s"]
@@ -249,8 +249,7 @@ frame = 56
 [node name="HealthComponent" parent="." instance=ExtResource("3_obccg")]
 max_health = 100.0
 
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_1bku7")]
-health_component = NodePath("../HealthComponent")
+[node name="HitboxComponent" parent="." instance=ExtResource("4_1bku7")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(-2, -1.5)
@@ -260,7 +259,7 @@ shape = SubResource("RectangleShape2D_mtnhx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_25k1n")
+&"": SubResource("AnimationLibrary_25k1n")
 }
 script = ExtResource("5_m445v")
 

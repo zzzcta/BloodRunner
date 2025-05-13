@@ -79,6 +79,7 @@ func create_attack_hitbox() -> void:
 	if active_base_attack_hitbox == null: 
 		active_base_attack_hitbox = base_attack_hitbox.instantiate()
 		active_base_attack_hitbox.attack_damage = actor.base_attack_damage
+		active_base_attack_hitbox.attack_back_force = 600.0
 		get_tree().current_scene.add_child(active_base_attack_hitbox)
 	
 	active_base_attack_hitbox.global_position = actor.spawn_base_attack.global_position

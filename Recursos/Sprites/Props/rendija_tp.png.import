@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdoch3acmmir2"
-path="res://.godot/imported/Personaje_entero-Sheet.png-254cc3a3d95a2c6d8cb8b9dda2c7a932.ctex"
+uid="uid://bhqflcu7r0mvy"
+path="res://.godot/imported/rendija_tp.png-a90ad083d68c10f7bc24d093cab934b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Sprites/Personaje_entero-Sheet.png"
-dest_files=["res://.godot/imported/Personaje_entero-Sheet.png-254cc3a3d95a2c6d8cb8b9dda2c7a932.ctex"]
+source_file="res://Recursos/Sprites/Props/rendija_tp.png"
+dest_files=["res://.godot/imported/rendija_tp.png-a90ad083d68c10f7bc24d093cab934b4.ctex"]
 
 [params]
 

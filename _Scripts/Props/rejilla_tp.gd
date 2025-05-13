@@ -8,21 +8,14 @@ var teleporting_player: Node2D = null  # Referencia al jugador que se está tele
 var can_teleport: bool = true  # Controla si este teleport puede activarse
 
 func _ready() -> void:
-	# Verificamos que exista el area hijo
-	if !has_node("Area2D"):
-		push_error("TeleportNode necesita un hijo tipo Area2D")
-		return
-	
+
 	# Verificamos y conectamos al destino
 	if destination_teleport.is_empty():
 		push_warning("No se ha configurado un destino para este teleport")
 		return
 		
 	destination = get_node_or_null(destination_teleport)
-	if !destination:
-		push_error("No se encontró el destino del teleport: " + str(destination_teleport))
-		return
-		
+
 	# Conectamos las señales
 	$Area2D.body_entered.connect(_on_area_2d_body_entered)
 
@@ -60,7 +53,7 @@ func _on_cooldown_timeout() -> void:
 	# Limpiamos la referencia al jugador
 	teleporting_player = null
 
-# Métodos para activar/desactivar el teleport desde fuera
+# Metodos para activar/desactivar el teleport desde fuera
 func disable_teleport() -> void:
 	can_teleport = false
 	

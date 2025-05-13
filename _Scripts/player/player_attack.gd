@@ -26,5 +26,9 @@ func _ready() -> void:
 	
 func _on_hitbox_component_attack(actor: Node2D) -> void:
 	var attack: Attack = Attack.new()
-	attack.attack_damage = _attack_damage
+	attack.attack_damage = attack_damage
 	actor.get_node("HealthComponent").damage(attack)
+	
+	if actor is CharacterBody2D:
+		var direction: Vector2 = (actor.global_position - global_position).normalized()
+		actor.velocity = direction * attack_back_force

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://drxw38tsycofs"
-path="res://.godot/imported/Torreta_abajo.png-053d064a005995bcc0e9e9213a6f3af7.ctex"
+path="res://.godot/imported/Torreta_abajo.png-40a572ba175b4904ac18616140bd8a83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Sprites/Torreta_abajo.png"
-dest_files=["res://.godot/imported/Torreta_abajo.png-053d064a005995bcc0e9e9213a6f3af7.ctex"]
+source_file="res://Recursos/Sprites/Enemys/Torreta_abajo.png"
+dest_files=["res://.godot/imported/Torreta_abajo.png-40a572ba175b4904ac18616140bd8a83.ctex"]
 
 [params]
 

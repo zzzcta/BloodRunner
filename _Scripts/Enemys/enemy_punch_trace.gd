@@ -18,8 +18,7 @@ func _process(delta: float) -> void:
 		get_parent().queue_free()
 
 
-func _on_area_entered(area: Area2D) -> void:
-	var body : HitboxComponent = area as HitboxComponent
+func _on_body_entered(body: Node2D) -> void:
+	var _body: HitBoxComponent = body as HitBoxComponent
 	if body != null:
-		body.damage(attack)
-	get_parent().queue_free()
+		body.get_node("HealthComponent").damage(attack)

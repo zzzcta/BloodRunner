@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brki1w7qjq1s7"
-path="res://.godot/imported/Biker.png-52abf7ac525482e6f1a1c3c1fa4f9bb1.ctex"
+uid="uid://brnby7pteyybj"
+path="res://.godot/imported/Crosshair.png-46191a1e245de6a70dd58a094123b7ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Sprites/Biker.png"
-dest_files=["res://.godot/imported/Biker.png-52abf7ac525482e6f1a1c3c1fa4f9bb1.ctex"]
+source_file="res://Recursos/Sprites/UI/Crosshair.png"
+dest_files=["res://.godot/imported/Crosshair.png-46191a1e245de6a70dd58a094123b7ca.ctex"]
 
 [params]
 
