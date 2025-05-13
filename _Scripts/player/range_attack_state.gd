@@ -2,7 +2,7 @@ extends State
 
 @export var attack_angle: float = 90.0 
 
-var range_attack_hitbox: PackedScene = preload("res://Prefabs/range_attack.tscn")
+var range_attack_hitbox: PackedScene = preload("res://Prefabs/Characters/Player/range_attack.tscn")
 var active_range_attack_hitbox: Node2D = null
 var facing_direction: Vector2
 var attack_animation_completed: bool = false
