@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhmilqoeflyd2"]
 
-[ext_resource type="Script" path="res://_Scripts/enemy_punch_trace.gd" id="1_du2sx"]
+[ext_resource type="Script" uid="uid://bco0skc4ns1lv" path="res://_Scripts/Enemys/enemy_punch_trace.gd" id="1_du2sx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dcp1"]
 size = Vector2(24, 10)
@@ -11,4 +11,4 @@ script = ExtResource("1_du2sx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5dcp1")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
