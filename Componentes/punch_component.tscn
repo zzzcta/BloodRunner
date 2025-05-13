@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhmilqoeflyd2"]
 
-[ext_resource type="Script" path="res://_Scripts/enemy_punch_trace.gd" id="1_du2sx"]
+[ext_resource type="Script" uid="uid://cp025cta2v87a" path="res://_Scripts/enemy_punch_trace.gd" id="1_du2sx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dcp1"]
 size = Vector2(24, 10)

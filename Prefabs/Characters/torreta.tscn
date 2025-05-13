@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://byjy8hfyofb3h"]
 
-[ext_resource type="Script" path="res://_Scripts/torreta.gd" id="1_p0uwd"]
+[ext_resource type="Script" uid="uid://c2ho6we3g7ht3" path="res://_Scripts/torreta.gd" id="1_p0uwd"]
 [ext_resource type="Texture2D" uid="uid://b3bsttuid7oty" path="res://Recursos/Sprites/Torreta_arriba.png" id="1_vllxx"]
 [ext_resource type="Texture2D" uid="uid://drxw38tsycofs" path="res://Recursos/Sprites/Torreta_abajo.png" id="2_glh7a"]
 [ext_resource type="PackedScene" uid="uid://c00f00wc0vjva" path="res://Componentes/health_component.tscn" id="4_rhqg1"]
