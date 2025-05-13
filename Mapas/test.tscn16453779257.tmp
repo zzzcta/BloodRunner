@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://ck3thtt1st5q0"]
+
+[ext_resource type="PackedScene" uid="uid://cbubjqnrm73ug" path="res://Prefabs/player.tscn" id="1_e0s2n"]
+[ext_resource type="PackedScene" uid="uid://c00f00wc0vjva" path="res://Componentes/health_component.tscn" id="2_3lqyo"]
+[ext_resource type="PackedScene" uid="uid://cfy8bs13s2rro" path="res://Componentes/hitbox_component.tscn" id="2_laa7q"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i853i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0s2n"]
+size = Vector2(65, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3lqyo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rucee"]
+
+[node name="Test" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_i853i")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(70, -67)
+shape = SubResource("RectangleShape2D_e0s2n")
+
+[node name="Player" parent="." instance=ExtResource("1_e0s2n")]
+position = Vector2(-48, -218)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2.5, 2.5)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(101, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_3lqyo")
+
+[node name="HealthComponent" parent="CharacterBody2D" instance=ExtResource("2_3lqyo")]
+
+[node name="HitboxComponent" parent="CharacterBody2D" instance=ExtResource("2_laa7q")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D/HitboxComponent"]
+scale = Vector2(1.40002, 1.40002)
+shape = SubResource("RectangleShape2D_rucee")

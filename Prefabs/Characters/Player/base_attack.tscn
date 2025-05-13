@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://duwgndg84lrit"]
+
+[ext_resource type="Script" uid="uid://xsn0d3jmnp8w" path="res://_Scripts/Player/base_attack.gd" id="1_5j1tx"]
+[ext_resource type="Script" uid="uid://biw6560ujx4yv" path="res://_Scripts/Components/hitbox_component.gd" id="2_6r0gh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57yge"]
+
+[node name="BaseAttack" type="Node2D"]
+script = ExtResource("1_5j1tx")
+
+[node name="HitBoxComponent" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("2_6r0gh")
+metadata/_custom_type_script = "uid://biw6560ujx4yv"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_57yge")

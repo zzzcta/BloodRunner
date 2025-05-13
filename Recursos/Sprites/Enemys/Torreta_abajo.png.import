@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fbmmtli3gklo"
-path="res://.godot/imported/Tiles.png-c457a1c2f99eb76cb564813fff9744bd.ctex"
+uid="uid://drxw38tsycofs"
+path="res://.godot/imported/Torreta_abajo.png-40a572ba175b4904ac18616140bd8a83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/TileSet/Tiles.png"
-dest_files=["res://.godot/imported/Tiles.png-c457a1c2f99eb76cb564813fff9744bd.ctex"]
+source_file="res://Recursos/Sprites/Enemys/Torreta_abajo.png"
+dest_files=["res://.godot/imported/Torreta_abajo.png-40a572ba175b4904ac18616140bd8a83.ctex"]
 
 [params]
 

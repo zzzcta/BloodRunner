@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fbmmtli3gklo"
-path="res://.godot/imported/Tiles.png-c457a1c2f99eb76cb564813fff9744bd.ctex"
+uid="uid://crkadiecksq58"
+path="res://.godot/imported/EnemigoDistancia.png-272d0d24ad633e19f0152dc742797753.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/TileSet/Tiles.png"
-dest_files=["res://.godot/imported/Tiles.png-c457a1c2f99eb76cb564813fff9744bd.ctex"]
+source_file="res://Recursos/Sprites/Enemys/EnemigoDistancia.png"
+dest_files=["res://.godot/imported/EnemigoDistancia.png-272d0d24ad633e19f0152dc742797753.ctex"]
 
 [params]
 

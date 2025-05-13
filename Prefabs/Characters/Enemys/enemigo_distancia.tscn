@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://d2vg2cnxxpf0k"]
+
+[ext_resource type="Script" uid="uid://c6df7gsv1houj" path="res://_Scripts/Enemys/enemigo_distancia.gd" id="1_dd471"]
+[ext_resource type="Texture2D" uid="uid://crkadiecksq58" path="res://Recursos/Sprites/Enemys/EnemigoDistancia.png" id="1_l2pch"]
+[ext_resource type="PackedScene" uid="uid://b25ondfso70wi" path="res://Componentes/hitbox_component.tscn" id="2_esiwq"]
+[ext_resource type="Script" uid="uid://cusxhiwprdfmq" path="res://_Scripts/Enemys/enemy_distance_animator.gd" id="3_avfgc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5mn7"]
+size = Vector2(14, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wylqb"]
+size = Vector2(23, 38)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_e14v2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5c2m8"]
+radius = 207.118
+
+[node name="EnemigoDistancia" type="CharacterBody2D"]
+script = ExtResource("1_dd471")
+bullet_path = "res://Prefabs/AttackTraces/torret_trace.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("1_l2pch")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 4.5)
+shape = SubResource("RectangleShape2D_a5mn7")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+script = ExtResource("3_avfgc")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("2_esiwq")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(-3.5, 1)
+shape = SubResource("RectangleShape2D_wylqb")
+
+[node name="ShootHandler" type="Node2D" parent="."]
+
+[node name="ShootPoint" type="Node2D" parent="ShootHandler"]
+position = Vector2(14, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ShootHandler"]
+position = Vector2(7.25, 0)
+scale = Vector2(15.5, 1)
+texture = SubResource("PlaceholderTexture2D_e14v2")
+
+[node name="SightArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SightArea"]
+shape = SubResource("CircleShape2D_5c2m8")
+
+[node name="RayCast2D" type="RayCast2D" parent="SightArea"]
+target_position = Vector2(200, 0)
+collision_mask = 3
+
+[node name="FallCast" type="RayCast2D" parent="."]
+position = Vector2(12, 20)
+target_position = Vector2(0, 17)
+
+[connection signal="body_entered" from="SightArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="SightArea" to="." method="_on_area_2d_body_exited"]
