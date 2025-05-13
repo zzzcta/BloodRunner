@@ -1,6 +1,6 @@
 extends State
 
-var base_attack_hitbox: PackedScene = preload("res://Prefabs/base_attack.tscn")
+var base_attack_hitbox: PackedScene = preload("res://Prefabs/Characters/Player/base_attack.tscn")
 var active_base_attack_hitbox: Node2D = null
 
 func enter():
