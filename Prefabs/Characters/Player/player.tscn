@@ -721,10 +721,10 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_y6xdh")
 cooldown_durations = Dictionary[String, float]({
 "base_attack": 0.05,
-"range_attack": 10.0,
-"transform": 4.0
+"range_attack": 7.0,
+"transform": 3.0
 })
-transform_duration = 3.0
+transform_duration = 2.0
 
 [node name="SpritePlayer" type="Sprite2D" parent="."]
 z_index = 1

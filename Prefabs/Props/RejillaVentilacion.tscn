@@ -116,6 +116,8 @@ animations = [{
 
 [node name="RejillaVentilacion" type="StaticBody2D"]
 script = ExtResource("1_msquh")
+impulse_force_player = 80.0
+impulse_force_enemy = 300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 4.5)
