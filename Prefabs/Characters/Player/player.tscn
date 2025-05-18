@@ -810,16 +810,12 @@ cooldown_durations = Dictionary[String, float]({
 })
 transform_duration = 8.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.8, 1.8)
-process_callback = 0
-
 [node name="SpritePlayer" type="Sprite2D" parent="."]
 z_index = 1
 texture = ExtResource("5_b30ri")
 hframes = 14
 vframes = 14
-frame = 167
+frame = 189
 
 [node name="TransformFront" type="Sprite2D" parent="."]
 visible = false
