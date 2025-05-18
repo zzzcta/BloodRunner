@@ -13,4 +13,5 @@ func handle_input(_event: InputEvent) -> void:
 	pass
 	
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	transition_to("idle")
+	if anim_name == "activation":
+		transition_to("idle")
