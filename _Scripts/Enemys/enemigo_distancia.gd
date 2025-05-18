@@ -5,8 +5,8 @@ class_name EnemigoDistancia
 @onready var animator: EnemyDistanceAnimator = $AnimationPlayer
 @onready var shoot_point: Node2D = $ShootHandler/ShootPoint
 @onready var shoot_handler: Node2D = $ShootHandler
-@onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
-@onready var ray_cast_2d: RayCast2D = $Area2D/RayCast2D
+@onready var collision_shape_2d: CollisionShape2D = $HitboxComponent/CollisionShape2D
+@onready var ray_cast_2d: RayCast2D = $SightArea/RayCast2D
 @onready var fall_cast: RayCast2D = $FallCast
 
 @export var shoot_cd : float = 0.5
