@@ -503,7 +503,7 @@ sources/0 = SubResource("TileSetAtlasSource_3w7sb")
 [node name="Nivel2" type="Node2D"]
 
 [node name="player_test" parent="." instance=ExtResource("3_0ltj2")]
-position = Vector2(-145, -18)
+position = Vector2(-299, -14)
 
 [node name="Camera2D" type="Camera2D" parent="player_test"]
 zoom = Vector2(1.5, 1.5)
@@ -527,7 +527,6 @@ tile_set = SubResource("TileSet_8rnhs")
 [node name="RejillaVentilacion" parent="Mapa" instance=ExtResource("2_ujms2")]
 z_index = 1
 position = Vector2(1319, -276)
-impulse_force_enemy = 450.0
 
 [node name="RejillaVentilacion3" parent="Mapa" instance=ExtResource("2_ujms2")]
 z_index = 1
@@ -536,7 +535,6 @@ position = Vector2(1237, -676)
 [node name="RejillaVentilacion2" parent="Mapa" instance=ExtResource("2_ujms2")]
 z_index = 1
 position = Vector2(1238, -420)
-impulse_force_enemy = 550.0
 
 [node name="RejillaVentilacion10" parent="Mapa" instance=ExtResource("2_ujms2")]
 z_index = 1
@@ -548,8 +546,7 @@ position = Vector2(1608, -4)
 
 [node name="RejillaVentilacion5" parent="Mapa" instance=ExtResource("2_ujms2")]
 z_index = 1
-position = Vector2(520, -180)
-impulse_force_enemy = 500.0
+position = Vector2(-170, -8)
 
 [node name="RejillaVentilacion6" parent="Mapa" instance=ExtResource("2_ujms2")]
 z_index = 1
@@ -558,42 +555,35 @@ position = Vector2(233, -406)
 [node name="RejillaVentilacion7" parent="Mapa" instance=ExtResource("2_ujms2")]
 z_index = 1
 position = Vector2(1531, -1076)
-impulse_force_enemy = 400.0
 
 [node name="RejillaVentilacion8" parent="Mapa" instance=ExtResource("2_ujms2")]
 z_index = 1
 position = Vector2(89, -980)
-impulse_force_enemy = 450.0
 
 [node name="RejillaVentilacion9" parent="Mapa" instance=ExtResource("2_ujms2")]
 z_index = 1
 position = Vector2(776, -1173)
 impulse_force_player = 50.0
-impulse_force_enemy = 700.0
 
 [node name="RejillaVentilacion11" parent="Mapa" instance=ExtResource("2_ujms2")]
 z_index = 1
 position = Vector2(884, -1302)
 impulse_force_player = 50.0
-impulse_force_enemy = 100.0
 
 [node name="RejillaVentilacion14" parent="Mapa" instance=ExtResource("2_ujms2")]
 z_index = 1
 position = Vector2(56, -1492)
-impulse_force_enemy = 400.0
 
 [node name="RejillaVentilacion12" parent="Mapa" instance=ExtResource("2_ujms2")]
 z_index = 1
 position = Vector2(924, -1302)
 impulse_force_player = 50.0
-impulse_force_enemy = 100.0
 
 [node name="RejillaVentilacion13" parent="Mapa" instance=ExtResource("2_ujms2")]
 z_index = 1
 position = Vector2(903, -1419)
 rotation = -3.14159
 impulse_force_player = -200.0
-impulse_force_enemy = -500.0
 
 [node name="RejillaTp" parent="Mapa" instance=ExtResource("8_06qmo")]
 position = Vector2(1416, -130)
