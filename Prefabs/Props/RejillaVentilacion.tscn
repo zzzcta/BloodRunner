@@ -137,6 +137,7 @@ shape = SubResource("RectangleShape2D_0ayug")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 25
 randomness = 1.0
+local_coords = true
 trail_enabled = true
 process_material = SubResource("ParticleProcessMaterial_x2bp2")
 
