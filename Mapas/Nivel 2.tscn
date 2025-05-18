@@ -513,6 +513,9 @@ position = Vector2(2151, -52)
 [node name="player_test" parent="." instance=ExtResource("3_0ltj2")]
 position = Vector2(-342, -37)
 
+[node name="Camera2D" type="Camera2D" parent="player_test"]
+zoom = Vector2(1.8, 1.8)
+
 [node name="Mapa" type="Node" parent="."]
 
 [node name="Obstaculos" type="TileMapLayer" parent="Mapa"]
