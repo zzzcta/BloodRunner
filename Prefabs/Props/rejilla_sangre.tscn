@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://7jqwn3w7af0i"]
+[gd_scene load_steps=3 format=3 uid="uid://kpdg4ms7p11"]
 
-[ext_resource type="Texture2D" uid="uid://ccj7h203pb44o" path="res://Recursos/Sprites/Props/Rejilla.png" id="1_8bguj"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4wjkn"]
+load_path = "res://.godot/imported/Rejilla.png-e0e99e209d2e1944bbd07901df487377.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8bguj"]
 size = Vector2(48, 32)
@@ -8,7 +9,7 @@ size = Vector2(48, 32)
 [node name="RejillaSangre" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_8bguj")
+texture = SubResource("CompressedTexture2D_4wjkn")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
