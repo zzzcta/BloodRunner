@@ -31,4 +31,4 @@ func _on_hitbox_component_attack(actor: Node2D) -> void:
 	
 	if actor is CharacterBody2D:
 		var direction: Vector2 = (actor.global_position - global_position).normalized()
-		actor.velocity = direction * attack_back_force
+		actor.velocity += direction * attack_back_force
