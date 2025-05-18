@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://cfew82hkh4lm1"]
+[gd_scene load_steps=18 format=4 uid="uid://cfew82hkh4lm1"]
 
 [ext_resource type="Texture2D" uid="uid://fbmmtli3gklo" path="res://Recursos/TileSet/Tiles.png" id="1_7xd25"]
 [ext_resource type="Script" uid="uid://cpblj86124xol" path="res://_Scripts/Levels/level.gd" id="1_8rnhs"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://dngw5hfynrwvk" path="res://Prefabs/UI/crosshair.tscn" id="7_1lfn4"]
 [ext_resource type="PackedScene" uid="uid://duji41jrynl4v" path="res://Prefabs/Props/rejilla_tp.tscn" id="8_06qmo"]
 [ext_resource type="PackedScene" uid="uid://l13vchhleoe" path="res://Prefabs/Characters/Enemys/enemy_base.tscn" id="9_ujms2"]
-[ext_resource type="PackedScene" uid="uid://7jqwn3w7af0i" path="res://Prefabs/Props/rejilla_sangre.tscn" id="13_qrjvj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_owmoe"]
 texture = ExtResource("1_7xd25")
@@ -514,9 +513,6 @@ position = Vector2(2151, -52)
 [node name="player_test" parent="." instance=ExtResource("3_0ltj2")]
 position = Vector2(-342, -37)
 
-[node name="Camera2D" type="Camera2D" parent="player_test"]
-zoom = Vector2(1.5, 1.5)
-
 [node name="Mapa" type="Node" parent="."]
 
 [node name="Obstaculos" type="TileMapLayer" parent="Mapa"]
@@ -929,6 +925,3 @@ destination_teleport = NodePath("../RejillaTp18")
 
 [node name="RejillaTp18" parent="RejillaTp" instance=ExtResource("8_06qmo")]
 position = Vector2(1088, -2117)
-
-[node name="RejillaSangre" parent="." instance=ExtResource("13_qrjvj")]
-position = Vector2(-264, -37)
