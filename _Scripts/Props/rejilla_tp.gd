@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var destination_teleport: NodePath  # Ruta al otro punto de teletransporte
-@export var teleport_cooldown: float = 0.2  # Tiempo de espera entre teleports
+@export var teleport_cooldown: float = 0.5  # Tiempo de espera entre teleports
 
 var destination: Node2D
 var teleporting_player: Node2D = null  # Referencia al jugador que se está teletransportando
@@ -36,7 +36,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			destination.disable_teleport()
 		
 		# Teletransportamos al jugador
-		body.global_position = destination.global_position
+		
+		var tween: Tween = create_tween()
+		
+		tween.tween_property(body, "global_position", destination.global_position, 0.25).set_trans(Tween.TRANS_QUAD)
 		
 		# Iniciamos un temporizador para reactivar los teleports despues de un tiempo
 		var timer = get_tree().create_timer(teleport_cooldown)
