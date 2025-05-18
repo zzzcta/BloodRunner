@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fbmmtli3gklo"
-path="res://.godot/imported/Tiles.png-c457a1c2f99eb76cb564813fff9744bd.ctex"
+uid="uid://cuipmqw2emkut"
+path="res://.godot/imported/Enemy1.png-27a8f305678513cf5ade4ad5e5520eef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/TileSet/Tiles.png"
-dest_files=["res://.godot/imported/Tiles.png-c457a1c2f99eb76cb564813fff9744bd.ctex"]
+source_file="res://Recursos/Sprites/Enemy1.png"
+dest_files=["res://.godot/imported/Enemy1.png-27a8f305678513cf5ade4ad5e5520eef.ctex"]
 
 [params]
 
