@@ -222,6 +222,47 @@ tracks/3/keys = {
 "values": [Vector2i(1, 15)]
 }
 
+[sub_resource type="Animation" id="Animation_r1ef5"]
+resource_name = "activation"
+length = 1.1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritePlayer:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [16, 16]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpritePlayer:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [16, 16]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpritePlayer:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 15), Vector2i(1, 15), Vector2i(2, 15), Vector2i(3, 15), Vector2i(4, 15), Vector2i(5, 15), Vector2i(6, 15), Vector2i(7, 15)]
+}
+
 [sub_resource type="Animation" id="Animation_m62uw"]
 resource_name = "base_attack"
 length = 0.4
@@ -593,47 +634,6 @@ tracks/3/keys = {
 "values": [160, 161, 162, 163, 164]
 }
 
-[sub_resource type="Animation" id="Animation_r1ef5"]
-resource_name = "activation"
-length = 1.1
-step = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpritePlayer:hframes")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [16, 16]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpritePlayer:vframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [16, 16]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SpritePlayer:frame_coords")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 15), Vector2i(1, 15), Vector2i(2, 15), Vector2i(3, 15), Vector2i(4, 15), Vector2i(5, 15), Vector2i(6, 15), Vector2i(7, 15)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y6xdh"]
 _data = {
 &"RESET": SubResource("Animation_0fs2y"),
@@ -818,7 +818,7 @@ material = SubResource("ShaderMaterial_fvttn")
 texture = ExtResource("5_b30ri")
 hframes = 14
 vframes = 14
-frame = 167
+frame = 189
 
 [node name="TransformFront" type="Sprite2D" parent="."]
 visible = false
