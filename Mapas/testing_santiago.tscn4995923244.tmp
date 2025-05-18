@@ -1,6 +1,5 @@
-[gd_scene load_steps=13 format=4 uid="uid://be2sry3bp483h"]
+[gd_scene load_steps=11 format=4 uid="uid://be2sry3bp483h"]
 
-[ext_resource type="Script" uid="uid://cpblj86124xol" path="res://_Scripts/Levels/level.gd" id="1_6sxnc"]
 [ext_resource type="TileSet" uid="uid://c24lxocxen4eq" path="res://Prefabs/TileMaps/test.tres" id="1_jf0na"]
 [ext_resource type="PackedScene" uid="uid://l13vchhleoe" path="res://Prefabs/Characters/Enemys/enemy_base.tscn" id="3_3dt7c"]
 [ext_resource type="PackedScene" uid="uid://dngw5hfynrwvk" path="res://Prefabs/UI/crosshair.tscn" id="3_3hvkn"]
@@ -8,9 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://byjy8hfyofb3h" path="res://Prefabs/Characters/Enemys/torreta.tscn" id="5_l8itx"]
 [ext_resource type="PackedScene" uid="uid://bclotswb7kp4u" path="res://Prefabs/Props/RejillaVentilacion.tscn" id="6_i06tq"]
 [ext_resource type="PackedScene" uid="uid://duji41jrynl4v" path="res://Prefabs/Props/rejilla_tp.tscn" id="7_a2il4"]
-[ext_resource type="PackedScene" uid="uid://bihclwmtyk702" path="res://Prefabs/Props/door_start_level.tscn" id="8_a2il4"]
-[ext_resource type="PackedScene" uid="uid://da13veskah1ov" path="res://Prefabs/Props/door_finish_level.tscn" id="10_a5v12"]
-[ext_resource type="PackedScene" uid="uid://xcjoqk563ols" path="res://Prefabs/Props/car_out.tscn" id="11_6sxnc"]
+[ext_resource type="PackedScene" uid="uid://bihclwmtyk702" path="res://Prefabs/Props/door.tscn" id="8_a2il4"]
+[ext_resource type="PackedScene" uid="uid://vllsdp8yq8kj" path="res://Prefabs/UI/vida_hud.tscn" id="9_eunmb"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_i3321"]
 vertices = PackedVector2Array(279.203, 15, 471.977, 5.59375, 414.617, 332.852, -87.7813, 324.172, -81.2031, 12.0703)
@@ -18,8 +16,8 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(279, 5, 484, -5, 423, 343, -98, 334, -91, 2)])
 
 [node name="Testing_Santiago" type="Node2D"]
-script = ExtResource("1_6sxnc")
-target_scene = "uid://b6g8mahjq2ull"
+
+[node name="Crosshair" parent="." instance=ExtResource("3_3hvkn")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(112, 260)
@@ -46,20 +44,14 @@ position = Vector2(166, 228)
 position = Vector2(-224, 319)
 
 [node name="RejillaTp" parent="." instance=ExtResource("7_a2il4")]
-position = Vector2(-4, 319)
+position = Vector2(-138, 313)
 destination_teleport = NodePath("../RejillaTp2")
 
 [node name="RejillaTp2" parent="." instance=ExtResource("7_a2il4")]
-position = Vector2(0, 216)
+position = Vector2(5, 155)
 destination_teleport = NodePath("../RejillaTp")
 
 [node name="Door" parent="." instance=ExtResource("8_a2il4")]
-position = Vector2(134, 292)
+position = Vector2(134, 291)
 
-[node name="DoorFinishLevel" parent="." instance=ExtResource("10_a5v12")]
-position = Vector2(-30, 324)
-
-[node name="CarOut" parent="." instance=ExtResource("11_6sxnc")]
-position = Vector2(573, 290)
-
-[node name="Crosshair" parent="." instance=ExtResource("3_3hvkn")]
+[node name="HealthHud" parent="." instance=ExtResource("9_eunmb")]

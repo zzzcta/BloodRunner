@@ -19,7 +19,6 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(279, 5, 484, -5, 423, 3
 
 [node name="Testing_Santiago" type="Node2D"]
 script = ExtResource("1_6sxnc")
-target_scene = "uid://b6g8mahjq2ull"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(112, 260)
@@ -46,7 +45,7 @@ position = Vector2(166, 228)
 position = Vector2(-224, 319)
 
 [node name="RejillaTp" parent="." instance=ExtResource("7_a2il4")]
-position = Vector2(-4, 319)
+position = Vector2(-138, 313)
 destination_teleport = NodePath("../RejillaTp2")
 
 [node name="RejillaTp2" parent="." instance=ExtResource("7_a2il4")]
