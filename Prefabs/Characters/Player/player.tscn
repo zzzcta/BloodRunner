@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cbubjqnrm73ug"]
+[gd_scene load_steps=42 format=3 uid="uid://cbubjqnrm73ug"]
 
 [ext_resource type="Script" uid="uid://wi74q6nvn6ys" path="res://_Scripts/Player/player.gd" id="1_y6xdh"]
 [ext_resource type="Script" uid="uid://dmfhj3tajaetn" path="res://_Scripts/state_machine.gd" id="2_5wxv7"]
@@ -15,8 +15,6 @@
 [ext_resource type="Script" uid="uid://ohy55jhdhx1i" path="res://_Scripts/Player/fall_state.gd" id="14_b30ri"]
 [ext_resource type="Script" uid="uid://bn7pc326ajl6l" path="res://_Scripts/Player/dead_state.gd" id="15_ms580"]
 [ext_resource type="Script" uid="uid://cne0rpint0san" path="res://_Scripts/Player/activation_state.gd" id="15_r1ef5"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fvttn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b30ri"]
 radius = 11.5
@@ -814,7 +812,6 @@ transform_duration = 8.0
 
 [node name="SpritePlayer" type="Sprite2D" parent="."]
 z_index = 1
-material = SubResource("ShaderMaterial_fvttn")
 texture = ExtResource("5_b30ri")
 hframes = 14
 vframes = 14
@@ -894,7 +891,6 @@ collide_with_areas = true
 [node name="RayCastDown" type="RayCast2D" parent="."]
 position = Vector2(0, 2)
 target_position = Vector2(0, 14)
-hit_from_inside = true
 collide_with_areas = true
 
 [node name="HitboxComponent" parent="." instance=ExtResource("7_ms580")]

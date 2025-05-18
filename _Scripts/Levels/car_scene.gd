@@ -3,6 +3,8 @@ extends Node2D
 @onready var camera_starting: Marker2D = $AnimatedSprite2D/CameraStartingPosition
 @onready var camera_finish: Marker2D = $AnimatedSprite2D/CameraFinishPosition
 
+@export_file("*.tscn") var target_scene : String
+
 func _ready() -> void:
 	$Timer.start()
 	
@@ -17,7 +19,7 @@ func _ready() -> void:
 	tween.tween_property($AnimatedSprite2D/Camera2D, "zoom", Vector2(2.0, 2.0), 8).set_trans(Tween.TRANS_CUBIC)
 	
 func _on_timer_timeout() -> void:
-	SceneTransition.change_scene("res://Mapas/testing_santiago.tscn")
+	SceneTransition.change_scene(target_scene)
 
 func _process(delta: float) -> void:
 	$AnimatedSprite2D.position.x -= 500.0 * delta

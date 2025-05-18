@@ -1,55 +1,55 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6g8mahjq2ull"]
+[gd_scene load_steps=17 format=3 uid="uid://bue45auu0djwf"]
 
-[ext_resource type="Script" uid="uid://16cqpfyulbc5" path="res://_Scripts/Levels/car_scene.gd" id="1_516ei"]
-[ext_resource type="Texture2D" uid="uid://baphgovab0h4a" path="res://Recursos/Sprites/Props/Escena_Coche-Sheet.png" id="2_ocsft"]
-[ext_resource type="PackedScene" uid="uid://cpg6tsp06con8" path="res://Prefabs/parallax.tscn" id="2_utm50"]
+[ext_resource type="Script" uid="uid://16cqpfyulbc5" path="res://_Scripts/Levels/car_scene.gd" id="1_wueqd"]
+[ext_resource type="PackedScene" uid="uid://cpg6tsp06con8" path="res://Prefabs/parallax.tscn" id="2_2ddkp"]
+[ext_resource type="Texture2D" uid="uid://baphgovab0h4a" path="res://Recursos/Sprites/Props/Escena_Coche-Sheet.png" id="3_perko"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_utm50"]
-atlas = ExtResource("2_ocsft")
+atlas = ExtResource("3_perko")
 region = Rect2(0, 0, 272, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f487q"]
-atlas = ExtResource("2_ocsft")
+atlas = ExtResource("3_perko")
 region = Rect2(272, 0, 272, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_irlqu"]
-atlas = ExtResource("2_ocsft")
+atlas = ExtResource("3_perko")
 region = Rect2(544, 0, 272, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1lnct"]
-atlas = ExtResource("2_ocsft")
+atlas = ExtResource("3_perko")
 region = Rect2(816, 0, 272, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rtdm7"]
-atlas = ExtResource("2_ocsft")
+atlas = ExtResource("3_perko")
 region = Rect2(1088, 0, 272, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jqyny"]
-atlas = ExtResource("2_ocsft")
+atlas = ExtResource("3_perko")
 region = Rect2(1360, 0, 272, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6f2f"]
-atlas = ExtResource("2_ocsft")
+atlas = ExtResource("3_perko")
 region = Rect2(1632, 0, 272, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2a3x0"]
-atlas = ExtResource("2_ocsft")
+atlas = ExtResource("3_perko")
 region = Rect2(1904, 0, 272, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8fgtr"]
-atlas = ExtResource("2_ocsft")
+atlas = ExtResource("3_perko")
 region = Rect2(2176, 0, 272, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0kfij"]
-atlas = ExtResource("2_ocsft")
+atlas = ExtResource("3_perko")
 region = Rect2(2448, 0, 272, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ndh6"]
-atlas = ExtResource("2_ocsft")
+atlas = ExtResource("3_perko")
 region = Rect2(2720, 0, 272, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1mwju"]
-atlas = ExtResource("2_ocsft")
+atlas = ExtResource("3_perko")
 region = Rect2(2992, 0, 272, 104)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rbai5"]
@@ -97,10 +97,10 @@ animations = [{
 }]
 
 [node name="CarScene" type="Node2D"]
-script = ExtResource("1_516ei")
-target_scene = "uid://b14jha35c7bre"
+script = ExtResource("1_wueqd")
+target_scene = "uid://cfew82hkh4lm1"
 
-[node name="Parallax" parent="." instance=ExtResource("2_utm50")]
+[node name="Parallax" parent="." instance=ExtResource("2_2ddkp")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(320, 355)
