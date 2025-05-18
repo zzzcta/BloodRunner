@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=4 uid="uid://b14jha35c7bre"]
+[gd_scene load_steps=21 format=4 uid="uid://b14jha35c7bre"]
 
 [ext_resource type="Texture2D" uid="uid://fbmmtli3gklo" path="res://Recursos/TileSet/Tiles.png" id="1_dcs7f"]
 [ext_resource type="PackedScene" uid="uid://cbubjqnrm73ug" path="res://Prefabs/Characters/Player/player.tscn" id="1_snwyg"]
 [ext_resource type="Script" uid="uid://cpblj86124xol" path="res://_Scripts/Levels/level.gd" id="1_u1cwo"]
 [ext_resource type="Texture2D" uid="uid://dphjtflwskq05" path="res://Recursos/TileSet/Buildings.png" id="2_3rqij"]
+[ext_resource type="PackedScene" uid="uid://da13veskah1ov" path="res://Prefabs/Props/door_finish_level.tscn" id="3_lti2j"]
 [ext_resource type="PackedScene" uid="uid://byjy8hfyofb3h" path="res://Prefabs/Characters/Enemys/torreta.tscn" id="4_4ucwg"]
 [ext_resource type="Texture2D" uid="uid://jkbdmejmm0p7" path="res://Recursos/TileSet/Props-01.png" id="4_b6ow3"]
 [ext_resource type="PackedScene" uid="uid://duji41jrynl4v" path="res://Prefabs/Props/rejilla_tp.tscn" id="4_i7ktq"]
@@ -12,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://l13vchhleoe" path="res://Prefabs/Characters/Enemys/enemy_base.tscn" id="10_pc5yc"]
 [ext_resource type="PackedScene" uid="uid://xcjoqk563ols" path="res://Prefabs/Props/car_out.tscn" id="11_pc5yc"]
 [ext_resource type="PackedScene" uid="uid://d2vg2cnxxpf0k" path="res://Prefabs/Characters/Enemys/enemigo_distancia.tscn" id="11_u1cwo"]
+[ext_resource type="PackedScene" uid="uid://bihclwmtyk702" path="res://Prefabs/Props/door_start_level.tscn" id="13_lti2j"]
+[ext_resource type="PackedScene" uid="uid://c6mfsvdm21k5r" path="res://Prefabs/Props/door_atrezzo.tscn" id="15_5ptt3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_snwyg"]
 texture = ExtResource("1_dcs7f")
@@ -633,3 +636,13 @@ position = Vector2(225, -1060)
 
 [node name="CarOut" parent="." instance=ExtResource("11_pc5yc")]
 position = Vector2(1045, -52)
+
+[node name="DoorFinishLevel" parent="." instance=ExtResource("3_lti2j")]
+position = Vector2(340, -1441)
+
+[node name="DoorStartLevel" parent="." instance=ExtResource("13_lti2j")]
+position = Vector2(16, -16)
+
+[node name="DoorAtrezzo" parent="." instance=ExtResource("15_5ptt3")]
+position = Vector2(340, -256)
+rotation = -3.14159
