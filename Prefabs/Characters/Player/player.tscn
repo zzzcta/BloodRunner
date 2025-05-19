@@ -891,6 +891,7 @@ collide_with_areas = true
 [node name="RayCastDown" type="RayCast2D" parent="."]
 position = Vector2(0, 2)
 target_position = Vector2(0, 14)
+hit_from_inside = true
 collide_with_areas = true
 
 [node name="HitboxComponent" parent="." instance=ExtResource("7_ms580")]
