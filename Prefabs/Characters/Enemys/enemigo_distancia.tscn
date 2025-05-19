@@ -22,7 +22,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [24]
+"values": [0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -146,7 +146,6 @@ scale = Vector2(1.44307, 1.44307)
 texture = ExtResource("2_qq13m")
 hframes = 8
 vframes = 8
-frame = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4.5, -1.5)
@@ -187,14 +186,13 @@ shape = SubResource("CircleShape2D_5c2m8")
 
 [node name="RayCast2D" type="RayCast2D" parent="SightArea"]
 target_position = Vector2(200, 0)
-collision_mask = 3
+collision_mask = 35
 
 [node name="FallCast" type="RayCast2D" parent="."]
 position = Vector2(12, 20)
 target_position = Vector2(0, 17)
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_lprxi")]
-max_health = 30.0
 
 [connection signal="body_entered" from="SightArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="SightArea" to="." method="_on_area_2d_body_exited"]

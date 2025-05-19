@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6g8mahjq2ull"]
+[gd_scene load_steps=19 format=3 uid="uid://b6g8mahjq2ull"]
 
 [ext_resource type="Script" uid="uid://16cqpfyulbc5" path="res://_Scripts/Levels/car_scene.gd" id="1_516ei"]
 [ext_resource type="Texture2D" uid="uid://baphgovab0h4a" path="res://Recursos/Sprites/Props/Escena_Coche-Sheet.png" id="2_ocsft"]
 [ext_resource type="PackedScene" uid="uid://cpg6tsp06con8" path="res://Prefabs/parallax.tscn" id="2_utm50"]
+[ext_resource type="Script" uid="uid://witeisxkpdvf" path="res://_Scripts/UI/dialogue_box.gd" id="4_utm50"]
+[ext_resource type="Texture2D" uid="uid://ctkjf308trhyi" path="res://Recursos/Sprites/UI/Border All 10.png" id="5_f487q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_utm50"]
 atlas = ExtResource("2_ocsft")
@@ -122,5 +124,49 @@ zoom = Vector2(1.25, 1.25)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 20.0
 autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -113.0
+offset_top = -53.0
+offset_right = 114.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("4_utm50")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_f487q")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 7.0
+offset_right = -12.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

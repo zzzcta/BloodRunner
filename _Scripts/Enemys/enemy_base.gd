@@ -71,7 +71,8 @@ func move_to_player(delta) -> void:
 	
 	if state != 2:  #Si no esta atacando...
 		velocity.x = direction.x * speed * delta
-		if _detect_fall(velocity.x): move_and_slide()
+		if _detect_fall(velocity.x): 
+			move_and_slide()
 		else:
 			change_state(EnemyState.IDLE)
 			return
@@ -88,7 +89,7 @@ func change_state(new_state)->void:
 func instance_attack():
 	var pos : Vector2 
 	attack_instance = load(attack_path)
-	pos = attack_pos_left if attack_pos == "left" else attack_pos_right
+	pos = attack_pos_right if attack_pos == "left" else  attack_pos_left
 	
 	var instance = attack_instance.instantiate()
 	add_child(instance)
@@ -127,7 +128,6 @@ func _detect_fall(x_dir : float) -> bool:
 	
 	if fall_cast.is_colliding():
 		bool_return = true
-	
 	return bool_return
 
 

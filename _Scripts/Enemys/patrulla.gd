@@ -9,6 +9,7 @@ var animation_player: AnimationPlayer
 var sprite_2d: Sprite2D 
 
 @export var patrol_speed : float = 2000
+@export var patrulla_distancia : float = 30
 
 var navigation_ready : bool = false
 var target_reached : bool = false
@@ -58,7 +59,7 @@ func move_to_target(delta, target) -> void:
 
 func _select_next_point() -> Vector2:
 	var rng : int = -1 if randf() < 0.5 else 1
-	return Vector2(enemy_base.global_position.x - (70 * rng), enemy_base.global_position.y)
+	return Vector2(enemy_base.global_position.x - (patrulla_distancia * rng), enemy_base.global_position.y)
 
 func navigation_ok() -> void:
 	navigation_ready = true
