@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://kpdg4ms7p11"]
+
+[ext_resource type="Script" uid="uid://dhl85r3yn08q0" path="res://_Scripts/Props/rejilla_sangre.gd" id="1_8bguj"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4wjkn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8bguj"]
+size = Vector2(64, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wjkn"]
+size = Vector2(64, 12)
+
+[node name="RejillaSangre" type="Node2D"]
+script = ExtResource("1_8bguj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_4wjkn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_8bguj")
+one_way_collision_margin = 128.0
+
+[node name="Area2DDown" type="Area2D" parent="."]
+position = Vector2(0, 15)
+collision_layer = 32
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DDown"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_4wjkn")
+
+[node name="Area2DUp" type="Area2D" parent="."]
+position = Vector2(0, -6)
+collision_layer = 32
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DUp"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_4wjkn")
+
+[connection signal="body_entered" from="Area2DDown" to="." method="_on_area_2d_down_body_entered"]
+[connection signal="body_entered" from="Area2DUp" to="." method="_on_area_2d_up_body_entered"]

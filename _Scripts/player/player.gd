@@ -62,6 +62,9 @@ var is_impulse: bool
 func _ready() -> void:
 	ray_cast_up.enabled = false
 	ray_cast_down.enabled = false
+	SignalBuss.level_started.connect(on_level_started)
+	SignalBuss.level_finished.connect(on_level_finished)
+	SignalBuss.player_entered_car_out.connect(on_player_entered_car_out)
 	state_machine.state_changed.connect(_on_state_changed) # Para monitoreo
 	health_component.connect("died", dead)
 	
@@ -71,8 +74,9 @@ func _process(delta):
 	# Comprobamos que el efecto de decreasing_health este activo
 	if decreasing_health and !is_dead:
 		health_component.current_health -= delta # Restamos la vida actual con delta
+		SignalBuss.update_health(health_component.current_health, health_component.max_health)
 		# Si ya nuestra vida es <= 0 y no estamos muertos, nos morimos :=(
-		if health_component.current_health <= 0 and !is_dead: 
+		if health_component.current_health <= 0 and !is_dead:
 			dead()
 #endregion
 	
@@ -89,8 +93,8 @@ func _process(delta):
 			is_impulse = false
 			
 # Imprimira por la terminal el new_state en el cual se encuentra el actor
-func _on_state_changed(new_state: String) -> void:
-	print("Jugador cambió al estado: " + new_state)
+func _on_state_changed(new_state: String) -> void: pass
+	#print("Jugador cambió al estado: " + new_state)
 
 # Aplicar la gravedad al actor
 func apply_gravity(delta: float) -> void:
@@ -140,6 +144,7 @@ func flip_sprite(flip: bool) -> void:
 ## Accede a la state_machine y cambia el estado actual por "dead"
 func dead() -> void:
 	if !is_dead:
+		SignalBuss.update_health(health_component.current_health, health_component.max_health)
 		state_machine.change_state("dead")
 
 #region funciones cooldown habilidades
@@ -150,4 +155,16 @@ func can_perform_action(action_name: String) -> bool:
 ## Inicia el cooldown de una habilidad
 func start_cooldown(action_name: String) -> void:
 	cooldowns[action_name] = cooldown_durations[action_name]
+#endregion
+
+#region signals
+func on_level_started() -> void:
+	decreasing_health = true
+
+func on_level_finished() -> void:
+	decreasing_health = false
+
+func on_player_entered_car_out() -> void:
+	var tween: Tween = create_tween()
+	tween.tween_property(player_sprite, "self_modulate", Color(1, 1, 1, 0), 0.08)
 #endregion

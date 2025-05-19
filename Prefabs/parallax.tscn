@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpg6tsp06con8"]
+
+[ext_resource type="Texture2D" uid="uid://dk2ct73jonm86" path="res://Recursos/Parallax/Fondo_Nivel4.png" id="1_vqtjc"]
+[ext_resource type="Texture2D" uid="uid://braisplhkkq0v" path="res://Recursos/Parallax/Fondo_Nivel3.png" id="2_0deo1"]
+[ext_resource type="Texture2D" uid="uid://dyexhgg16emnn" path="res://Recursos/Parallax/Fondo_Nivel2Electricos.png" id="3_xh71d"]
+[ext_resource type="Texture2D" uid="uid://mqbfhwvg4wvt" path="res://Recursos/Parallax/Fondo_Nivel1.png" id="4_vkre4"]
+
+[sub_resource type="Gradient" id="Gradient_ocsft"]
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vqtjc"]
+gradient = SubResource("Gradient_ocsft")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.7, 0.3)
+
+[node name="Parallax" type="Node2D"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(640, 0)
+
+[node name="Cielo" type="Sprite2D" parent="Parallax2D"]
+scale = Vector2(2.355, 3.46)
+texture = ExtResource("1_vqtjc")
+centered = false
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(640, 0)
+
+[node name="Fondo3cd" type="Sprite2D" parent="Parallax2D2"]
+scale = Vector2(2.355, 3.46)
+texture = ExtResource("2_0deo1")
+centered = false
+
+[node name="Parallax2D3" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.4, 0.4)
+repeat_size = Vector2(640, 0)
+
+[node name="Fondo2cd" type="Sprite2D" parent="Parallax2D3"]
+scale = Vector2(2.355, 3.46)
+texture = ExtResource("3_xh71d")
+centered = false
+
+[node name="Parallax2D4" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.6, 0.6)
+repeat_size = Vector2(640, 0)
+
+[node name="Fondo1cd" type="Sprite2D" parent="Parallax2D4"]
+scale = Vector2(2.355, 3.46)
+texture = ExtResource("4_vkre4")
+centered = false
+
+[node name="PointLight2D" type="PointLight2D" parent="Parallax2D4/Fondo1cd"]
+position = Vector2(113.376, 60.1156)
+scale = Vector2(0.424628, 0.289017)
+texture = SubResource("GradientTexture2D_vqtjc")

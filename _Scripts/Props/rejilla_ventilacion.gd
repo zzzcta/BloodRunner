@@ -2,7 +2,7 @@ extends Node2D
 # Diccionario para mantener registro de los cuerpos dentro del area
 var bodies_inside: Dictionary[Object, Variant] = {}
 @export var impulse_force_player: float = 300
-@export var impulse_force_enemy: float = 800
+@export var impulse_force_player_transform: float = 800
 
 func _ready():
 	# Conectar señales para entrada y salida de cuerpos
@@ -16,14 +16,14 @@ func _physics_process(_delta) -> void:
 			var impulse_force = bodies_inside[body]
 			body.velocity.y = min(body.velocity.y, -impulse_force)
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 	if body.has_node("HealthComponent"):
 		var impulse_force = impulse_force_player
 		var body_collision_mask: int = body.get_collision_mask()
 		
 		# Determinar la fuerza de impulso basada en la mascara de colision
 		if body_collision_mask == 9:
-			impulse_force = impulse_force_enemy
+			impulse_force = impulse_force_player_transform
 		
 		# Registrar el cuerpo y su fuerza de impulso
 		bodies_inside[body] = impulse_force

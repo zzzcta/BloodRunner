@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://xcjoqk563ols"]
+
+[ext_resource type="Texture2D" uid="uid://cehuftntx6sg8" path="res://Recursos/Sprites/Props/Escena_Coche_Salir-Sheet.png" id="1_wndue"]
+
+[sub_resource type="GDScript" id="GDScript_f4hbx"]
+script/source = "extends Node2D
+
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+var moving: bool = false
+
+func _on_area_2d_body_entered(actor: Node2D) -> void:
+	animated_sprite.visible = true
+	animated_sprite.play(\"Close\")
+	await animated_sprite.animation_finished
+	SignalBuss.player_enter_car_out()
+	
+func _on_animated_sprite_2d_animation_finished() -> void:
+	moving = true
+
+func _process(delta: float) -> void:
+	if moving:
+		self.global_position.x += 300 * delta
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wndue"]
+atlas = ExtResource("1_wndue")
+region = Rect2(816, 0, 272, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j1v3"]
+atlas = ExtResource("1_wndue")
+region = Rect2(1088, 0, 272, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efa0r"]
+atlas = ExtResource("1_wndue")
+region = Rect2(1360, 0, 272, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkjd2"]
+atlas = ExtResource("1_wndue")
+region = Rect2(1632, 0, 272, 104)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7jpu8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wndue")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_3j1v3")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_efa0r")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_gkjd2")
+}],
+"loop": false,
+"name": &"Close",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3j1v3"]
+
+[node name="CarOut" type="Node2D"]
+script = SubResource("GDScript_f4hbx")
+
+[node name="Car" type="Sprite2D" parent="."]
+texture = ExtResource("1_wndue")
+flip_h = true
+hframes = 7
+frame = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_7jpu8")
+animation = &"Close"
+frame = 3
+frame_progress = 1.0
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+position = Vector2(67, 19)
+scale = Vector2(1.72, 2.28801)
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-77.9071, 0)
+shape = SubResource("RectangleShape2D_3j1v3")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-67, 15)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
