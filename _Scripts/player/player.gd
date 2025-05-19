@@ -93,8 +93,8 @@ func _process(delta):
 			is_impulse = false
 			
 # Imprimira por la terminal el new_state en el cual se encuentra el actor
-func _on_state_changed(new_state: String) -> void:
-	print("Jugador cambió al estado: " + new_state)
+func _on_state_changed(new_state: String) -> void: pass
+	#print("Jugador cambió al estado: " + new_state)
 
 # Aplicar la gravedad al actor
 func apply_gravity(delta: float) -> void:

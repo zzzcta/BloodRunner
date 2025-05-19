@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3n3lclyap3ek"]
+
+[ext_resource type="Script" uid="uid://dm472bttsu3mk" path="res://_Scripts/Enemys/patrulla.gd" id="1_0fui0"]
+
+[node name="Patrulla" type="Node"]
+script = ExtResource("1_0fui0")
+
+[node name="NewPatrolCD" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="NewPatrolCD" to="." method="_on_new_patrol_cd_timeout"]

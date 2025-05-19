@@ -2,6 +2,7 @@ extends Node2D
 class_name HealthComponent
 
 signal died()
+signal hit()
 
 @export var max_health: float = 10 
 
@@ -15,3 +16,5 @@ func damage(attack: Attack):
 	
 	if current_health <= 0:
 		emit_signal("died")
+	else:
+		emit_signal("hit")

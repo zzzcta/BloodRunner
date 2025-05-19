@@ -5,9 +5,10 @@ class_name EnemigoDistancia
 @onready var animator: EnemyDistanceAnimator = $AnimationPlayer
 @onready var shoot_point: Node2D = $ShootHandler/ShootPoint
 @onready var shoot_handler: Node2D = $ShootHandler
-@onready var collision_shape_2d: CollisionShape2D = $HitboxComponent/CollisionShape2D
+@onready var collision_shape_2d: CollisionShape2D = $SightArea/CollisionShape2D
 @onready var ray_cast_2d: RayCast2D = $SightArea/RayCast2D
 @onready var fall_cast: RayCast2D = $FallCast
+@onready var health_component: HealthComponent = $HealthComponent
 
 @export var shoot_cd : float = 0.5
 @export var bullet_path : String = ""
@@ -18,6 +19,7 @@ var player_ref : Node2D = null
 var loaded_bullet
 var navigation_ready : bool = false
 var player_on_target : bool = false ##El player se ha puesto a tiro
+var player_dead : bool = false
 var player_in_shape : Node2D = null
 var shoot_cont : float = 0
 var min_distance : float 
@@ -27,6 +29,8 @@ var max_distance : float
 func _ready() -> void:
 	loaded_bullet = load(bullet_path)
 	NavigationServer2D.map_changed.connect(_on_navigation_ready)
+	health_component.hit.connect(_on_hit)
+	health_component.died.connect(_death)
 	
 	max_distance = distance_to_shoot+2
 	min_distance = distance_to_shoot-2
@@ -41,14 +45,14 @@ func _physics_process(delta: float) -> void:
 		velocity.y += 900 * delta
 		move_and_slide()
 	
+	if player_dead: return
+	
 	if player_in_shape and player_ref == null:
 		_detect_player(player_in_shape)
 	
 	if player_ref == null: return
 	
 	var distance = global_position.distance_to(player_ref.global_position)
-	
-	
 	var distance_to_target : float = position.distance_to(player_ref.position)
 	
 	_aim(delta)
@@ -57,7 +61,7 @@ func _physics_process(delta: float) -> void:
 	elif distance < min_distance : _run_away_from_player(delta)
 	else: velocity.x = 0
 	
-	animator.animate(player_ref.position)
+	animator.animate(player_ref.position, velocity.length())
 
 
 func _move_to_player(delta) -> void:
@@ -118,6 +122,7 @@ func _shoot() -> void:
 	instance.position = shoot_point.global_position
 	instance.rotation = shoot_point.global_rotation
 	get_tree().current_scene.add_child(instance)
+	animator._on_shoot()
 
 ##Devuelve el angulo opuesto en una escala angular
 func wrap_angle(angle: float) -> float:
@@ -137,6 +142,8 @@ func _detect_player(body:Node2D) -> void:
 		var object := ray_cast_2d.get_collider() as Node2D
 		if object.is_in_group("Player"):
 			player_ref = object
+			if not player_ref.get_node("HealthComponent").is_connected("died", _player_lost):
+				player_ref.get_node("HealthComponent").died.connect(_player_lost)
 
 
 ##Funcion para que no se mate
@@ -165,3 +172,16 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	player_in_shape = null
+
+
+func _player_lost() -> void:
+	player_ref = null
+	player_dead = true
+
+
+func _on_hit() -> void:
+	animator._on_damaged()
+
+
+func _death() -> void:
+	queue_free()
