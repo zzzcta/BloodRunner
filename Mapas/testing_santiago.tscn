@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://be2sry3bp483h"]
+[gd_scene load_steps=14 format=4 uid="uid://be2sry3bp483h"]
 
 [ext_resource type="Script" uid="uid://cpblj86124xol" path="res://_Scripts/Levels/level.gd" id="1_6sxnc"]
 [ext_resource type="TileSet" uid="uid://c24lxocxen4eq" path="res://Prefabs/TileMaps/test.tres" id="1_jf0na"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bihclwmtyk702" path="res://Prefabs/Props/door_start_level.tscn" id="8_a2il4"]
 [ext_resource type="PackedScene" uid="uid://da13veskah1ov" path="res://Prefabs/Props/door_finish_level.tscn" id="10_a5v12"]
 [ext_resource type="PackedScene" uid="uid://xcjoqk563ols" path="res://Prefabs/Props/car_out.tscn" id="11_6sxnc"]
+[ext_resource type="PackedScene" uid="uid://kpdg4ms7p11" path="res://Prefabs/Props/rejilla_sangre.tscn" id="12_pr11o"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_i3321"]
 vertices = PackedVector2Array(279.203, 15, 471.977, 5.59375, 414.617, 332.852, -87.7813, 324.172, -81.2031, 12.0703)
@@ -63,3 +64,6 @@ position = Vector2(-30, 324)
 position = Vector2(573, 290)
 
 [node name="Crosshair" parent="." instance=ExtResource("3_3hvkn")]
+
+[node name="RejillaSangre" parent="." instance=ExtResource("12_pr11o")]
+position = Vector2(-139, 292)
