@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
-enum EnemyState {IDLE,CHASING,ATTACK,JUMP}
+enum EnemyState {IDLE,CHASING,ATTACK,JUMP,HIT}
 
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var fall_cast: RayCast2D = $FallCast
 @onready var ray_cast_2d: RayCast2D = $SightArea/RayCast2D
 @onready var collision_shape_2d: CollisionShape2D = $SightArea/CollisionShape2D
+@onready var health_component: HealthComponent = $HealthComponent
+
 
 @export var speed : float = 4000 
 @export var attack_threshold : float = 40
@@ -15,12 +17,8 @@ enum EnemyState {IDLE,CHASING,ATTACK,JUMP}
 @export var attack_pos_left : Vector2
 @export var attack_pos_right : Vector2
 @export var attack_path : String
-@export var attack2_pos_left : Vector2
-@export var attack2_pos_right : Vector2
-@export var attack2_path : String
-@export var attack3_pos_left : Vector2
-@export var attack3_pos_right : Vector2
-@export var attack3_path : String
+
+signal navigation_load()
 
 var player_in_shape : Node2D = null
 var navigation_ready : bool = false
@@ -29,19 +27,25 @@ var player_ref : CharacterBody2D
 var state : EnemyState = EnemyState.IDLE
 var attack_instance : PackedScene
 var can_change_state : bool = true
+var player_died : bool = false
 
 
 func _ready() -> void:
 	NavigationServer2D.map_changed.connect(_on_navigation_ready)
+	health_component.hit.connect(_on_hit)
+	health_component.died.connect(_death)
 
 func _on_navigation_ready(_map_rid) -> void:
 	navigation_ready = true
+	navigation_load.emit()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor(): #Controlamos la gravedad
 		velocity.y += 900 * delta
 		change_state(EnemyState.JUMP)
 		move_and_slide()
+	
+	if player_died: return
 	
 	if player_in_shape and player_ref == null:
 		_detect_player(player_in_shape)
@@ -51,7 +55,7 @@ func _physics_process(delta: float) -> void:
 	move_to_player(delta)
 	
 	var distance_to_target : float = position.distance_to(player_ref.position)
-	if distance_to_target <= attack_threshold:
+	if distance_to_target <= attack_threshold and state != 4:
 		change_state(EnemyState.ATTACK)
 	
 	#print(state)
@@ -77,23 +81,14 @@ func move_to_player(delta) -> void:
 
 func change_state(new_state)->void:
 	if can_change_state: state = new_state
+	
+	if new_state == 4: state = new_state
 
 #--------CALLABLES-----
-func instance_attack(attack_data:int):
+func instance_attack():
 	var pos : Vector2 
-	match attack_data:
-		1:
-			attack_instance = load(attack_path)
-			pos = attack_pos_left if attack_pos == "left" else attack_pos_right
-		2:
-			attack_instance = load(attack2_path)
-			pos = attack2_pos_left if attack_pos == "left" else attack2_pos_right
-		3:
-			attack_instance = load(attack3_path)
-			pos = attack3_pos_left if attack_pos == "left" else attack3_pos_right
-		_:
-			attack_instance = load(attack_path)
-			pos = attack_pos_left if attack_pos == "left" else attack_pos_right
+	attack_instance = load(attack_path)
+	pos = attack_pos_left if attack_pos == "left" else attack_pos_right
 	
 	var instance = attack_instance.instantiate()
 	add_child(instance)
@@ -113,6 +108,8 @@ func _detect_player(body:Node2D) -> void:
 		var object := ray_cast_2d.get_collider() as Node2D
 		if object.is_in_group("Player"):
 			player_ref = object
+			if not player_ref.get_node("HealthComponent").is_connected("died", _player_lost):
+				player_ref.get_node("HealthComponent").died.connect(_player_lost)
 
 
 ##Funcion para que no se mate
@@ -141,3 +138,15 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	player_in_shape = null
+
+func _player_lost() -> void:
+	player_died = true
+	player_ref = null
+
+
+func _on_hit() -> void:
+	change_state(4)
+
+
+func _death() -> void:
+	queue_free()
