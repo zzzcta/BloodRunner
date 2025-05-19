@@ -8,7 +8,7 @@ script/source = "extends Node2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 var moving: bool = false
 
-func _on_area_2d_body_entered(actor: Node2D) -> void:
+func _on_area_2d_body_entered(_actor: Node2D) -> void:
 	animated_sprite.visible = true
 	animated_sprite.play(\"Close\")
 	await animated_sprite.animation_finished

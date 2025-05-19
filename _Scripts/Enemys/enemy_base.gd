@@ -12,6 +12,7 @@ enum EnemyState {IDLE,CHASING,ATTACK,JUMP,HIT}
 
 @export var speed : float = 4000 
 @export var attack_threshold : float = 40
+@export var player_health_recover: float
 
 @export_category("Attacks")
 @export var attack_pos_left : Vector2
@@ -28,6 +29,7 @@ var state : EnemyState = EnemyState.IDLE
 var attack_instance : PackedScene
 var can_change_state : bool = true
 var player_died : bool = false
+
 
 
 func _ready() -> void:
@@ -149,4 +151,5 @@ func _on_hit() -> void:
 
 
 func _death() -> void:
+	SignalBuss.enemy_die(player_health_recover)
 	queue_free()

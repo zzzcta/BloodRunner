@@ -7,6 +7,11 @@ signal player_entered_car_out()
 
 signal health_changed(current_health, max_health)
 
+signal enemy_died(player_health_recover)
+
+func enemy_die(player_health_recover: float) -> void:
+	emit_signal("enemy_died", player_health_recover)
+	
 ## Se emite cuando el jugador abre la puerta que da comienzo al juego
 func start_level() -> void:
 	emit_signal("level_started")

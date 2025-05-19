@@ -14,6 +14,7 @@ class_name EnemigoDistancia
 @export var bullet_path : String = ""
 @export var speed : float = 4000
 @export var distance_to_shoot : float = 120
+@export var player_health_recover: float
 
 var player_ref : Node2D = null
 var loaded_bullet
@@ -184,4 +185,5 @@ func _on_hit() -> void:
 
 
 func _death() -> void:
+	SignalBuss.enemy_die(player_health_recover)
 	queue_free()

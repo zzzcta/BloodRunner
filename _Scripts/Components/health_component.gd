@@ -1,8 +1,8 @@
 extends Node2D
 class_name HealthComponent
 
-signal died()
 signal hit()
+signal died()
 
 @export var max_health: float = 10 
 
