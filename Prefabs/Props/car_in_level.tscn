@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://dlpbpafmu32sf"]
+
+[ext_resource type="Texture2D" uid="uid://cehuftntx6sg8" path="res://Recursos/Sprites/Props/Escena_Coche_Salir-Sheet.png" id="1_qeana"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klr4i"]
+atlas = ExtResource("1_qeana")
+region = Rect2(0, 0, 272, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpqgb"]
+atlas = ExtResource("1_qeana")
+region = Rect2(272, 0, 272, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl0ge"]
+atlas = ExtResource("1_qeana")
+region = Rect2(544, 0, 272, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwxs0"]
+atlas = ExtResource("1_qeana")
+region = Rect2(816, 0, 272, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3w3g3"]
+atlas = ExtResource("1_qeana")
+region = Rect2(1088, 0, 272, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7q1j"]
+atlas = ExtResource("1_qeana")
+region = Rect2(1360, 0, 272, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elm5o"]
+atlas = ExtResource("1_qeana")
+region = Rect2(1632, 0, 272, 104)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6r1i3"]
+animations = [{
+"frames": [{
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_klr4i")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_jpqgb")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_vl0ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwxs0")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_3w3g3")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_s7q1j")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_elm5o")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="CarInLevel" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6r1i3")
+animation = &"Idle"
+frame = 6
+frame_progress = 1.0

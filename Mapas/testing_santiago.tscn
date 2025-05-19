@@ -1,5 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://be2sry3bp483h"]
 
+[ext_resource type="Script" uid="uid://cpblj86124xol" path="res://_Scripts/Levels/level.gd" id="1_6sxnc"]
 [ext_resource type="TileSet" uid="uid://c24lxocxen4eq" path="res://Prefabs/TileMaps/test.tres" id="1_jf0na"]
 [ext_resource type="PackedScene" uid="uid://dngw5hfynrwvk" path="res://Prefabs/UI/crosshair.tscn" id="3_3hvkn"]
 [ext_resource type="PackedScene" uid="uid://cbubjqnrm73ug" path="res://Prefabs/Characters/Player/player.tscn" id="3_xypa8"]
@@ -15,8 +16,8 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(279, 5, 484, -5, 423, 343, -98, 334, -91, 2)])
 
 [node name="Testing_Santiago" type="Node2D"]
-
-[node name="Crosshair" parent="." instance=ExtResource("3_3hvkn")]
+script = ExtResource("1_6sxnc")
+target_scene = "uid://b6g8mahjq2ull"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(112, 260)
@@ -28,20 +29,19 @@ visible = false
 navigation_polygon = SubResource("NavigationPolygon_i3321")
 
 [node name="Player" parent="." instance=ExtResource("3_xypa8")]
-position = Vector2(65, 217)
+position = Vector2(-81, 256)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
-
 [node name="RejillaVentilacion" parent="." instance=ExtResource("6_i06tq")]
 position = Vector2(-224, 319)
 
 [node name="RejillaTp" parent="." instance=ExtResource("7_a2il4")]
-position = Vector2(-138, 313)
+position = Vector2(-4, 319)
 destination_teleport = NodePath("../RejillaTp2")
 
 [node name="RejillaTp2" parent="." instance=ExtResource("7_a2il4")]
-position = Vector2(5, 155)
+position = Vector2(0, 216)
 destination_teleport = NodePath("../RejillaTp")
 
 [node name="EnemigoDistancia" parent="." instance=ExtResource("7_i06tq")]
