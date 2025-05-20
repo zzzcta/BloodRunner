@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var camera_starting: Marker2D = $AnimatedSprite2D/CameraStartingPosition
 @onready var camera_finish: Marker2D = $AnimatedSprite2D/CameraFinishPosition
+@onready var control: DialogueBox = $CanvasLayer/Control
 
 @export_file("*.tscn") var target_scene : String
 
@@ -17,6 +18,9 @@ func _ready() -> void:
 	tween.tween_property($AnimatedSprite2D/Camera2D, "position", camera_finish.position, 8).set_trans(Tween.TRANS_CUBIC)
 	tween.set_parallel()
 	tween.tween_property($AnimatedSprite2D/Camera2D, "zoom", Vector2(2.0, 2.0), 8).set_trans(Tween.TRANS_CUBIC)
+	
+	control.init_dialogue("KING_001","Kingpin")
+	
 	
 func _on_timer_timeout() -> void:
 	SceneTransition.change_scene(target_scene)
