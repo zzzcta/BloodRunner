@@ -49,6 +49,7 @@ var player_look_direction: Vector2
 var impulse_time: float = 0.15
 var impulse_time_left: float = 0.0
 var transform_duration_left: float = 0.0
+var health_recover: float 
 
 #region Estados del player
 var decreasing_health: bool = false
@@ -62,6 +63,7 @@ var is_impulse: bool
 func _ready() -> void:
 	ray_cast_up.enabled = false
 	ray_cast_down.enabled = false
+	SignalBuss.enemy_died.connect(on_enemy_died)
 	SignalBuss.level_started.connect(on_level_started)
 	SignalBuss.level_finished.connect(on_level_finished)
 	SignalBuss.player_entered_car_out.connect(on_player_entered_car_out)
@@ -167,4 +169,10 @@ func on_level_finished() -> void:
 func on_player_entered_car_out() -> void:
 	var tween: Tween = create_tween()
 	tween.tween_property(player_sprite, "self_modulate", Color(1, 1, 1, 0), 0.08)
+	
+func on_enemy_died(player_health_recover: float) -> void:
+	health_component.current_health = lerpf(
+		health_component.current_health, 
+		health_component.current_health + player_health_recover,
+		0.6)
 #endregion
