@@ -91,7 +91,7 @@ func change_state(new_state)->void:
 func instance_attack():
 	var pos : Vector2 
 	attack_instance = load(attack_path)
-	pos = attack_pos_right if attack_pos == "left" else  attack_pos_left
+	pos = attack_pos_left if attack_pos == "left" else  attack_pos_right
 	
 	var instance = attack_instance.instantiate()
 	add_child(instance)

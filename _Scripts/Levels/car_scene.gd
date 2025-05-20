@@ -19,9 +19,11 @@ func _ready() -> void:
 	tween.set_parallel()
 	tween.tween_property($AnimatedSprite2D/Camera2D, "zoom", Vector2(2.0, 2.0), 8).set_trans(Tween.TRANS_CUBIC)
 	
+	await get_tree().create_timer(8.0).timeout
+	
 	control.init_dialogue("KING_001","Kingpin")
-	
-	
+
+
 func _on_timer_timeout() -> void:
 	SceneTransition.change_scene(target_scene)
 

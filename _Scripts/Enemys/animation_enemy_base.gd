@@ -40,8 +40,10 @@ func animate(state,direction) -> void:
 func change_dir(direction:int) -> void:
 	if direction == -1:
 		sprite_2d.flip_h = true
+		enemy_base.attack_pos = "left"
 	else:
 		sprite_2d.flip_h = false
+		enemy_base.attack_pos = "right"
 
 
 func end_of_attack_anim() -> void:
