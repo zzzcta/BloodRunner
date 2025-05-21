@@ -12,6 +12,7 @@ size = Vector2(29, 22)
 size = Vector2(34, 29)
 
 [node name="Torreta" type="StaticBody2D"]
+z_index = 4
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_p0uwd")

@@ -132,6 +132,7 @@ size = Vector2(23, 38)
 radius = 207.118
 
 [node name="EnemigoDistancia" type="CharacterBody2D"]
+z_index = 4
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_dd471")
@@ -194,6 +195,7 @@ position = Vector2(12, 20)
 target_position = Vector2(0, 17)
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_lprxi")]
+max_health = 5.0
 
 [connection signal="body_entered" from="SightArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="SightArea" to="." method="_on_area_2d_body_exited"]

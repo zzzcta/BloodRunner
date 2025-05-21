@@ -213,7 +213,6 @@ vframes = 4
 frame = 6
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_obccg")]
-max_health = 15.0
 
 [node name="HitboxComponent" parent="." instance=ExtResource("4_1bku7")]
 position = Vector2(0, -8)
