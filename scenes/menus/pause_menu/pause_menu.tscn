@@ -1,0 +1,90 @@
+[gd_scene load_steps=2 format=3 uid="uid://by5bw7n2rhnwy"]
+
+[ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_menus_template/base/scripts/capture_focus.gd" id="1_lde4l"]
+
+[node name="PauseMenu" type="Node2D"]
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 242.0
+offset_top = 50.0
+offset_right = 398.0
+offset_bottom = 330.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tab_alignment = 1
+
+[node name="PauseButtonsMargin" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -42.0
+offset_right = 640.0
+offset_bottom = 318.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 136
+theme_override_constants/margin_bottom = 8
+
+[node name="PauseButtonsContainer" type="Control" parent="PauseButtonsMargin"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PauseButtonsBoxContainer" type="BoxContainer" parent="PauseButtonsMargin/PauseButtonsContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -118.0
+offset_right = 59.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 16
+alignment = 1
+vertical = true
+script = ExtResource("1_lde4l")
+
+[node name="ContinueGameButton" type="Button" parent="PauseButtonsMargin/PauseButtonsContainer/PauseButtonsBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Continue"
+
+[node name="OptionsButton" type="Button" parent="PauseButtonsMargin/PauseButtonsContainer/PauseButtonsBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Options"
+
+[node name="RestartButton" type="Button" parent="PauseButtonsMargin/PauseButtonsContainer/PauseButtonsBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Restart"
+
+[node name="ExitButton" type="Button" parent="PauseButtonsMargin/PauseButtonsContainer/PauseButtonsBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 253.0
+offset_top = 59.0
+offset_right = 386.0
+offset_bottom = 89.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "GAME PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
