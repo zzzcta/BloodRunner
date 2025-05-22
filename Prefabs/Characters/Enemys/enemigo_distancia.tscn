@@ -136,9 +136,10 @@ z_index = 4
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_dd471")
-shoot_cd = 2.0
+shoot_cd = 1.0
 bullet_path = "res://Prefabs/AttackTraces/torret_trace.tscn"
-player_health_recover = 30.0
+distance_to_shoot = 150.0
+player_health_recover = 15.0
 
 [node name="Patrulla" parent="." instance=ExtResource("2_prcjh")]
 
