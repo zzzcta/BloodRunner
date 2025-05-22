@@ -375,13 +375,14 @@ modulate = Color(1, 1, 1, 0)
 modulate = Color(1, 1, 1, 0)
 
 [node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
-offset_left = -176.0
+offset_left = -155.0
 offset_top = -23.0
-offset_right = -176.0
-offset_bottom = 56.0
+offset_right = -155.0
+offset_bottom = 65.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
 
 [node name="SubTitleContainer" parent="MenuContainer/SubTitleMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
@@ -391,7 +392,7 @@ modulate = Color(1, 1, 1, 0)
 
 [node name="MenuButtonsBoxContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer" index="0"]
 offset_left = 196.0
-offset_top = -194.0
+offset_top = -174.0
 offset_right = 314.0
 offset_bottom = 42.0
 lock = true
