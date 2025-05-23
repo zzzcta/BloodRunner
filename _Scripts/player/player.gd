@@ -162,6 +162,7 @@ func _on_dead() -> void:
 	if !is_dead:
 		SignalBuss.update_health(health_component.current_health, health_component.max_health)
 		state_machine.change_state("dead")
+		SignalBuss.player_die()
 
 #region funciones cooldown habilidades
 ## En el caso de que el cooldown haya terminado devolvemos true 

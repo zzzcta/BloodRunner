@@ -9,6 +9,11 @@ signal health_changed(current_health, max_health)
 
 signal enemy_died(player_health_recover, enemy_die_position)
 
+signal player_died()
+
+func player_die() -> void:
+	emit_signal("player_died")
+
 func enemy_die(player_health_recover: float, enemy_die_position: Vector2) -> void:
 	emit_signal("enemy_died", player_health_recover, enemy_die_position)
 	
