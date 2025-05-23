@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://cfew82hkh4lm1"]
+[gd_scene load_steps=42 format=4 uid="uid://cfew82hkh4lm1"]
 
 [ext_resource type="Texture2D" uid="uid://fbmmtli3gklo" path="res://Recursos/TileSet/Tiles.png" id="1_7xd25"]
 [ext_resource type="Script" uid="uid://cpblj86124xol" path="res://_Scripts/Levels/level.gd" id="1_8rnhs"]
@@ -15,7 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://bihclwmtyk702" path="res://Prefabs/Props/door_start_level.tscn" id="14_d83ea"]
 [ext_resource type="PackedScene" uid="uid://c6mfsvdm21k5r" path="res://Prefabs/Props/door_atrezzo.tscn" id="15_0ji1w"]
 [ext_resource type="PackedScene" uid="uid://d2vg2cnxxpf0k" path="res://Prefabs/Characters/Enemys/enemigo_distancia.tscn" id="15_5s1ob"]
-[ext_resource type="PackedScene" uid="uid://da13veskah1ov" path="res://Prefabs/Props/door_finish_level.tscn" id="15_qyl0s"]
+[ext_resource type="Script" uid="uid://dwgxrxtt0pokm" path="res://_Scripts/Props/bigmin_scene.gd" id="17_gcnvr"]
+[ext_resource type="PackedScene" uid="uid://wm8gr1dncvjc" path="res://Prefabs/Characters/Enemys/Bigmin.tscn" id="18_ignam"]
+[ext_resource type="PackedScene" uid="uid://cwkolwqeth2x2" path="res://Prefabs/UI/dialogue_box.tscn" id="18_uyhtf"]
+[ext_resource type="Script" uid="uid://0y2b0j2e2i30" path="res://Mapas/kill_bigmin.gd" id="19_ignam"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8rnhs"]
 
@@ -646,6 +649,12 @@ sources/0 = SubResource("TileSetAtlasSource_owmoe")
 sources/2 = SubResource("TileSetAtlasSource_0ltj2")
 sources/1 = SubResource("TileSetAtlasSource_qyl0s")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_emp8e"]
+size = Vector2(197, 206)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ignam"]
+size = Vector2(20, 266)
+
 [node name="Nivel2" type="Node2D"]
 z_index = 4
 script = ExtResource("1_8rnhs")
@@ -657,7 +666,7 @@ position = Vector2(2151, -52)
 
 [node name="player_test" parent="." instance=ExtResource("3_0ltj2")]
 z_index = 5
-position = Vector2(-132, -16)
+position = Vector2(-103, -21)
 
 [node name="Camera2D" type="Camera2D" parent="player_test"]
 zoom = Vector2(1.8, 1.8)
@@ -856,8 +865,17 @@ rotation = -3.14159
 position = Vector2(336, -288)
 rotation = -3.14159
 
-[node name="DoorFinishLevel" parent="Mapa/Puertas" instance=ExtResource("15_qyl0s")]
-position = Vector2(1137, -2080)
+[node name="DoorAtrezzo5" parent="Mapa/Puertas" instance=ExtResource("15_0ji1w")]
+position = Vector2(1124, -2079)
+rotation = -3.14159
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="dialogue_box" parent="CanvasLayer" instance=ExtResource("18_uyhtf")]
+offset_left = -200.0
+offset_top = -76.0
+offset_right = 200.0
+offset_bottom = -11.0
 
 [node name="Crosshair" parent="." instance=ExtResource("7_1lfn4")]
 
@@ -1172,5 +1190,96 @@ position = Vector2(1574, -723)
 
 [node name="EnemigoDistancia31" parent="EnemigosDistancia" instance=ExtResource("15_5s1ob")]
 position = Vector2(1382, -756)
+
+[node name="NoTeAlejes" type="RichTextLabel" parent="."]
+z_index = 2
+offset_left = -456.0
+offset_top = 14.0
+offset_right = -299.0
+offset_bottom = 73.0
+theme_override_colors/default_color = Color(0.653307, 0.788142, 0.919561, 1)
+text = "No te alejes del objetivo Omega..."
+horizontal_alignment = 1
+
+[node name="Escena" type="Node" parent="."]
+
+[node name="FinalEscene" type="Area2D" parent="Escena"]
+position = Vector2(1376, -2108)
+collision_mask = 2
+script = ExtResource("17_gcnvr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Escena/FinalEscene"]
+position = Vector2(146.5, -59)
+shape = SubResource("RectangleShape2D_emp8e")
+
+[node name="Bigmin" parent="Escena" instance=ExtResource("18_ignam")]
+position = Vector2(1608, -2102)
+scale = Vector2(1.5803, 1.5803)
+
+[node name="kill_bigmin" type="Node2D" parent="Escena"]
+visible = false
+script = ExtResource("19_ignam")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Escena/kill_bigmin"]
+offset_left = 1625.0
+offset_top = -2341.0
+offset_right = 1819.0
+offset_bottom = -2167.0
+rotation = -0.163402
+scale = Vector2(1.8803, 1.8803)
+bbcode_enabled = true
+text = "[wave] [color=red]Mata... Mata... Mata... Mata...
+ Mata... Mata... Mata...
+ Mata... Mata... Mata... 
+Mata... Mata... Mata... 
+Mata... Mata..."
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Escena/kill_bigmin"]
+z_index = 6
+offset_left = 901.0
+offset_top = -2379.0
+offset_right = 1107.0
+offset_bottom = -2194.0
+rotation = 0.147027
+scale = Vector2(1.64057, 1.64057)
+bbcode_enabled = true
+text = "[wave] [color=red]Mata... Mata... Mata... Mata...
+ Mata... Mata... Mata...
+ Mata... Mata... Mata... 
+Mata... Mata... Mata... 
+Mata... Mata..."
+horizontal_alignment = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Escena/kill_bigmin"]
+position = Vector2(1108, -2089)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Escena/kill_bigmin/StaticBody2D"]
+position = Vector2(54, -24)
+shape = SubResource("RectangleShape2D_ignam")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Escena/kill_bigmin"]
+position = Vector2(1632, -2085)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Escena/kill_bigmin/StaticBody2D2"]
+position = Vector2(54, -111)
+shape = SubResource("RectangleShape2D_ignam")
+
+[node name="Abajo" type="RichTextLabel" parent="Escena"]
+visible = false
+z_index = 2
+offset_left = 1735.0
+offset_top = -2101.0
+offset_right = 1892.0
+offset_bottom = -2042.0
+rotation = 0.141751
+theme_override_colors/default_color = Color(0.653307, 0.788142, 0.919561, 1)
+bbcode_enabled = true
+text = "[wave]Hacia abajo Omega"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Escena/FinalEscene" to="Escena/FinalEscene" method="_on_body_entered"]
 
 [editable path="EnemigosBase/EnemyBase"]

@@ -8,6 +8,7 @@ extends Node
 func _ready() -> void:
 	SignalBuss.level_started.connect(on_level_started)
 	SignalBuss.player_entered_car_exit.connect(on_player_entered_car_exit)
+	SignalBuss.level_finished.connect(end_level)
 	
 func on_level_started() -> void:
 	var health_instance: CanvasLayer = health_scene.instantiate()
@@ -15,3 +16,6 @@ func on_level_started() -> void:
 
 func on_player_entered_car_exit(_door_exit_position) -> void:
 	SceneTransition.change_scene(target_scene, transition_message)
+
+func end_level() -> void:
+	SceneTransition.change_scene("res://Mapas/car_scene_2.tscn");
