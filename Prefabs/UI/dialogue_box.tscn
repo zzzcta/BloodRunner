@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwkolwqeth2x2"]
+
+[ext_resource type="Script" uid="uid://witeisxkpdvf" path="res://_Scripts/UI/dialogue_box.gd" id="1_xybnj"]
+[ext_resource type="Texture2D" uid="uid://ctkjf308trhyi" path="res://Recursos/Sprites/UI/Border All 10.png" id="2_61b46"]
+[ext_resource type="Texture2D" uid="uid://ci6svlgxbfy0g" path="res://Recursos/Sprites/UI/Boton-Sheet.png" id="3_61b46"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61b46"]
+atlas = ExtResource("3_61b46")
+region = Rect2(6, 4, 19, 23)
+
+[sub_resource type="Animation" id="Animation_61b46"]
+resource_name = "loop"
+loop_mode = 1
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.466667, 0.494498, 0.999201),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 2,
+"values": [Rect2(6, 4, 19, 23), Rect2(6, 4, 19, 23), Rect2(38, 6, 19, 21), Rect2(38, 6, 19, 21)]
+}
+
+[sub_resource type="Animation" id="Animation_l2dom"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(6, 4, 19, 23)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dyb56"]
+_data = {
+&"RESET": SubResource("Animation_l2dom"),
+&"loop": SubResource("Animation_61b46")
+}
+
+[node name="dialogue_box" type="Control"]
+custom_minimum_size = Vector2(400, 65)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -199.0
+offset_top = -69.0
+offset_right = 201.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_xybnj")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_61b46")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 9.0
+offset_right = -16.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+
+[node name="InputContinue" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 382.0
+offset_top = 39.0
+offset_right = 403.0
+offset_bottom = 62.0
+scale = Vector2(1.21534, 1.21534)
+texture = SubResource("AtlasTexture_61b46")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="InputContinue"]
+libraries = {
+&"": SubResource("AnimationLibrary_dyb56")
+}
+autoplay = "loop"
