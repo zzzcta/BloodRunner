@@ -43,6 +43,7 @@ var cooldowns: Dictionary[String, float] = {
 @onready var hitbox_component: HitBoxComponent = $HitboxComponent
 @onready var ray_cast_up: RayCast2D = $RayCastUp 
 @onready var ray_cast_down: RayCast2D = $RayCastDown
+@onready var coyote_timer: Timer = $CoyoteTimer
 #endregion
 
 var player_look_direction: Vector2
@@ -50,6 +51,7 @@ var impulse_time: float = 0.15
 var impulse_time_left: float = 0.0
 var transform_duration_left: float = 0.0
 var health_recover: float 
+@export var coyote_timer_active: bool
 
 #region Estados del player
 var decreasing_health: bool = false
@@ -61,17 +63,21 @@ var is_impulse: bool
 #endregion
 
 func _ready() -> void:
+#region Señales
+	# Señales externas
+	SignalBuss.enemy_died.connect(_on_enemy_died)
+	SignalBuss.level_started.connect(_on_level_started)
+	SignalBuss.level_finished.connect(_on_level_finished)
+	SignalBuss.player_entered_car_exit.connect(_on_player_entered_car_exit)
+	# Señales internas
+	state_machine.state_changed.connect(_on_state_changed) # Para monitoreo
+	health_component.died.connect(_on_dead)
+	health_component.hit.connect(_on_player_hit)
+#endregion
 	ray_cast_up.enabled = false
 	ray_cast_down.enabled = false
-	SignalBuss.enemy_died.connect(on_enemy_died)
-	SignalBuss.level_started.connect(on_level_started)
-	SignalBuss.level_finished.connect(on_level_finished)
-	SignalBuss.player_entered_car_out.connect(on_player_entered_car_out)
-	state_machine.state_changed.connect(_on_state_changed) # Para monitoreo
-	health_component.connect("died", dead)
 	
 func _process(delta):
-	
 #region Gestion del decreasing_health
 	# Comprobamos que el efecto de decreasing_health este activo
 	if decreasing_health and !is_dead:
@@ -79,7 +85,7 @@ func _process(delta):
 		SignalBuss.update_health(health_component.current_health, health_component.max_health)
 		# Si ya nuestra vida es <= 0 y no estamos muertos, nos morimos :=(
 		if health_component.current_health <= 0 and !is_dead:
-			dead()
+			_on_dead()
 #endregion
 	
 #region Gestion de cooldowns
@@ -93,10 +99,17 @@ func _process(delta):
 		impulse_time_left -= delta
 		if impulse_time_left <= 0:
 			is_impulse = false
-			
+		
+	if self.is_on_floor() and coyote_timer_active == false:
+		coyote_timer_active = true
+		
+	if !self.is_on_floor():
+		if coyote_timer.is_stopped():
+			coyote_timer.start()
+	
 # Imprimira por la terminal el new_state en el cual se encuentra el actor
-func _on_state_changed(new_state: String) -> void: pass
-	#print("Jugador cambió al estado: " + new_state)
+func _on_state_changed(new_state: String) -> void:
+	print("Jugador cambió al estado: " + new_state)
 
 # Aplicar la gravedad al actor
 func apply_gravity(delta: float) -> void:
@@ -119,6 +132,7 @@ func move() -> float:
 			velocity.x *= 0.6  # Mantienes el 60% de la velocidad en cada frame
 			if abs(velocity.x) < 5.0: # Detener cuuando va lentillo ya
 				velocity.x = 0.0  
+				
 	
 	move_and_slide()
 	
@@ -144,7 +158,7 @@ func flip_sprite(flip: bool) -> void:
 	player_sprite.flip_h = flip
 
 ## Accede a la state_machine y cambia el estado actual por "dead"
-func dead() -> void:
+func _on_dead() -> void:
 	if !is_dead:
 		SignalBuss.update_health(health_component.current_health, health_component.max_health)
 		state_machine.change_state("dead")
@@ -160,19 +174,35 @@ func start_cooldown(action_name: String) -> void:
 #endregion
 
 #region signals
-func on_level_started() -> void:
+func _on_level_started() -> void:
 	decreasing_health = true
 
-func on_level_finished() -> void:
+func _on_level_finished() -> void:
 	decreasing_health = false
 
-func on_player_entered_car_out() -> void:
+func _on_player_entered_car_exit(door_exit_position: Vector2) -> void:
+	self.global_position = door_exit_position
 	var tween: Tween = create_tween()
 	tween.tween_property(player_sprite, "self_modulate", Color(1, 1, 1, 0), 0.08)
 	
-func on_enemy_died(player_health_recover: float) -> void:
-	health_component.current_health = lerpf(
-		health_component.current_health, 
-		health_component.current_health + player_health_recover,
-		0.6)
+func _on_enemy_died(player_health_recover: float, _enemy_die_position: Vector2) -> void:
+	if health_component.current_health <= health_component.max_health - player_health_recover:
+		health_component.current_health = lerpf(
+			health_component.current_health, 
+			health_component.current_health + player_health_recover,
+			0.6)
+	else: 
+		health_component.current_health = health_component.max_health
+
+func _on_player_hit() -> void:
+	state_machine.change_state("hit")
 #endregion
+
+func _on_coyote_timer_timeout() -> void:
+	coyote_timer_active = false
+	
+func on_start_dialogue() -> void:
+	state_machine.change_state("inactive")
+	
+func on_finish_dialogue() -> void:
+	state_machine.change_state("idle")

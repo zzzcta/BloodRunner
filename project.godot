@@ -15,6 +15,10 @@ run/main_scene="res://scenes/opening/opening_with_logo.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/use_filter=false
 
+[audio]
+
+buses/default_bus_layout="uid://bkdkm5o0dg6b2"
+
 [autoload]
 
 AppConfig="*res://addons/maaacks_menus_template/base/scenes/autoloads/app_config.tscn"
@@ -23,6 +27,7 @@ ProjectMusicController="*res://addons/maaacks_menus_template/base/scenes/autoloa
 ProjectUISoundController="*res://addons/maaacks_menus_template/base/scenes/autoloads/project_ui_sound_controller.tscn"
 SignalBuss="*res://_Scripts/Autoloads/signal_buss.gd"
 SceneTransition="*res://_Scripts/Autoloads/scene_transition.gd"
+AudioManager="*res://_Scripts/Autoloads/AudioManager.tscn"
 
 [display]
 

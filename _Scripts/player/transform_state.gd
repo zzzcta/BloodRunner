@@ -13,13 +13,18 @@ func enter():
 	actor.hitbox_component.get_node("CollisionShape2D").scale = Vector2(0.2, 0.4)
 	actor.hitbox_component.get_node("CollisionShape2D").rotation_degrees = 90.0
 	
-	actor.play_animation(actor.transform_front, "grt_front")
-	actor.play_animation(actor.transform_back, "grt_back")
+	if actor.is_on_floor():
+		actor.play_animation(actor.transform_front, "grt_front")
+		actor.play_animation(actor.transform_back, "grt_back")
+	else:
+		actor.play_animation(actor.transform_front, "grt_front_air")
+		actor.play_animation(actor.transform_back, "grt_back_air")
 	
 	actor.is_transformed = true
 	
 	actor.ray_cast_up.enabled = true
 	actor.ray_cast_down.enabled = true
+	
 	
 	var animations_timer: SceneTreeTimer = get_tree().create_timer(0.56)
 	animations_timer.timeout.connect(func():
@@ -33,7 +38,6 @@ func enter():
 		actor.collision_shape.rotation_degrees = 90.0
 		actor.player_sprite.visible = false
 	)
-	
 	
 func update(_delta: float):
 	if !actor.is_transformed:
@@ -78,8 +82,12 @@ func exit() -> void:
 		
 		crosshair.visible = true
 		
-		actor.play_animation(actor.transform_front, "grt_front", true)
-		actor.play_animation(actor.transform_back, "grt_back", true)
+		if actor.is_on_floor():
+			actor.play_animation(actor.transform_front, "grt_front", true)
+			actor.play_animation(actor.transform_back, "grt_back", true)
+		else:
+			actor.play_animation(actor.transform_front, "grt_front_air", true)
+			actor.play_animation(actor.transform_back, "grt_back_air", true)
 		
 		actor.start_cooldown("transform")
 		
@@ -102,9 +110,10 @@ func exit() -> void:
 		)
 	
 func _on_transform_back_2_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "grt_back":
-		actor.transform_front_sprite.visible = false
-		
-func _on_transform_front_2_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "grt_front":
+	if anim_name == "grt_back" or anim_name == "grt_back_air":
 		actor.transform_back_sprite.visible = false
+
+		 
+func _on_transform_front_2_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "grt_front" or anim_name == "grt_front_air":
+		actor.transform_front_sprite.visible = false
