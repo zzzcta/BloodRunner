@@ -6,6 +6,7 @@ func enter():
 	actor.hitbox_component.set_deferred("monitorable", false)
 	
 	actor.player_sprite.visible = true
+	actor.blood.visible = false
 	
 	actor.remove_from_group("Player")
 	
