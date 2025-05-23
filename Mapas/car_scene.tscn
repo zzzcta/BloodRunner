@@ -126,6 +126,7 @@ wait_time = 20.0
 autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
