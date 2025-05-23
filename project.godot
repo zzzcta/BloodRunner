@@ -28,6 +28,7 @@ ProjectUISoundController="*res://addons/maaacks_menus_template/base/scenes/autol
 SignalBuss="*res://_Scripts/Autoloads/signal_buss.gd"
 SceneTransition="*res://_Scripts/Autoloads/scene_transition.gd"
 AudioManager="*res://_Scripts/Autoloads/AudioManager.tscn"
+GameManager="*res://_Scripts/Autoloads/GameManager.tscn"
 
 [display]
 
