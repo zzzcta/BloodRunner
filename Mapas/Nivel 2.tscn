@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=4 uid="uid://cfew82hkh4lm1"]
+[gd_scene load_steps=23 format=4 uid="uid://cfew82hkh4lm1"]
 
 [ext_resource type="Texture2D" uid="uid://fbmmtli3gklo" path="res://Recursos/TileSet/Tiles.png" id="1_7xd25"]
 [ext_resource type="Script" uid="uid://cpblj86124xol" path="res://_Scripts/Levels/level.gd" id="1_8rnhs"]
+[ext_resource type="PackedScene" uid="uid://br76tuopv06f8" path="res://Prefabs/blood_enemys.tscn" id="2_0ji1w"]
 [ext_resource type="PackedScene" uid="uid://xcjoqk563ols" path="res://Prefabs/Props/car_out.tscn" id="2_qrjvj"]
 [ext_resource type="Texture2D" uid="uid://dphjtflwskq05" path="res://Recursos/TileSet/Buildings.png" id="2_sldhm"]
 [ext_resource type="PackedScene" uid="uid://bclotswb7kp4u" path="res://Prefabs/Props/RejillaVentilacion.tscn" id="2_ujms2"]
@@ -515,19 +516,24 @@ script = ExtResource("1_8rnhs")
 target_scene = "uid://bvguofsdv61fr"
 transition_message = "Dia ?????"
 
+[node name="BloodEnemys" parent="." instance=ExtResource("2_0ji1w")]
+position = Vector2(-157, -46)
+
+[node name="Player" parent="." instance=ExtResource("3_0ltj2")]
+position = Vector2(-157, -46)
+jump_force = 315.0
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.8, 1.8)
+position_smoothing_speed = 315.0
+rotation_smoothing_speed = 20.0
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(45, -206)
 navigation_polygon = SubResource("NavigationPolygon_8rnhs")
 
 [node name="CarOut" parent="." instance=ExtResource("2_qrjvj")]
 position = Vector2(2151, -52)
-
-[node name="player_test" parent="." instance=ExtResource("3_0ltj2")]
-position = Vector2(-292, -40)
-jump_force = 415.0
-
-[node name="Camera2D" type="Camera2D" parent="player_test"]
-zoom = Vector2(1.8, 1.8)
 
 [node name="Mapa" type="Node" parent="."]
 
@@ -571,7 +577,7 @@ position = Vector2(1608, -4)
 
 [node name="RejillaVentilacion5" parent="RejillasVentilacion" instance=ExtResource("2_ujms2")]
 z_index = 1
-position = Vector2(-170, -8)
+position = Vector2(525, -184)
 
 [node name="RejillaVentilacion6" parent="RejillasVentilacion" instance=ExtResource("2_ujms2")]
 z_index = 1
