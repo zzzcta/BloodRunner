@@ -54,7 +54,7 @@ func enter():
 			active_base_attack_hitbox.queue_free()
 			active_base_attack_hitbox = null
 		)
-	
+	 
 func update(_delta: float):
 	pass
 

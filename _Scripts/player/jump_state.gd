@@ -3,7 +3,7 @@ extends State
 func enter():
 	actor.play_animation(actor.animation_player, "jump")
 	
-	if actor.is_on_floor():
+	if actor.is_on_floor() or actor.coyote_timer_active:
 		actor.jump()
 	
 func update(_delta: float):
@@ -14,7 +14,7 @@ func physics_update(delta: float) -> void:
 	
 	actor.move()
 	
-	if actor.velocity.y > 0:
+	if actor.velocity.y > 0 and !actor.coyote_timer_active:
 		transition_to("fall")
 		
 func handle_input(_event: InputEvent) -> void:

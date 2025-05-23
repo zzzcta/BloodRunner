@@ -1,6 +1,5 @@
 extends Door
 
-
 func _ready() -> void:
 	super()
 

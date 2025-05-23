@@ -3,6 +3,8 @@ extends State
 func enter():
 	actor.play_animation(actor.animation_player, "fall")
 	
+	actor.coyote_timer.start()
+	
 func update(_delta: float):
 	pass
 	
@@ -21,6 +23,8 @@ func physics_update(delta: float) -> void:
 		transition_to("jump")
 
 func handle_input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("jump") and actor.coyote_timer_active:
+		transition_to("jump")
 	if Input.is_action_just_pressed("base_attack") and actor.can_perform_action("base_attack"):
 		transition_to("baseattack")
 	if Input.is_action_just_pressed("range_attack") and actor.can_perform_action("range_attack"):
@@ -30,3 +34,7 @@ func handle_input(_event: InputEvent) -> void:
 	
 func exit() -> void:
 	pass
+
+
+func _on_coyote_timer_timeout() -> void:
+	actor.coyote_timer_active = false
