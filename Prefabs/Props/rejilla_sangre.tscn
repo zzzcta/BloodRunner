@@ -1,8 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://kpdg4ms7p11"]
 
 [ext_resource type="Script" uid="uid://dhl85r3yn08q0" path="res://_Scripts/Props/rejilla_sangre.gd" id="1_8bguj"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4wjkn"]
+[ext_resource type="Texture2D" uid="uid://cwcueuujk1k0s" path="res://Recursos/Sprites/Props/Rejilla_sangre.png" id="2_2yfj1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8bguj"]
 size = Vector2(64, 8)
@@ -14,7 +13,7 @@ size = Vector2(64, 12)
 script = ExtResource("1_8bguj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("CompressedTexture2D_4wjkn")
+texture = ExtResource("2_2yfj1")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 32
