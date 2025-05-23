@@ -4,27 +4,27 @@ extends Node2D
 @export var teleport_cooldown: float = 0.5  # Tiempo de espera entre teleports
 
 var destination: Node2D
-var teleporting_player: Node2D = null  # Referencia al jugador que se está teletransportando
+var teleporting_player: CharacterBody2D = null  # Referencia al jugador que se esta teletransportando
 var can_teleport: bool = true  # Controla si este teleport puede activarse
 
 func _ready() -> void:
-
 	# Verificamos y conectamos al destino
 	if destination_teleport.is_empty():
 		push_warning("No se ha configurado un destino para este teleport")
 		return
 		
 	destination = get_node_or_null(destination_teleport)
-
+	
 	# Conectamos las señales
 	$Area2D.body_entered.connect(_on_area_2d_body_entered)
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 	# Verificamos que podemos teleportar y que el cuerpo sea un jugador
 	if !can_teleport or !body.is_in_group("Player"):
 		return
 		
 	if destination:
+		
 		# Guardamos referencia al jugador que se teleporta
 		teleporting_player = body
 		
