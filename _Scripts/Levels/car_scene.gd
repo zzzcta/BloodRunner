@@ -11,7 +11,7 @@ func _ready() -> void:
 	
 	$AnimatedSprite2D/Camera2D.position = camera_starting.position
 	
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	
 	var tween: Tween = create_tween()
 	
