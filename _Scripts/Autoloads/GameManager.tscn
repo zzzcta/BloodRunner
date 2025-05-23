@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://51118sn8bfvc"]
+
+[ext_resource type="Script" uid="uid://cpblj86124xol" path="res://_Scripts/Autoloads/GameManager.gd" id="1_5ep4g"]
+
+[node name="GameManager" type="Node"]
+process_mode = 3
+script = ExtResource("1_5ep4g")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
