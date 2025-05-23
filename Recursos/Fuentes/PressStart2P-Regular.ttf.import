@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bckndbp0cp1kf"
-path="res://.godot/imported/MonomaniacOne-Regular.ttf-0076dfe1e9a0bedeb3350593227ac4af.fontdata"
+uid="uid://cgf8d7acl5inc"
+path="res://.godot/imported/PressStart2P-Regular.ttf-9f42d1f7945d941e96439590f696517e.fontdata"
 
 [deps]
 
-source_file="res://Recursos/Fuentes/MonomaniacOne-Regular.ttf"
-dest_files=["res://.godot/imported/MonomaniacOne-Regular.ttf-0076dfe1e9a0bedeb3350593227ac4af.fontdata"]
+source_file="res://Recursos/Fuentes/PressStart2P-Regular.ttf"
+dest_files=["res://.godot/imported/PressStart2P-Regular.ttf-9f42d1f7945d941e96439590f696517e.fontdata"]
 
 [params]
 
@@ -29,13 +29,7 @@ Fallbacks=null
 fallbacks=[]
 Compress=null
 compress=true
-preload=[{
-"chars": [],
-"glyphs": [],
-"name": "Nueva Configuración",
-"size": Vector2i(16, 0),
-&"variation_embolden": 0.0
-}]
+preload=[]
 language_support={}
 script_support={}
 opentype_features={}

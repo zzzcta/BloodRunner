@@ -805,10 +805,10 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_y6xdh")
 cooldown_durations = Dictionary[String, float]({
 "base_attack": 0.05,
-"range_attack": 10.0,
-"transform": 5.0
+"range_attack": 7.0,
+"transform": 3.0
 })
-transform_duration = 8.0
+transform_duration = 4.0
 
 [node name="SpritePlayer" type="Sprite2D" parent="."]
 z_index = 1
@@ -880,7 +880,7 @@ libraries = {
 
 [node name="HealthComponent" type="Node2D" parent="."]
 script = ExtResource("6_m62uw")
-max_health = 120.0
+max_health = 100.0
 metadata/_custom_type_script = "uid://bjl1tic2v8kfe"
 
 [node name="RayCastUp" type="RayCast2D" parent="."]

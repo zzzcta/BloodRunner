@@ -1,7 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://c1gedafbap7yf"]
 
-[ext_resource type="PackedScene" path="res://addons/maaacks_menus_template/base/scenes/menus/options_menu/master_options_menu.tscn" id="1_sa28m"]
-[ext_resource type="Script" path="res://scenes/menus/options_menu/master_options_menu.gd" id="2_c0csl"]
+[ext_resource type="PackedScene" uid="uid://bvwl11s2p0hd" path="res://addons/maaacks_menus_template/base/scenes/menus/options_menu/master_options_menu.tscn" id="1_sa28m"]
+[ext_resource type="Script" uid="uid://bat434cscphkg" path="res://scenes/menus/options_menu/master_options_menu.gd" id="2_c0csl"]
 
 [node name="MasterOptionsMenu" instance=ExtResource("1_sa28m")]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
 script = ExtResource("2_c0csl")
