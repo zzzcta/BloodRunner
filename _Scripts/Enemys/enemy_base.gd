@@ -151,5 +151,5 @@ func _on_hit() -> void:
 
 
 func _death() -> void:
-	SignalBuss.enemy_die(player_health_recover)
+	SignalBuss.enemy_die(player_health_recover, self.global_position)
 	queue_free()
