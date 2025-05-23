@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://b14jha35c7bre"]
+[gd_scene load_steps=27 format=4 uid="uid://b14jha35c7bre"]
 
 [ext_resource type="Texture2D" uid="uid://fbmmtli3gklo" path="res://Recursos/TileSet/Tiles.png" id="1_dcs7f"]
 [ext_resource type="PackedScene" uid="uid://cbubjqnrm73ug" path="res://Prefabs/Characters/Player/player.tscn" id="1_snwyg"]
@@ -449,13 +449,16 @@ navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_snwyg")
 sources/2 = SubResource("TileSetAtlasSource_i7ktq")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ptt3"]
+size = Vector2(20, 223)
+
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_u1cwo")
 target_scene = "uid://bue45auu0djwf"
 transition_message = "Dia 2"
 
 [node name="Player" parent="." instance=ExtResource("1_snwyg")]
-position = Vector2(-60, -19)
+position = Vector2(-133, -32)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(1.8, 1.8)
@@ -538,6 +541,74 @@ position = Vector2(641, -932)
 
 [node name="RejillaSangre" parent="Mapa" instance=ExtResource("8_5s62s")]
 position = Vector2(192, -588)
+
+[node name="ParedMagica" type="StaticBody2D" parent="Mapa"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mapa/ParedMagica"]
+position = Vector2(-336, -99)
+shape = SubResource("RectangleShape2D_5ptt3")
+
+[node name="Textos" type="Node" parent="Mapa"]
+
+[node name="PorAquiNo" type="RichTextLabel" parent="Mapa/Textos"]
+offset_left = -486.0
+offset_top = 22.0
+offset_right = -316.0
+offset_bottom = 56.0
+theme_override_colors/default_color = Color(0.56591, 0.775926, 0.919361, 1)
+bbcode_enabled = true
+text = "[wave]Por aquí no Omega..."
+
+[node name="ElMomento" type="RichTextLabel" parent="Mapa/Textos"]
+offset_left = -149.0
+offset_top = 16.0
+offset_right = 21.0
+offset_bottom = 50.0
+theme_override_colors/default_color = Color(0.56591, 0.775926, 0.919361, 1)
+bbcode_enabled = true
+text = "[wave]Es el momento..."
+horizontal_alignment = 1
+
+[node name="Saltar" type="RichTextLabel" parent="Mapa/Textos"]
+offset_left = 224.0
+offset_top = 23.0
+offset_right = 439.0
+offset_bottom = 57.0
+theme_override_colors/default_color = Color(0.56591, 0.775926, 0.919361, 1)
+bbcode_enabled = true
+text = "Espacio = Saltar"
+horizontal_alignment = 1
+
+[node name="Saltar2" type="RichTextLabel" parent="Mapa/Textos"]
+offset_left = 481.0
+offset_top = 18.0
+offset_right = 696.0
+offset_bottom = 52.0
+theme_override_colors/default_color = Color(0.56591, 0.775926, 0.919361, 1)
+bbcode_enabled = true
+text = "Tecla Q = [wave][color=red]Modo Sangre"
+horizontal_alignment = 1
+
+[node name="Disparar" type="RichTextLabel" parent="Mapa/Textos"]
+offset_left = 374.0
+offset_top = -339.0
+offset_right = 589.0
+offset_bottom = -305.0
+theme_override_colors/default_color = Color(0.56591, 0.775926, 0.919361, 1)
+bbcode_enabled = true
+text = "Disparar = Click derecho "
+horizontal_alignment = 1
+
+[node name="Atacar" type="RichTextLabel" parent="Mapa/Textos"]
+offset_left = 31.0
+offset_top = -98.0
+offset_right = 276.0
+offset_bottom = -64.0
+theme_override_colors/default_color = Color(0.56591, 0.775926, 0.919361, 1)
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Atacar = Click izquierdo"
+horizontal_alignment = 1
 
 [node name="Torreta" parent="." instance=ExtResource("4_4ucwg")]
 position = Vector2(134, -496)

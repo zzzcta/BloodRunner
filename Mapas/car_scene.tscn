@@ -298,6 +298,5 @@ position = Vector2(10, -163)
 zoom = Vector2(1.25, 1.25)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="dialogue_box" parent="CanvasLayer" instance=ExtResource("4_utm50")]

@@ -8,6 +8,21 @@
 atlas = ExtResource("3_61b46")
 region = Rect2(6, 4, 19, 23)
 
+[sub_resource type="Animation" id="Animation_l2dom"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(6, 4, 19, 23)]
+}
+
 [sub_resource type="Animation" id="Animation_61b46"]
 resource_name = "loop"
 loop_mode = 1
@@ -23,21 +38,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 2,
 "values": [Rect2(6, 4, 19, 23), Rect2(6, 4, 19, 23), Rect2(38, 6, 19, 21), Rect2(38, 6, 19, 21)]
-}
-
-[sub_resource type="Animation" id="Animation_l2dom"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture:region")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(6, 4, 19, 23)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dyb56"]

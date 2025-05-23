@@ -7,13 +7,13 @@ var all_dialogues : Dictionary = {
 	"BIGMIN_002" : "Cuando Maelstorm te pone una mira en la cabeza ya no hay nada que se pueda hacer.",
 	"BIGMIN_003" : "¿Y bien? ¿Vas a quedarte mucho tiempo ahí, marioneta de los cojones?",
 	"BIGMIN_004" : "Vienes aquí, a mi casa, mi templo, mi hogar..." ,
-	"BIGMIN_005" : "con un arma que YO mismo ayudé a fabricar...",
-	"BIGMIN_006" : "¿Qué? ¿Tienes dudas? ¡¿Ahora dudas?!",
-	"BIGMIN_007" : "¿Cuántos de los míos has matado? ¿A cuántos has absorbido?",
-	"BIGMIN_008" : "Sabes… yo estuve en tu lugar una vez… pero claro.",
+	"BIGMIN_005" : "con un arma que [wave]YO[/wave] mismo ayudé a fabricar...",
+	"BIGMIN_006" : "¿Qué? ¿Tienes dudas? [wave]¡¿Ahora dudas?![/wave]",
+	"BIGMIN_007" : "¿Cuántos de los míos has [color=red]matado[/color]? ¿A cuántos has [color=red]absorbido[/color]?",
+	"BIGMIN_008" : "Sabes... yo estuve en tu lugar una vez... pero claro.",
 	"BIGMIN_009" : "La nueva europa no puede seguir afiliada a unas basuras como nosotros...",
 	"BIGMIN_010" : "Algún día, chico. Algún día tú también les sobrarás...",
-	"BIGMIN_011" : "¿Sabes cómo te convertiste en eso?",
+	"BIGMIN_011" : "¿Sabes cómo te convertiste en [color=red]eso[/color]?",
 	"AUX6B_001" : "Necesito confirmación Omega.",
 	"AUX6B_002" : "... Confirmación omitida. [color=green]Iniciando escáner biométrico...[/color]",
 	"AUX6B_003" : "Parámetros estables... [color=green]Iniciando secuencia de acople protésico...[/color]",
@@ -25,11 +25,11 @@ var all_dialogues : Dictionary = {
 	"AUX6B_009" : "Esto [color=green]limitará[/color] tus opciones, tienes que darte prisa, si tan solo pudieras obtener más [wave][color=red]sangre[/color][/wave]...",
 	"AUX6B_010" : "Hemos llegado. Puedes empezar Omega",
 	"AUX6B_011" : "Buen trabajo Omega.",
-	"AUX6B_012" : "Todas las funciones de la instancia se encuentran en estado óptimo.",
+	"AUX6B_012" : "Todas las funciones de la instancia se encuentran en estado [color=green]óptimo[/color].",
 	"AUX6B_013" : "Ya estás preparado para una misión de verdad.",
-	"AUX6B_014" : "Tu objetivo es el líder de la célula terrorista llamada \"Los Gaunts\".",
+	"AUX6B_014" : "Tu objetivo es el líder de la célula terrorista llamada [color=red]Los Gaunts.[/color]",
 	"AUX6B_015" : "Maelstorm confirma la presencia de su líder en las instalaciones.",
-	"AUX6B_016" : "Recuerda Omega, rapidez y eficacia.",
+	"AUX6B_016" : "Recuerda Omega, [color=orange]rapidez[/color] y [color=purple]eficacia[/color].",
 	"AUX6B_017" : "Hemos llegado.",
 	"AUX6B_018" : "Omega mantente a la espera de confirmación.",
 	"AUX6B_019" : "Confirmación recibida Omega, puedes acabar con el objetivo.",
@@ -41,6 +41,6 @@ var all_dialogues : Dictionary = {
 
 ##font,textsize,timechar,color,frame
 var characters_data : Dictionary ={
-	"Kingpin" : ["res://Recursos/Fuentes/MonomaniacOne-Regular.ttf",20,0.07,Color.DARK_GRAY,"res://Recursos/Sprites/UI/Border All 10.png"],
+	"Bigmin" : ["res://Recursos/Fuentes/MonomaniacOne-Regular.ttf",20,0.07,Color.DARK_GRAY,"res://Recursos/Sprites/UI/Border All 10.png"],
 	"AUX6B" : ["res://Recursos/Fuentes/MonomaniacOne-Regular.ttf",16,0.02,Color.CORNFLOWER_BLUE,"res://Recursos/Sprites/UI/Border All 10.png"]
 }
