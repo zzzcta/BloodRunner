@@ -1,8 +1,8 @@
 [gd_scene load_steps=27 format=4 uid="uid://b14jha35c7bre"]
 
+[ext_resource type="PackedScene" uid="uid://br76tuopv06f8" path="res://Prefabs/blood_enemys.tscn" id="1_5ptt3"]
 [ext_resource type="Texture2D" uid="uid://fbmmtli3gklo" path="res://Recursos/TileSet/Tiles.png" id="1_dcs7f"]
 [ext_resource type="PackedScene" uid="uid://cbubjqnrm73ug" path="res://Prefabs/Characters/Player/player.tscn" id="1_snwyg"]
-[ext_resource type="Script" uid="uid://cpblj86124xol" path="res://_Scripts/Levels/level.gd" id="1_u1cwo"]
 [ext_resource type="Texture2D" uid="uid://dphjtflwskq05" path="res://Recursos/TileSet/Buildings.png" id="2_3rqij"]
 [ext_resource type="PackedScene" uid="uid://da13veskah1ov" path="res://Prefabs/Props/door_finish_level.tscn" id="3_lti2j"]
 [ext_resource type="PackedScene" uid="uid://byjy8hfyofb3h" path="res://Prefabs/Characters/Enemys/torreta.tscn" id="4_4ucwg"]
@@ -453,9 +453,8 @@ sources/2 = SubResource("TileSetAtlasSource_i7ktq")
 size = Vector2(20, 223)
 
 [node name="Tutorial" type="Node2D"]
-script = ExtResource("1_u1cwo")
-target_scene = "uid://bue45auu0djwf"
-transition_message = "Dia 2"
+
+[node name="BloodEnemys" parent="." instance=ExtResource("1_5ptt3")]
 
 [node name="Player" parent="." instance=ExtResource("1_snwyg")]
 position = Vector2(-133, -32)
@@ -552,9 +551,9 @@ shape = SubResource("RectangleShape2D_5ptt3")
 
 [node name="PorAquiNo" type="RichTextLabel" parent="Mapa/Textos"]
 offset_left = -486.0
-offset_top = 22.0
+offset_top = 16.0
 offset_right = -316.0
-offset_bottom = 56.0
+offset_bottom = 50.0
 theme_override_colors/default_color = Color(0.56591, 0.775926, 0.919361, 1)
 bbcode_enabled = true
 text = "[wave]Por aquí no Omega..."
@@ -570,10 +569,10 @@ text = "[wave]Es el momento..."
 horizontal_alignment = 1
 
 [node name="Saltar" type="RichTextLabel" parent="Mapa/Textos"]
-offset_left = 224.0
-offset_top = 23.0
-offset_right = 439.0
-offset_bottom = 57.0
+offset_left = 223.0
+offset_top = 16.0
+offset_right = 438.0
+offset_bottom = 50.0
 theme_override_colors/default_color = Color(0.56591, 0.775926, 0.919361, 1)
 bbcode_enabled = true
 text = "Espacio = Saltar"
@@ -581,9 +580,9 @@ horizontal_alignment = 1
 
 [node name="Saltar2" type="RichTextLabel" parent="Mapa/Textos"]
 offset_left = 481.0
-offset_top = 18.0
+offset_top = 16.0
 offset_right = 696.0
-offset_bottom = 52.0
+offset_bottom = 50.0
 theme_override_colors/default_color = Color(0.56591, 0.775926, 0.919361, 1)
 bbcode_enabled = true
 text = "Tecla Q = [wave][color=red]Modo Sangre"
@@ -610,76 +609,82 @@ bbcode_enabled = true
 text = "Atacar = Click izquierdo"
 horizontal_alignment = 1
 
-[node name="Torreta" parent="." instance=ExtResource("4_4ucwg")]
+[node name="Torretas" type="Node" parent="."]
+
+[node name="Torreta" parent="Torretas" instance=ExtResource("4_4ucwg")]
 position = Vector2(134, -496)
 
-[node name="Torreta2" parent="." instance=ExtResource("4_4ucwg")]
+[node name="Torreta2" parent="Torretas" instance=ExtResource("4_4ucwg")]
 position = Vector2(89, -782)
 
-[node name="Crosshair" parent="." instance=ExtResource("5_6e8bo")]
+[node name="EnemigosDistancia" type="Node" parent="."]
 
-[node name="EnemyBase" parent="." instance=ExtResource("10_pc5yc")]
-position = Vector2(187, -15)
-
-[node name="EnemyBase2" parent="." instance=ExtResource("10_pc5yc")]
-position = Vector2(438, -15)
-
-[node name="EnemyBase3" parent="." instance=ExtResource("10_pc5yc")]
-position = Vector2(524, -15)
-
-[node name="EnemyBase4" parent="." instance=ExtResource("10_pc5yc")]
-position = Vector2(241, -255)
-
-[node name="EnemyBase5" parent="." instance=ExtResource("10_pc5yc")]
-position = Vector2(185, -255)
-
-[node name="EnemyBase6" parent="." instance=ExtResource("10_pc5yc")]
-position = Vector2(127, -255)
-
-[node name="EnemyBase7" parent="." instance=ExtResource("10_pc5yc")]
-position = Vector2(235, -495)
-
-[node name="EnemyBase8" parent="." instance=ExtResource("10_pc5yc")]
-position = Vector2(295, -495)
-
-[node name="EnemyBase9" parent="." instance=ExtResource("10_pc5yc")]
-position = Vector2(432, -495)
-
-[node name="EnemyBase10" parent="." instance=ExtResource("10_pc5yc")]
-position = Vector2(514, -495)
-
-[node name="EnemyBase11" parent="." instance=ExtResource("10_pc5yc")]
-position = Vector2(239, -783)
-
-[node name="EnemyBase12" parent="." instance=ExtResource("10_pc5yc")]
-position = Vector2(372, -879)
-
-[node name="EnemyBase13" parent="." instance=ExtResource("10_pc5yc")]
-position = Vector2(421, -879)
-
-[node name="EnemyBase14" parent="." instance=ExtResource("10_pc5yc")]
-position = Vector2(406, -1087)
-
-[node name="EnemyBase15" parent="." instance=ExtResource("10_pc5yc")]
-position = Vector2(473, -1087)
-
-[node name="EnemyBase16" parent="." instance=ExtResource("10_pc5yc")]
-position = Vector2(538, -1087)
-
-[node name="EnemigoDistancia" parent="." instance=ExtResource("11_u1cwo")]
+[node name="EnemigoDistancia" parent="EnemigosDistancia" instance=ExtResource("11_u1cwo")]
 position = Vector2(439, -260)
 
-[node name="EnemigoDistancia2" parent="." instance=ExtResource("11_u1cwo")]
+[node name="EnemigoDistancia2" parent="EnemigosDistancia" instance=ExtResource("11_u1cwo")]
 position = Vector2(526, -260)
 
-[node name="EnemigoDistancia3" parent="." instance=ExtResource("11_u1cwo")]
+[node name="EnemigoDistancia3" parent="EnemigosDistancia" instance=ExtResource("11_u1cwo")]
 position = Vector2(584, -500)
 
-[node name="EnemigoDistancia4" parent="." instance=ExtResource("11_u1cwo")]
+[node name="EnemigoDistancia4" parent="EnemigosDistancia" instance=ExtResource("11_u1cwo")]
 position = Vector2(147, -964)
 
-[node name="EnemigoDistancia5" parent="." instance=ExtResource("11_u1cwo")]
+[node name="EnemigoDistancia5" parent="EnemigosDistancia" instance=ExtResource("11_u1cwo")]
 position = Vector2(225, -1060)
+
+[node name="EnemigosBase" type="Node" parent="."]
+
+[node name="EnemyBase" parent="EnemigosBase" instance=ExtResource("10_pc5yc")]
+position = Vector2(187, -15)
+
+[node name="EnemyBase2" parent="EnemigosBase" instance=ExtResource("10_pc5yc")]
+position = Vector2(438, -15)
+
+[node name="EnemyBase3" parent="EnemigosBase" instance=ExtResource("10_pc5yc")]
+position = Vector2(524, -15)
+
+[node name="EnemyBase4" parent="EnemigosBase" instance=ExtResource("10_pc5yc")]
+position = Vector2(241, -255)
+
+[node name="EnemyBase5" parent="EnemigosBase" instance=ExtResource("10_pc5yc")]
+position = Vector2(185, -255)
+
+[node name="EnemyBase6" parent="EnemigosBase" instance=ExtResource("10_pc5yc")]
+position = Vector2(127, -255)
+
+[node name="EnemyBase7" parent="EnemigosBase" instance=ExtResource("10_pc5yc")]
+position = Vector2(235, -495)
+
+[node name="EnemyBase8" parent="EnemigosBase" instance=ExtResource("10_pc5yc")]
+position = Vector2(295, -495)
+
+[node name="EnemyBase9" parent="EnemigosBase" instance=ExtResource("10_pc5yc")]
+position = Vector2(432, -495)
+
+[node name="EnemyBase10" parent="EnemigosBase" instance=ExtResource("10_pc5yc")]
+position = Vector2(514, -495)
+
+[node name="EnemyBase11" parent="EnemigosBase" instance=ExtResource("10_pc5yc")]
+position = Vector2(239, -783)
+
+[node name="EnemyBase12" parent="EnemigosBase" instance=ExtResource("10_pc5yc")]
+position = Vector2(372, -879)
+
+[node name="EnemyBase13" parent="EnemigosBase" instance=ExtResource("10_pc5yc")]
+position = Vector2(421, -879)
+
+[node name="EnemyBase14" parent="EnemigosBase" instance=ExtResource("10_pc5yc")]
+position = Vector2(406, -1087)
+
+[node name="EnemyBase15" parent="EnemigosBase" instance=ExtResource("10_pc5yc")]
+position = Vector2(473, -1087)
+
+[node name="EnemyBase16" parent="EnemigosBase" instance=ExtResource("10_pc5yc")]
+position = Vector2(538, -1087)
+
+[node name="Crosshair" parent="." instance=ExtResource("5_6e8bo")]
 
 [node name="CarOut" parent="." instance=ExtResource("11_pc5yc")]
 position = Vector2(1045, -52)

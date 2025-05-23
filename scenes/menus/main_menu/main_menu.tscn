@@ -25,7 +25,6 @@ credits_packed_scene = ExtResource("4_0jpat")
 script = ExtResource("4_m0ubd")
 
 [node name="BackgroundMusicPlayer" parent="." instance=ExtResource("5_627ab")]
-bus = &"Master"
 
 [node name="BackgroundTextureRect" type="TextureRect" parent="."]
 layout_mode = 1

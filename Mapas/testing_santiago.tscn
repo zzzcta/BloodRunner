@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=4 uid="uid://be2sry3bp483h"]
 
-[ext_resource type="Script" uid="uid://cpblj86124xol" path="res://_Scripts/Levels/level.gd" id="1_6sxnc"]
+[ext_resource type="Script" uid="uid://cpblj86124xol" path="res://_Scripts/Autoloads/GameManager.gd" id="1_6sxnc"]
 [ext_resource type="TileSet" uid="uid://c24lxocxen4eq" path="res://Prefabs/TileMaps/test.tres" id="1_jf0na"]
 [ext_resource type="PackedScene" uid="uid://cbubjqnrm73ug" path="res://Prefabs/Characters/Player/player.tscn" id="3_xypa8"]
 [ext_resource type="PackedScene" uid="uid://bclotswb7kp4u" path="res://Prefabs/Props/RejillaVentilacion.tscn" id="6_i06tq"]
