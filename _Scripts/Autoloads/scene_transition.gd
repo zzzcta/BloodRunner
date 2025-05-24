@@ -53,8 +53,6 @@ func set_transition_text(text: String, font_size: int = 24) -> void:
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	label.set_anchors_preset(Control.PRESET_FULL_RECT)
 	
-	# Configurar el tamaño y color de la fuente
-	var font = label.get_theme_font("font")
 	label.add_theme_font_size_override("font_size", font_size)
 	
 	label.add_theme_color_override("font_color", Color(1, 1, 1, 1))
