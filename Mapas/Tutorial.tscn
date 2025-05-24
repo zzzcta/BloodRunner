@@ -660,7 +660,6 @@ material = SubResource("ShaderMaterial_jucgn")
 
 [node name="Torreta2" parent="Torretas" instance=ExtResource("4_4ucwg")]
 position = Vector2(106, -864)
-flip = true
 
 [node name="Arriba" parent="Torretas/Torreta2" index="1"]
 material = SubResource("ShaderMaterial_v5ohe")
