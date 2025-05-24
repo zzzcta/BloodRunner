@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://cfew82hkh4lm1"]
+[gd_scene load_steps=44 format=4 uid="uid://cfew82hkh4lm1"]
 
 [ext_resource type="Texture2D" uid="uid://fbmmtli3gklo" path="res://Recursos/TileSet/Tiles.png" id="1_7xd25"]
 [ext_resource type="PackedScene" uid="uid://br76tuopv06f8" path="res://Prefabs/blood_enemys.tscn" id="1_ignam"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://wm8gr1dncvjc" path="res://Prefabs/Characters/Enemys/Bigmin.tscn" id="18_ignam"]
 [ext_resource type="PackedScene" uid="uid://cwkolwqeth2x2" path="res://Prefabs/UI/dialogue_box.tscn" id="18_uyhtf"]
 [ext_resource type="Script" uid="uid://0y2b0j2e2i30" path="res://Mapas/kill_bigmin.gd" id="19_ignam"]
+[ext_resource type="PackedScene" uid="uid://dlpbpafmu32sf" path="res://Prefabs/Props/car_in_level.tscn" id="21_ipv42"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8rnhs"]
 
@@ -663,10 +664,12 @@ z_index = 4
 
 [node name="CarOut" parent="." instance=ExtResource("2_qrjvj")]
 position = Vector2(2151, -52)
+target_scene = "uid://bvguofsdv61fr"
+transition_message = "Dia ????"
 
 [node name="player_test" parent="." instance=ExtResource("3_0ltj2")]
 z_index = 5
-position = Vector2(-202, -19)
+position = Vector2(1895, -19)
 
 [node name="Mapa" type="Node" parent="."]
 
@@ -1103,6 +1106,16 @@ position = Vector2(1230, -464)
 position = Vector2(1649, -800)
 flip = true
 
+[node name="NoTeAlejes" type="RichTextLabel" parent="."]
+z_index = 2
+offset_left = -456.0
+offset_top = 14.0
+offset_right = -299.0
+offset_bottom = 73.0
+theme_override_colors/default_color = Color(0.653307, 0.788142, 0.919561, 1)
+text = "No te alejes del objetivo Omega..."
+horizontal_alignment = 1
+
 [node name="EnemigosDistancia" type="Node" parent="."]
 
 [node name="EnemigoDistancia" parent="EnemigosDistancia" instance=ExtResource("15_5s1ob")]
@@ -1192,16 +1205,6 @@ position = Vector2(1574, -723)
 [node name="EnemigoDistancia31" parent="EnemigosDistancia" instance=ExtResource("15_5s1ob")]
 position = Vector2(1382, -756)
 
-[node name="NoTeAlejes" type="RichTextLabel" parent="."]
-z_index = 2
-offset_left = -456.0
-offset_top = 14.0
-offset_right = -299.0
-offset_bottom = 73.0
-theme_override_colors/default_color = Color(0.653307, 0.788142, 0.919561, 1)
-text = "No te alejes del objetivo Omega..."
-horizontal_alignment = 1
-
 [node name="Escena" type="Node" parent="."]
 
 [node name="FinalEscene" type="Area2D" parent="Escena"]
@@ -1280,6 +1283,9 @@ theme_override_colors/default_color = Color(0.653307, 0.788142, 0.919561, 1)
 bbcode_enabled = true
 text = "[wave]Hacia abajo Omega"
 horizontal_alignment = 1
+
+[node name="CarInLevel" parent="." instance=ExtResource("21_ipv42")]
+position = Vector2(-255, -52)
 
 [connection signal="body_entered" from="Escena/FinalEscene" to="Escena/FinalEscene" method="_on_body_entered"]
 
