@@ -754,7 +754,7 @@ transition_message = "Dia ????"
 
 [node name="player_test" parent="." instance=ExtResource("3_0ltj2")]
 z_index = 5
-position = Vector2(-183, -15)
+position = Vector2(-187, -15)
 
 [node name="Mapa" type="Node" parent="."]
 
