@@ -73,6 +73,11 @@ func _ready() -> void:
 	_add_or_hide_options()
 	_add_or_hide_credits()
 	_hide_new_game_if_unset()
+		
+	print("MainMenu position: ", position)
+	print("MainMenu size: ", size)
+	print("MainMenu mouse_filter: ", mouse_filter)
+	print("MainMenu visible: ", visible)
 
 func _on_new_game_button_pressed() -> void:
 	new_game()
