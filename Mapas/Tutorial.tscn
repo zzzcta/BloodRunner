@@ -524,11 +524,12 @@ shader_parameter/effect_factor = 0.3
 
 [node name="Parallax" parent="." instance=ExtResource("1_v5ohe")]
 z_index = -1
+position = Vector2(0, -100)
 
 [node name="BloodEnemys" parent="." instance=ExtResource("1_5ptt3")]
 
 [node name="Player" parent="." instance=ExtResource("1_snwyg")]
-position = Vector2(-143, -15)
+position = Vector2(-202, -15)
 
 [node name="Mapa" type="Node" parent="."]
 
