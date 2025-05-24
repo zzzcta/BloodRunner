@@ -664,12 +664,10 @@ z_index = 4
 
 [node name="CarOut" parent="." instance=ExtResource("2_qrjvj")]
 position = Vector2(2151, -52)
-target_scene = "uid://bvguofsdv61fr"
-transition_message = "Dia ????"
 
 [node name="player_test" parent="." instance=ExtResource("3_0ltj2")]
 z_index = 5
-position = Vector2(1895, -19)
+position = Vector2(-178, -15)
 
 [node name="Mapa" type="Node" parent="."]
 

@@ -6,6 +6,8 @@ extends Node2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @export_file("*.tscn") var target_scene : String
+@export var transition_message: String
+
 
 func _ready() -> void:
 	$AnimatedSprite2D/Camera2D.position = camera_starting.position
@@ -52,7 +54,7 @@ func _ready() -> void:
 	await control.dialogue_end
 	await get_tree().create_timer(2.0).timeout
 	
-	SceneTransition.change_scene(target_scene)
+	SceneTransition.change_scene(target_scene, transition_message)
 
 func _process(delta: float) -> void:
 	$AnimatedSprite2D.position.x -= 500.0 * delta

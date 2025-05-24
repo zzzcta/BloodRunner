@@ -42,5 +42,5 @@ var all_dialogues : Dictionary = {
 ##font,textsize,timechar,color,frame
 var characters_data : Dictionary ={
 	"Bigmin" : ["res://Recursos/Fuentes/MonomaniacOne-Regular.ttf",20,0.07,Color.DARK_GRAY,"res://Recursos/Sprites/UI/Border All 10.png"],
-	"AUX6B" : ["res://Recursos/Fuentes/MonomaniacOne-Regular.ttf",16,0.02,Color.CORNFLOWER_BLUE,"res://Recursos/Sprites/UI/Border All 10.png"]
+	"AUX6B" : ["res://Recursos/Fuentes/MonomaniacOne-Regular.ttf",16,0.05,Color.CORNFLOWER_BLUE,"res://Recursos/Sprites/UI/Border All 10.png"]
 }

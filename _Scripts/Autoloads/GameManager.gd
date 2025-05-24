@@ -3,8 +3,6 @@ extends Node
 @onready var health_scene: PackedScene = preload("res://Prefabs/UI/health_hud.tscn")
 @onready var death_menu_scene: PackedScene = preload("res://scenes/overlaid_menus/dead_menu.tscn")
 @onready var pause_menu_scene: PackedScene = preload("res://addons/maaacks_menus_template/base/scenes/overlaid_menu/menus/pause_menu.tscn")
-@export_file("*.tscn") var target_scene: String
-@export var transition_message: String
 
 var health_instance: CanvasLayer
 var pause_menu_instance: PauseMenu
@@ -31,7 +29,7 @@ func on_level_started() -> void:
 	health_instance = health_scene.instantiate()
 	get_child(0).add_child(health_instance)
 
-func on_player_entered_car_exit(_door_exit_position) -> void:
+func on_player_entered_car_exit(_door_exit_position, target_scene, transition_message) -> void:
 	# Asegurar que no estemos pausados al cambiar escena
 	if is_paused:
 		close_pause_menu()
