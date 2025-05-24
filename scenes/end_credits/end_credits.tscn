@@ -1,16 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvguofsdv61fr"]
 
 [ext_resource type="PackedScene" uid="uid://cyvvo6xfxo3yi" path="res://scenes/credits/credits.tscn" id="1_0sycx"]
-[ext_resource type="Script" uid="uid://cdrppvu708opk" path="res://scenes/end_credits/end_credits.gd" id="2_2v40y"]
+[ext_resource type="Script" uid="uid://d3n6j4ukqakrd" path="res://scenes/end_credits/end_credits.gd" id="2_2v40y"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_menus_template/base/scenes/music_players/background_music_player.tscn" id="3_bfvdl"]
 [ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_menus_template/base/scripts/capture_focus.gd" id="4_1kqi1"]
 
 [node name="EndCredits" instance=ExtResource("1_0sycx")]
 script = ExtResource("2_2v40y")
 main_menu_scene = "res://scenes/menus/main_menu/main_menu_with_animations.tscn"
+current_speed = 0.5
 
 [node name="BackgroundMusicPlayer" parent="." index="0" instance=ExtResource("3_bfvdl")]
-bus = &"Master"
 
 [node name="BackgroundColor" type="ColorRect" parent="." index="1"]
 layout_mode = 1
