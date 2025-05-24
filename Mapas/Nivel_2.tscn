@@ -811,7 +811,7 @@ tile_set = SubResource("TileSet_56w8q")
 [node name="Parallax" parent="Mapa" instance=ExtResource("1_pw7x7")]
 z_index = -2
 y_sort_enabled = true
-position = Vector2(0, -148)
+position = Vector2(0, -152)
 
 [node name="RejillasVentilacion" type="Node" parent="Mapa"]
 
