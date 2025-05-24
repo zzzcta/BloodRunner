@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://b14jha35c7bre"]
+[gd_scene load_steps=33 format=4 uid="uid://b14jha35c7bre"]
 
 [ext_resource type="PackedScene" uid="uid://br76tuopv06f8" path="res://Prefabs/blood_enemys.tscn" id="1_5ptt3"]
 [ext_resource type="Texture2D" uid="uid://fbmmtli3gklo" path="res://Recursos/TileSet/Tiles.png" id="1_dcs7f"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://d2vg2cnxxpf0k" path="res://Prefabs/Characters/Enemys/enemigo_distancia.tscn" id="11_u1cwo"]
 [ext_resource type="PackedScene" uid="uid://bihclwmtyk702" path="res://Prefabs/Props/door_start_level.tscn" id="13_lti2j"]
 [ext_resource type="PackedScene" uid="uid://c6mfsvdm21k5r" path="res://Prefabs/Props/door_atrezzo.tscn" id="15_5ptt3"]
+[ext_resource type="PackedScene" uid="uid://dlpbpafmu32sf" path="res://Prefabs/Props/car_in_level.tscn" id="18_jucgn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5s62s"]
 vertices = PackedVector2Array(26.9609, -10, 26.9531, -22, 42, -22, 310, -10, 310, -74, 42, -91.8594, 52.1406, -102, 651.859, -102, 362, -74, 662, -91.8594, 662, -10, 362, -10, 662, -138, 42, -138, 42, -214, 662, -214, 299.859, -342, 310, -331.859, 310, -298, 246, -298, 52.1406, -342, 330, -262, 330, -278, 342, -278, 342, -262, 426, -298, 362, -298, 362, -331.859, 372.141, -342, 651.859, -342, 662, -250, 426, -262, 662, -331.859, 42, -331.859, 246, -262, 42, -250, 134, -566, 134, -554, 70, -554, 42, -566, 70, -538, 54, -538, 42, -378, 54, -470, 70, -470, 70, -454, 662, -378, 662, -454, 299.859, -630, 310, -619.859, 310, -602, 214, -602, 52.1406, -630, 299.859, -534, 310, -523.859, 310, -490, 90, -490, 170, -518, 90, -518, 214, -534, 170, -602, 42, -602, 42, -619.859, 662, -619.859, 662, -490, 362, -490, 362, -619.859, 372.141, -630, 651.859, -630, 454, -758, 470, -758, 470, -742, 42, -666, 282, -742, 662, -742, 662, -666, 42, -742, 282, -758, 298, -758, 454, -838, 298, -838, 534, -1002, 234, -1002, 234, -1014, 362, -1014, 534, -1046, 378, -1030, 362, -1030, 378, -1046, 662, -1631.23, 662, -1578, 486, -1578, 42, -1635.79, 42, -1338, 470, -1562, 486, -1562, 470, -1414, 326, -1349.1, 486, -1414, 486, -1398, 662, -1398, 662, -1338, 506, -1349.1, 506, -1338, 326, -1338, 662, -1446, 683.047, -1446, 683, -1434, 506, -1434, 506, -1542, 662, -1542, 662, -1291.86, 662, -938, 602, -1003.71, 602, -1029.1, 566, -938, 570, -966, 570, -1029.1, 570, -1082, 651.859, -1302, 52.1406, -1302, 342, -1082, 342, -1050, 198, -1050, 42, -1291.86, 570, -1003.71, 198, -966, 534, -917.102, 566, -917.102, 534, -891.711, 566, -891.711, 566, -870, 490, -874, 662, -859.859, 662, -778, 490, -778, 262, -778, 42, -778, 42, -806, 218, -806, 262, -874, 218, -858, 42, -858, 42, -875.859, 52.1406, -886, 170, -886, 170, -954, 42, -954, 651.859, -870)
@@ -681,12 +682,6 @@ position = Vector2(292, -307)
 [node name="Sprite2D" parent="EnemigosDistancia/EnemigoDistancia2" index="1"]
 material = SubResource("ShaderMaterial_v5ohe")
 
-[node name="EnemigoDistancia3" parent="EnemigosDistancia" instance=ExtResource("11_u1cwo")]
-position = Vector2(292, -307)
-
-[node name="Sprite2D" parent="EnemigosDistancia/EnemigoDistancia3" index="1"]
-material = SubResource("ShaderMaterial_v5ohe")
-
 [node name="EnemigoDistancia4" parent="EnemigosDistancia" instance=ExtResource("11_u1cwo")]
 position = Vector2(151, -964)
 
@@ -765,6 +760,8 @@ material = SubResource("ShaderMaterial_5s62s")
 
 [node name="CarOut" parent="." instance=ExtResource("11_pc5yc")]
 position = Vector2(1045, -52)
+target_scene = "uid://bue45auu0djwf"
+transition_message = "Dia 2: Gaunts"
 
 [node name="DoorFinishLevel" parent="." instance=ExtResource("3_lti2j")]
 position = Vector2(689, -1440)
@@ -776,11 +773,13 @@ position = Vector2(16, -16)
 position = Vector2(340, -256)
 rotation = -3.14159
 
+[node name="CarInLevel" parent="." instance=ExtResource("18_jucgn")]
+position = Vector2(-270, -52)
+
 [editable path="Torretas/Torreta"]
 [editable path="Torretas/Torreta2"]
 [editable path="EnemigosDistancia/EnemigoDistancia"]
 [editable path="EnemigosDistancia/EnemigoDistancia2"]
-[editable path="EnemigosDistancia/EnemigoDistancia3"]
 [editable path="EnemigosDistancia/EnemigoDistancia4"]
 [editable path="EnemigosDistancia/EnemigoDistancia5"]
 [editable path="EnemigosBase/EnemyBase"]
