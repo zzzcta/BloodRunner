@@ -23,6 +23,8 @@ func _ready() -> void:
 func _on_player_died () -> void:
 	death_scene_instance = death_menu_scene.instantiate()
 	get_child(0).add_child(death_scene_instance)
+	AudioManager.stop_music()
+	AudioManager.music_player.stream = null
 	health_instance.queue_free()
 	
 func on_level_started() -> void:
