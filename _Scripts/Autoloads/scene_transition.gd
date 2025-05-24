@@ -20,7 +20,8 @@ func _ready() -> void:
 
 func setup_transition_elements() -> void:
 	# Crear un nodo control para contener todos los elementos
-	var container = Control.new()
+	var container: Control = Control.new()
+	container.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	container.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(container)
 	
