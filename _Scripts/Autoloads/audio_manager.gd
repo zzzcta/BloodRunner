@@ -103,7 +103,15 @@ func play_music(track_name: String, fade_in: bool = false) -> void:
 	if fade_in:
 		music_player.volume_db = -80
 		var tween: Tween = create_tween()
-		tween.tween_property(music_player, "volume_db", 0, 1.0)
+		tween.tween_property(music_player, "volume_db", 0, 1.5)
+		
+func stop_music() -> void:
+	if music_player.playing:
+		music_player.volume_db = -80
+		var tween: Tween = create_tween()
+		tween.tween_property(music_player, "volume_db", 0, 2.0)
+		
 		
 func _load_audio_resources() -> void:
 	sfx_sounds["fan"] = preload("res://Audio/sfx/fan.wav")
+	music_tracks["Portal to Underworld"] = preload("res://Audio/music/DavidKBD - Pink Bloom Pack - 02 - Portal to Underworld.ogg")
