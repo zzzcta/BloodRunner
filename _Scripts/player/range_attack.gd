@@ -30,6 +30,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "projectile_explosion":
 		queue_free()
 
-func _on_hit_box_component_body_entered(body: Node2D) -> void:
+func _on_hit_box_component_body_entered(_body: Node2D) -> void:
 	colliding = true
 	animation_player.play("projectile_explosion")
