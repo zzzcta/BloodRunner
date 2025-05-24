@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://cfew82hkh4lm1"]
+[gd_scene load_steps=45 format=4 uid="uid://cfew82hkh4lm1"]
 
 [ext_resource type="Texture2D" uid="uid://fbmmtli3gklo" path="res://Recursos/TileSet/Tiles.png" id="1_7xd25"]
 [ext_resource type="PackedScene" uid="uid://br76tuopv06f8" path="res://Prefabs/blood_enemys.tscn" id="1_ignam"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://duji41jrynl4v" path="res://Prefabs/Props/rejilla_tp.tscn" id="8_06qmo"]
 [ext_resource type="PackedScene" uid="uid://l13vchhleoe" path="res://Prefabs/Characters/Enemys/enemy_base.tscn" id="9_ujms2"]
 [ext_resource type="PackedScene" uid="uid://kpdg4ms7p11" path="res://Prefabs/Props/rejilla_sangre.tscn" id="13_qrjvj"]
+[ext_resource type="PackedScene" uid="uid://da13veskah1ov" path="res://Prefabs/Props/door_finish_level.tscn" id="13_rdrmd"]
 [ext_resource type="PackedScene" uid="uid://bihclwmtyk702" path="res://Prefabs/Props/door_start_level.tscn" id="14_d83ea"]
 [ext_resource type="PackedScene" uid="uid://c6mfsvdm21k5r" path="res://Prefabs/Props/door_atrezzo.tscn" id="15_0ji1w"]
 [ext_resource type="PackedScene" uid="uid://d2vg2cnxxpf0k" path="res://Prefabs/Characters/Enemys/enemigo_distancia.tscn" id="15_5s1ob"]
@@ -645,7 +646,7 @@ texture = ExtResource("2_sldhm")
 24:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_56w8q"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 9
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_owmoe")
 sources/2 = SubResource("TileSetAtlasSource_0ltj2")
@@ -667,9 +668,12 @@ position = Vector2(2151, -52)
 target_scene = "uid://bvguofsdv61fr"
 transition_message = "Dia ????"
 
+[node name="RejillaSangre" parent="." instance=ExtResource("13_qrjvj")]
+position = Vector2(1503, -1202)
+
 [node name="player_test" parent="." instance=ExtResource("3_0ltj2")]
 z_index = 5
-position = Vector2(1895, -19)
+position = Vector2(-70, -25)
 
 [node name="Mapa" type="Node" parent="."]
 
@@ -731,7 +735,7 @@ position = Vector2(1608, -4)
 
 [node name="RejillaVentilacion7" parent="Mapa/RejillasVentilacion" instance=ExtResource("2_ujms2")]
 z_index = 2
-position = Vector2(1531, -1076)
+position = Vector2(1531, -1080)
 
 [node name="RejillaVentilacion8" parent="Mapa/RejillasVentilacion" instance=ExtResource("2_ujms2")]
 z_index = 2
@@ -869,9 +873,8 @@ rotation = -3.14159
 position = Vector2(336, -288)
 rotation = -3.14159
 
-[node name="DoorAtrezzo5" parent="Mapa/Puertas" instance=ExtResource("15_0ji1w")]
-position = Vector2(1124, -2079)
-rotation = -3.14159
+[node name="DoorFinishLevel" parent="Mapa/Puertas" instance=ExtResource("13_rdrmd")]
+position = Vector2(1137, -2080)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -966,7 +969,7 @@ position = Vector2(1467, -1087)
 
 [node name="EnemyBase25" parent="EnemigosBase" instance=ExtResource("9_ujms2")]
 z_index = 4
-position = Vector2(1443, -1248)
+position = Vector2(1497, -1223)
 
 [node name="EnemyBase26" parent="EnemigosBase" instance=ExtResource("9_ujms2")]
 z_index = 4
@@ -1158,7 +1161,7 @@ position = Vector2(1186, -1140)
 position = Vector2(1372, -1252)
 
 [node name="EnemigoDistancia15" parent="EnemigosDistancia" instance=ExtResource("15_5s1ob")]
-position = Vector2(1574, -1299)
+position = Vector2(1589, -1297)
 
 [node name="EnemigoDistancia16" parent="EnemigosDistancia" instance=ExtResource("15_5s1ob")]
 position = Vector2(295, -1204)
