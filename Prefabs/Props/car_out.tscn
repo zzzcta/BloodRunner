@@ -5,14 +5,17 @@
 [sub_resource type="GDScript" id="GDScript_f4hbx"]
 script/source = "extends Node2D
 
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@export_file(\"*.tscn\") var target_scene: String
+@export var transition_message: String
 var moving: bool = false
 
 func _on_area_2d_body_entered(_actor: Node2D) -> void:
 	animated_sprite.visible = true
 	animated_sprite.play(\"Close\")
 	await animated_sprite.animation_finished
-	SignalBuss.player_enter_car_exit($Marker2D.global_position)
+	SignalBuss.player_enter_car_exit($Marker2D.global_position, target_scene, transition_message)
 	
 func _on_animated_sprite_2d_animation_finished() -> void:
 	moving = true
