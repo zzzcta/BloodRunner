@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d2vg2cnxxpf0k"]
+[gd_scene load_steps=18 format=3 uid="uid://d2vg2cnxxpf0k"]
 
 [ext_resource type="Script" uid="uid://c6df7gsv1houj" path="res://_Scripts/Enemys/enemigo_distancia.gd" id="1_dd471"]
 [ext_resource type="PackedScene" uid="uid://b25ondfso70wi" path="res://Componentes/hitbox_component.tscn" id="2_esiwq"]
@@ -114,9 +114,25 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 }
 
+[sub_resource type="Animation" id="Animation_ph2f2"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35, 36, 37, 38, 39, 40]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_prcjh"]
 _data = {
 &"RESET": SubResource("Animation_lprxi"),
+&"death": SubResource("Animation_ph2f2"),
 &"hit": SubResource("Animation_uo337"),
 &"idle": SubResource("Animation_qq13m"),
 &"shoot": SubResource("Animation_hkljx"),
@@ -175,7 +191,8 @@ shape = SubResource("RectangleShape2D_wylqb")
 [node name="ShootPoint" type="Node2D" parent="ShootHandler"]
 position = Vector2(14, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ShootHandler"]
+[node name="Debug" type="Sprite2D" parent="ShootHandler"]
+visible = false
 position = Vector2(7.25, 0)
 scale = Vector2(15.5, 1)
 texture = SubResource("PlaceholderTexture2D_e14v2")

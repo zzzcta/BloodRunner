@@ -6,6 +6,7 @@ class_name Torreta
 @onready var shoot_point: Node2D = $Arriba/ShootPoint
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var flip : bool
 @export_range(15,90) var range_vision : float = 45
@@ -86,11 +87,15 @@ func aiming() -> void:
 
 func shoot() -> void:
 	var instance = loaded_bullet.instantiate()
+	animation_player.play("shoot")
 	instance.position = shoot_point.global_position
 	instance.rotation = shoot_point.global_rotation
 	if flip: instance.rotation += PI
 	get_tree().current_scene.add_child(instance)
 	AudioManager.play_sfx("range_attack_enemy", 600, global_position, 2, randf_range(0.9, 1.15))
+	await animation_player.animation_finished
+	animation_player.play("aim")
+	
 
 
 func detect_player(target_pos:Vector2) -> void:
@@ -106,5 +111,7 @@ func player_dead() -> void:
 
 
 func _death() -> void:
+	animation_player.play("death")
+	await animation_player.animation_finished
 	queue_free()
 	AudioManager.play_sfx("dead", 450, global_position, 1, randf_range(0.90, 1.1))
