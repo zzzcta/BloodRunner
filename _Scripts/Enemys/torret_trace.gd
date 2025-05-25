@@ -9,7 +9,7 @@ var fly : bool = true
 
 func _ready() -> void:
 	punch_component.wall_collision.connect(wall_col)
-	health_component.hit.connect(recibir_ataque)
+	health_component.died.connect(recibir_ataque)
 
 func _physics_process(delta: float) -> void:
 	if fly: translate(Vector2.RIGHT.rotated(rotation) * delta * speed)
@@ -22,5 +22,4 @@ func wall_col() -> void:
 
 
 func recibir_ataque() -> void:
-	print("DEBUG:: RECIBIENDO ATAQUE DE PLAYER Y MURIENDO")
 	wall_col()
