@@ -828,6 +828,7 @@ position = Vector2(689, -1440)
 [node name="DoorStartLevel" parent="." instance=ExtResource("13_lti2j")]
 z_index = -1
 position = Vector2(17, -16)
+level = 1
 
 [node name="DoorAtrezzo" parent="." instance=ExtResource("15_5ptt3")]
 z_index = -1
