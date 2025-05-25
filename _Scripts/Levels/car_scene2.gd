@@ -8,6 +8,7 @@ extends Node
 @export_file("*.tscn") var target_scene : String
 
 func _ready() -> void:
+	AudioManager.play_music("TheHiddenOne", 0.1, true)
 	animated_sprite_2d.play("idle_brazo")
 	$AnimatedSprite2D/Camera2D.position = camera_starting.position
 	
