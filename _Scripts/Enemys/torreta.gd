@@ -113,5 +113,6 @@ func player_dead() -> void:
 func _death() -> void:
 	animation_player.play("death")
 	await animation_player.animation_finished
+	AudioManager.play_sfx("die", 450, global_position, 1, randf_range(0.90, 1.1))
 	queue_free()
-	AudioManager.play_sfx("dead", 450, global_position, 1, randf_range(0.90, 1.1))
+	
