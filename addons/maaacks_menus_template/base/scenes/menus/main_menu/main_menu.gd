@@ -73,7 +73,7 @@ func _ready() -> void:
 	_add_or_hide_options()
 	_add_or_hide_credits()
 	_hide_new_game_if_unset()
-	AudioManager.play_music("NaturalLife", 0.15)
+	AudioManager.play_music("NaturalLife", 0.1)
 
 func _on_new_game_button_pressed() -> void:
 	new_game()
