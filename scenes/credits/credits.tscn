@@ -1,27 +1,49 @@
 [gd_scene load_steps=3 format=3 uid="uid://cyvvo6xfxo3yi"]
 
-[ext_resource type="PackedScene" path="res://addons/maaacks_menus_template/base/scenes/credits/credits.tscn" id="1_8n0nl"]
-[ext_resource type="Script" path="res://scenes/credits/credits.gd" id="2_c8xcy"]
+[ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://addons/maaacks_menus_template/base/scenes/credits/credits.tscn" id="1_8n0nl"]
+[ext_resource type="Script" uid="uid://5ok6w8jh0fog" path="res://scenes/credits/credits.gd" id="2_c8xcy"]
 
 [node name="Credits" instance=ExtResource("1_8n0nl")]
 script = ExtResource("2_c8xcy")
 attribution_file_path = "res://ATTRIBUTION.md"
 
 [node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" index="1"]
-text = "[center][font_size=48]Collaborators[/font_size]
+text = "[center][font_size=48]Colaboradores[/font_size]
 
-[font_size=32]Role[/font_size]
-Person 1  
-Person 2  
-[url=]Person w/ Link[/url]  
+[font_size=64]Roles[/font_size]
+Pablo Martínez López | Programador / Game design 
+Miguel Angel Vera Ximenez | Arte / Animación / Narrativa
+Santiago Lopez Cabanes | Programador / Narrativa
+Miguel Goyanes Quelle | Diseñador de niveles
+Vanessa Ramirez Carrion | Arte / Diseño
+Abel Ahimsa Martín Crego | Arte / Animación
 
+[font_size=48]Sourced[/font_size]
+###Assets
+Author: Anokolisa
+Source: [Domain : webpage.html]https://anokolisa.itch.io/sidescroller-shooter-central-city
+License:
+[font_size=32]Musica[/font_size]
+Author: DavidKBD 
+Source: [url=https://www.davidkbd.com/music-packs]Domain : webpage.html[/url]  
+License: [url=https://creativecommons.org/licenses/by/4.0/]CC By 4.0[/url]
+[font_size=32]SFX[/font_size]
+Author:  
+Source: 
+License:
 
-[font_size=48]Sourced / Unaffiliated[/font_size]
-[font_size=32]Asset Type[/font_size]
-[font_size=24]Use Case[/font_size]
-Author: [url=]Name[/url]  
-Source: [url=]Domain : webpage.html[/url]  
-License: [url=]License[/url]
+Author:  
+Source: 
+License:
+
+Author:  
+Source: 
+License:
+
+Author:  
+Source: 
+License:
+
 
 [font_size=24]Godot Engine Logo[/font_size]
 Author: Andrea Calabró  
