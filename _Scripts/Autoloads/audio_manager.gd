@@ -121,6 +121,15 @@ func _load_audio_resources() -> void:
 	# SFX
 	sfx_sounds["fan"] = preload("res://Audio/sfx/fan.wav")
 	sfx_sounds["die"] = preload("res://Audio/sfx/Die.wav")
+	sfx_sounds["door"] = preload("res://Audio/sfx/Door.wav")
+	sfx_sounds["jump"] = preload("res://Audio/sfx/Jump_Player.wav")
+	sfx_sounds["hit"] = preload("res://Audio/sfx/Hit.wav")
+	sfx_sounds["run"] = preload("res://Audio/sfx/Run.wav")
+	sfx_sounds["transform"] = preload("res://Audio/sfx/Transform.wav")
+	sfx_sounds["range_attack_enemy"] = preload("res://Audio/sfx/Range_Attack_Enemy.wav")
+	sfx_sounds["range_shoot_bad"] = preload("res://Audio/sfx/range_shoot_bad.wav")
+	sfx_sounds["Slit"] = preload("res://Audio/sfx/Slit.wav")
+	
 	
 	# Musica
 	music_tracks["NaturalLife"] = preload("res://Audio/music/DavidKBD - HexaPuppies Pack - 05 - Natural Life - 3(1).ogg")
