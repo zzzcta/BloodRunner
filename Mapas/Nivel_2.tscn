@@ -754,7 +754,7 @@ transition_message = "Dia ????"
 
 [node name="player_test" parent="." instance=ExtResource("3_0ltj2")]
 z_index = 5
-position = Vector2(-186, -15)
+position = Vector2(-187, -15)
 
 [node name="Mapa" type="Node" parent="."]
 
@@ -811,7 +811,7 @@ tile_set = SubResource("TileSet_56w8q")
 [node name="Parallax" parent="Mapa" instance=ExtResource("1_pw7x7")]
 z_index = -2
 y_sort_enabled = true
-position = Vector2(0, -152)
+position = Vector2(0, -154)
 
 [node name="RejillasVentilacion" type="Node" parent="Mapa"]
 
