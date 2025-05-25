@@ -531,6 +531,9 @@ position = Vector2(0, -100)
 [node name="Player" parent="." instance=ExtResource("1_snwyg")]
 position = Vector2(-202, -15)
 
+[node name="HealthComponent" parent="Player" index="11"]
+max_health = 50.0
+
 [node name="Mapa" type="Node" parent="."]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Mapa"]
@@ -838,6 +841,7 @@ rotation = -3.14159
 [node name="CarInLevel" parent="." instance=ExtResource("18_jucgn")]
 position = Vector2(-270, -52)
 
+[editable path="Player"]
 [editable path="Torretas/Torreta"]
 [editable path="Torretas/Torreta2"]
 [editable path="EnemigosDistancia/EnemigoDistancia"]
