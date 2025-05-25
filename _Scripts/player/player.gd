@@ -81,7 +81,11 @@ func _process(delta):
 #region Gestion del decreasing_health
 	# Comprobamos que el efecto de decreasing_health este activo
 	if decreasing_health and !is_dead:
-		health_component.current_health -= delta # Restamos la vida actual con delta
+		if is_transformed:
+			health_component.current_health -= delta * 3 # Restamos la vida actual con delta
+		else:
+			health_component.current_health -= delta # Restamos la vida actual con delta
+			
 		SignalBuss.update_health(health_component.current_health, health_component.max_health)
 		# Si ya nuestra vida es <= 0 y no estamos muertos, nos morimos :=(
 		if health_component.current_health <= 0 and !is_dead:
