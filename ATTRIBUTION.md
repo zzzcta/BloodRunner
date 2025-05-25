@@ -1,17 +1,20 @@
-# Attribution
-## Collaborators
+# Creditos
+## Colaboradores
 
 # Roles
-Pablo Martínez López
-[Person w/ Link]()  
+Pablo Martínez López | Programador / Game design 
+Miguel Angel Vera Ximenez | Arte / Animación / Narrativa
+Santiago Lopez Cabanes | Programador / Narrativa
+Miguel Goyanes Quelle | Diseñador de niveles
+Vanessa Ramirez Carrion | Arte / Diseño
+Abel Ahimsa Martín Crego | Arte / Animación
 
-
-## Sourced / Unaffiliated
-### Asset Type
-#### Use Case
-Author: [Name]()  
-Source: [Domain : webpage.html]()  
-License: [License]()
+## Sourced
+### Musica
+Author: DavidKBD 
+Source: [Domain : webpage.html](https://www.davidkbd.com/music-packs)  
+License: [CC By 4.0](https://creativecommons.org/licenses/by/4.0/)
+### SFX
 
 #### Godot Engine Logo
 Author: Andrea Calabró  

@@ -175,7 +175,7 @@ func start_cooldown(action_name: String) -> void:
 #endregion
 
 #region signals
-func _on_level_started() -> void:
+func _on_level_started(_level: int) -> void:
 	decreasing_health = true
 
 func _on_level_finished() -> void:
