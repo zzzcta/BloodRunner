@@ -31,9 +31,9 @@ func on_level_started(level) -> void:
 	health_instance = health_scene.instantiate()
 	get_child(0).add_child(health_instance)
 	if level == 1:
-		AudioManager.play_music("LightYearCity", 0.7)
+		AudioManager.play_music("LightYearCity", 0.7, true)
 	elif level == 2:
-		AudioManager.play_music("Portal to Underworld", 0.7)
+		AudioManager.play_music("Portal to Underworld", 0.7, true)
 
 func on_player_entered_car_exit(_door_exit_position, target_scene, transition_message) -> void:
 	# Asegurar que no estemos pausados al cambiar escena
