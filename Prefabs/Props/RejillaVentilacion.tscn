@@ -124,10 +124,11 @@ scale = Vector2(1.36, 1.24)
 shape = SubResource("RectangleShape2D_0ayug")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-amount = 25
+amount = 70
+lifetime = 1.2
+speed_scale = 1.8
 randomness = 1.0
 local_coords = true
-trail_enabled = true
 process_material = SubResource("ParticleProcessMaterial_x2bp2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
