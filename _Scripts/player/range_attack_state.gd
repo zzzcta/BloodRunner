@@ -21,6 +21,7 @@ func enter():
 	if can_attack:
 		actor.is_range_attacking = true
 		actor.attacks_sprite.visible = true
+		AudioManager.play_sfx("melee_attack_player", 450, actor.global_position, 1, randf_range(0.90, 1.15))
 		actor.start_cooldown("range_attack")
 		create_attack_hitbox()
 	
