@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvguofsdv61fr"]
+[gd_scene load_steps=5 format=3 uid="uid://bvguofsdv61fr"]
 
 [ext_resource type="PackedScene" uid="uid://cyvvo6xfxo3yi" path="res://scenes/credits/credits.tscn" id="1_0sycx"]
 [ext_resource type="Script" uid="uid://cdrppvu708opk" path="res://scenes/end_credits/end_credits.gd" id="2_2v40y"]
-[ext_resource type="PackedScene" uid="uid://cpg6tsp06con8" path="res://Prefabs/parallax.tscn" id="3_2v40y"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_menus_template/base/scenes/music_players/background_music_player.tscn" id="3_bfvdl"]
 [ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_menus_template/base/scripts/capture_focus.gd" id="4_1kqi1"]
 
@@ -10,8 +9,6 @@
 script = ExtResource("2_2v40y")
 main_menu_scene = "res://scenes/menus/main_menu/main_menu_with_animations.tscn"
 current_speed = 0.65
-
-[node name="Parallax" parent="." index="0" instance=ExtResource("3_2v40y")]
 
 [node name="BackgroundMusicPlayer" parent="." index="1" instance=ExtResource("3_bfvdl")]
 
@@ -38,6 +35,7 @@ stretch_mode = 5
 scroll_vertical = 0
 
 [node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(640, 0)
 text = "[center][font_size=48]Colaboradores[/font_size]
 
 [font_size=64]Roles[/font_size]
@@ -130,5 +128,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Menu"
 
+[connection signal="meta_clicked" from="ScrollContainer/VBoxContainer/CreditsLabel" to="." method="_on_CreditsLabel_meta_clicked"]
 [connection signal="pressed" from="CenterContainer/EndMessagePanel/VBoxContainer/CenterContainer/HBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="pressed" from="CenterContainer/EndMessagePanel/VBoxContainer/CenterContainer/HBoxContainer/MenuButton" to="." method="_on_MenuButton_pressed"]
