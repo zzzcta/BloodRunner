@@ -25,7 +25,7 @@ func _on_body_entered(_body: Node2D) -> void:
 	player_test.move_and_slide()
 	
 	var tween = create_tween()
-	var pos := camera_2d.position + (Vector2(1,-0.5) * 80)
+	var pos := camera_2d.position + (Vector2(1,-0.2) * 80)
 	tween.tween_property(camera_2d, "position", pos, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	
 	await get_tree().create_timer(2.0).timeout
