@@ -8,4 +8,5 @@ func _ready() -> void:
 	
 func on_door_died() -> void:
 	$AnimationPlayer.play("Open")
+	AudioManager.play_sfx("door", 250, global_position, 1.0, randf_range(0.9,1.1))
 	$StaticBody2D/CollisionShape2D.set_deferred("disabled", true)

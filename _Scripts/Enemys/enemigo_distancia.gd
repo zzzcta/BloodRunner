@@ -124,6 +124,7 @@ func _shoot() -> void:
 	instance.rotation = shoot_point.global_rotation
 	get_tree().current_scene.add_child(instance)
 	animator._on_shoot()
+	AudioManager.play_sfx("range_attack_enemy", 600, global_position, 2, randf_range(0.9, 1.15))
 
 ##Devuelve el angulo opuesto en una escala angular
 func wrap_angle(angle: float) -> float:
@@ -182,8 +183,9 @@ func _player_lost() -> void:
 
 func _on_hit() -> void:
 	animator._on_damaged()
-
+	AudioManager.play_sfx("hit", 450, global_position, 1, randf_range(0.90, 1.1))
 
 func _death() -> void:
 	SignalBuss.enemy_die(player_health_recover, self.global_position)
+	AudioManager.play_sfx("die", 450, global_position, 1, randf_range(0.95, 1.1))
 	queue_free()

@@ -19,23 +19,17 @@ func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 		return
 		
 	if destination:
-		
 		# Guardamos referencia al jugador que se teleporta
 		teleporting_player = body
-		
 		# Desactivamos este teleport
 		can_teleport = false
-		
 		# Desactivamos el teleport de destino para evitar rebotes
 		if destination.has_method("disable_teleport"):
 			destination.disable_teleport()
-		
 		# Teletransportamos al jugador
-		
+		AudioManager.play_sfx("Slit", 500, global_position, 2, randf_range(0.9, 1.15))
 		var tween: Tween = create_tween()
-		
 		tween.tween_property(body, "global_position", destination.global_position, 0.25).set_trans(Tween.TRANS_QUAD)
-		
 		# Iniciamos un temporizador para reactivar los teleports despues de un tiempo
 		var timer = get_tree().create_timer(teleport_cooldown)
 		timer.timeout.connect(_on_cooldown_timeout)

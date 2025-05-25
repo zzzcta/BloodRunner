@@ -5,6 +5,7 @@ func enter():
 	
 func update(_delta: float):
 	pass
+	
 
 func physics_update(delta: float) -> void:
 	actor.apply_gravity(delta)
