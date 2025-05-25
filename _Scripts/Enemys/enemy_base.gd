@@ -153,10 +153,9 @@ func _on_hit() -> void:
 
 func _death() -> void:
 	player_died = true
+	$CollisionShape2D.set_deferred("disabled", true)
 	SignalBuss.enemy_die(player_health_recover, self.global_position)
 	AudioManager.play_sfx("die", 450, global_position, 1, randf_range(0.95, 1.1))
-	
 	animation_player.play("death")
-	
 	await animation_player.animation_finished
 	queue_free()
