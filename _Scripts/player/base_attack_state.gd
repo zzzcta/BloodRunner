@@ -6,6 +6,8 @@ var active_base_attack_hitbox: Node2D = null
 func enter():
 	actor.is_base_attacking = true
 	
+	AudioManager.play_sfx("melee_attack_player", 450, actor.global_position, 1, randf_range(0.90, 1.15))
+	
 	actor.is_impulse = true
 	
 	if actor.get_local_mouse_position().x < 0:

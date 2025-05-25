@@ -129,6 +129,8 @@ func _load_audio_resources() -> void:
 	sfx_sounds["range_attack_enemy"] = preload("res://Audio/sfx/Range_Attack_Enemy.wav")
 	sfx_sounds["range_shoot_bad"] = preload("res://Audio/sfx/range_shoot_bad.wav")
 	sfx_sounds["Slit"] = preload("res://Audio/sfx/Slit.wav")
+	sfx_sounds["melee_attack_player"] = preload("res://Audio/sfx/Melee_Attack_Player.wav")
+	sfx_sounds["range_attack_player"] = preload("res://Audio/sfx/Range_Attack_Player.wav")
 	
 	
 	# Musica
