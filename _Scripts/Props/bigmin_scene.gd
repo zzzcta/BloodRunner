@@ -11,6 +11,7 @@ extends Node
 var opened : bool = false
 
 func _ready() -> void:
+	
 	bigmin.bigmin_died.connect(_bigmin_dead)
 
 func _on_body_entered(_body: Node2D) -> void:
@@ -18,6 +19,7 @@ func _on_body_entered(_body: Node2D) -> void:
 	
 	opened = true
 	print("Empieza la fiesta")
+	AudioManager.play_music("Disaster", 0.6, true)
 	player_test.on_start_dialogue()
 	player_test.velocity = Vector2.ZERO
 	player_test.move_and_slide()
