@@ -733,10 +733,10 @@ transition_message = "Dia ????"
 
 [node name="player_test" parent="." instance=ExtResource("3_0ltj2")]
 z_index = 5
-position = Vector2(-184, -15)
+position = Vector2(-185, -15)
 
 [node name="HealthComponent" parent="player_test" index="11"]
-max_health = 70.0
+max_health = 65.0
 
 [node name="Mapa" type="Node" parent="."]
 
