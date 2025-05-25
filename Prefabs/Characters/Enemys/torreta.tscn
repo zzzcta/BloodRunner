@@ -157,6 +157,7 @@ hframes = 6
 vframes = 4
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_rhqg1")]
+max_health = 5.0
 
 [node name="HitboxComponent" parent="." instance=ExtResource("5_swyrn")]
 collision_layer = 4

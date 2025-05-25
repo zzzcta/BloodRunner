@@ -92,9 +92,10 @@ func shoot() -> void:
 	instance.rotation = shoot_point.global_rotation
 	if flip: instance.rotation += PI
 	get_tree().current_scene.add_child(instance)
-	
+	AudioManager.play_sfx("range_attack_enemy", 600, global_position, 2, randf_range(0.9, 1.15))
 	await animation_player.animation_finished
 	animation_player.play("aim")
+	
 
 
 func detect_player(target_pos:Vector2) -> void:
@@ -113,3 +114,4 @@ func _death() -> void:
 	animation_player.play("death")
 	await animation_player.animation_finished
 	queue_free()
+	AudioManager.play_sfx("dead", 450, global_position, 1, randf_range(0.90, 1.1))

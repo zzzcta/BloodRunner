@@ -28,7 +28,7 @@ func enter():
 		actor.play_animation(actor.animation_player, "range_attack")
 	else:
 		actor.play_animation(actor.animation_player, "range_attack_air")
-	
+		
 	if can_attack:
 		actor.play_animation(actor.sfx_attacks, "range_attack")
 		

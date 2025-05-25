@@ -148,11 +148,13 @@ func _player_lost() -> void:
 
 func _on_hit() -> void:
 	change_state(4)
+	AudioManager.play_sfx("hit", 450, global_position, 1, randf_range(0.90, 1.1))
 
 
 func _death() -> void:
 	player_died = true
 	SignalBuss.enemy_die(player_health_recover, self.global_position)
+  AudioManager.play_sfx("die", 450, global_position, 1, randf_range(0.95, 1.1))
 	
 	animation_player.play("death")
 	
