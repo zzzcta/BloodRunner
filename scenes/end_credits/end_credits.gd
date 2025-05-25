@@ -16,6 +16,7 @@ func _on_ExitButton_pressed() -> void:
 	get_tree().quit()
 
 func _ready() -> void:
+	AudioManager.play_music("NaturalLife", 0.1)
 	if main_menu_scene.is_empty():
 		%MenuButton.hide()
 	if OS.has_feature("web"):
