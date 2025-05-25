@@ -10,7 +10,7 @@ extends Node2D
 
 
 func _ready() -> void:
-	AudioManager.play_music("TheHiddenOne", 0.05)
+	AudioManager.play_music("TheHiddenOne", 0.1, true)
 	$AnimatedSprite2D/Camera2D.position = camera_starting.position
 	
 	await get_tree().create_timer(2.0).timeout
