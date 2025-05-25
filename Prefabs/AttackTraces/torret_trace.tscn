@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxf5jjkjutjpo"]
+[gd_scene load_steps=19 format=3 uid="uid://cxf5jjkjutjpo"]
 
 [ext_resource type="PackedScene" uid="uid://dhmilqoeflyd2" path="res://Componentes/punch_component.tscn" id="1_05ggi"]
 [ext_resource type="Script" uid="uid://b7xiskw2d247t" path="res://_Scripts/Enemys/torret_trace.gd" id="1_msel0"]
@@ -69,19 +69,19 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.5,
+"duration": 0.2,
 "texture": SubResource("AtlasTexture_y22gm")
 }, {
-"duration": 0.5,
+"duration": 0.2,
 "texture": SubResource("AtlasTexture_lrkma")
 }, {
-"duration": 0.5,
+"duration": 0.2,
 "texture": SubResource("AtlasTexture_7bel5")
 }, {
-"duration": 0.5,
+"duration": 0.2,
 "texture": SubResource("AtlasTexture_nypen")
 }, {
-"duration": 0.5,
+"duration": 0.2,
 "texture": SubResource("AtlasTexture_yni8g")
 }],
 "loop": false,
@@ -92,7 +92,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dxfkx"]
 size = Vector2(11, 6)
 
-[node name="TorretTrace" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_me15t"]
+size = Vector2(7, 2)
+
+[node name="TorretTrace" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 9
+gravity_scale = 0.0
 script = ExtResource("1_msel0")
 speed = 200.0
 
@@ -107,15 +113,23 @@ damage = 30.0
 position = Vector2(9.53674e-07, -0.999999)
 scale = Vector2(0.583333, 0.583333)
 sprite_frames = SubResource("SpriteFrames_lrkma")
+animation = &"explode"
 autoplay = "default"
+frame = 4
+frame_progress = 1.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_hp657")]
 max_health = 0.025
 
 [node name="HitboxComponent" parent="." instance=ExtResource("5_me15t")]
+scale = Vector2(1.39733, 1.57333)
 collision_layer = 4
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_dxfkx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_me15t")
