@@ -185,5 +185,11 @@ func _on_hit() -> void:
 
 
 func _death() -> void:
+	player_dead = true
 	SignalBuss.enemy_die(player_health_recover, self.global_position)
+	
+	animator.play("death")
+	
+	await animator.animation_finished
+	
 	queue_free()
