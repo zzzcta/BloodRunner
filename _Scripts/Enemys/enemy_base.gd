@@ -54,9 +54,12 @@ func _physics_process(delta: float) -> void:
 		
 	if player_ref == null: return
 	
+	var distance_to_target : float = position.distance_to(player_ref.position)
+	
+	if distance_to_target > 300: return
+	
 	move_to_player(delta)
 	
-	var distance_to_target : float = position.distance_to(player_ref.position)
 	if distance_to_target <= attack_threshold and state != 4:
 		change_state(EnemyState.ATTACK)
 	
