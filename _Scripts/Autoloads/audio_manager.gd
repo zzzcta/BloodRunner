@@ -101,9 +101,6 @@ func play_music(track_name: String, volume: float, fade_in: bool = false) -> voi
 		print("Music track not found: ", track_name)
 		return
 	
-	if music_player.playing:
-		stop_music()
-		
 	music_player.stream = music_tracks[track_name]
 	music_player.volume_db = linear_to_db(volume)
 	music_player.play()
@@ -111,7 +108,7 @@ func play_music(track_name: String, volume: float, fade_in: bool = false) -> voi
 	if fade_in:
 		music_player.volume_db = -80
 		var tween: Tween = create_tween()
-		tween.tween_property(music_player, "volume_db", 0, 1.5)
+		tween.tween_property(music_player, "volume_db", linear_to_db(volume), 1.5)
 		
 func stop_music() -> void:
 	if music_player.playing:
@@ -130,3 +127,4 @@ func _load_audio_resources() -> void:
 	music_tracks["LightYearCity"] = preload("res://Audio/music/DavidKBD - Pink Bloom Pack - 09 - Lightyear City.ogg")
 	music_tracks["Portal to Underworld"] = preload("res://Audio/music/DavidKBD - Pink Bloom Pack - 02 - Portal to Underworld.ogg")
 	music_tracks["TheHiddenOne"] = preload("res://Audio/music/DavidKBD - Pink Bloom Pack - 07 - The Hidden One.ogg")
+	music_tracks["Disaster"] = preload("res://Audio/music/DavidKBD - HexaPuppies Pack - 09 - Disaster - 1.ogg")
