@@ -54,6 +54,9 @@ func _physics_process(delta: float) -> void:
 	if player_ref == null: return
 	
 	var distance = global_position.distance_to(player_ref.global_position)
+	
+	if distance > 300: return
+	
 	var _distance_to_target : float = position.distance_to(player_ref.position)
 	
 	_aim(delta)
