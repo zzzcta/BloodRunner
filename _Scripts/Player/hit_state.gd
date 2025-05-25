@@ -5,6 +5,7 @@ var animation_finished: bool
 func enter():
 	actor.velocity = Vector2(0, 0)
 	actor.play_animation(actor.animation_player, "hit")
+	AudioManager.play_sfx("hit", 450, actor.global_position, 1, randf_range(0.75, 0.9))
 	
 func physics_update(delta: float) -> void:
 	# Aplicamos gravedad para asegurarnos de que el jugador se mantenga en el suelo
