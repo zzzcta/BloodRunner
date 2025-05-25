@@ -6,7 +6,7 @@ extends Node
 
 var health_instance: CanvasLayer
 var pause_menu_instance: PauseMenu
-var death_scene_instance 
+var death_scene_instance: Control
 var is_paused: bool = false
 
 func _ready() -> void:
@@ -23,11 +23,17 @@ func _ready() -> void:
 func _on_player_died () -> void:
 	death_scene_instance = death_menu_scene.instantiate()
 	get_child(0).add_child(death_scene_instance)
+	AudioManager.stop_music()
+	AudioManager.music_player.stream = null
 	health_instance.queue_free()
 	
-func on_level_started() -> void:
+func on_level_started(level) -> void:
 	health_instance = health_scene.instantiate()
 	get_child(0).add_child(health_instance)
+	if level == 1:
+		AudioManager.play_music("LightYearCity", 0)
+	elif level == 2:
+		AudioManager.play_music("Portal to Underworld", 100)
 
 func on_player_entered_car_exit(_door_exit_position, target_scene, transition_message) -> void:
 	# Asegurar que no estemos pausados al cambiar escena
@@ -40,7 +46,7 @@ func on_level_finished() -> void:
 		health_instance.queue_free()
 		health_instance = null
 	
-	# Limpiar menú de pausa
+	# Limpiar menu de pausa
 	if pause_menu_instance:
 		pause_menu_instance.queue_free()
 		pause_menu_instance = null
@@ -48,38 +54,27 @@ func on_level_finished() -> void:
 	is_paused = false
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		print("ESC presionado - Estado pausa: ", is_paused)  # Debug
+	if event.is_action_pressed("pause_menu"):
 		if is_paused:
 			close_pause_menu()
 		else:
 			open_pause_menu()
 
 func open_pause_menu() -> void:
-	print("Abriendo menú de pausa")  # Debug
-	
-	# Crear menú si no existe
-	if not pause_menu_instance:
+	# Crear menu si no existe
+	if !pause_menu_instance:
 		pause_menu_instance = pause_menu_scene.instantiate() as PauseMenu
 		get_child(0).add_child(pause_menu_instance)
-		print("Menú de pausa instanciado")  # Debug
-	
+
 	# Mostrar
 	pause_menu_instance.visible = true
 	
-	print("Juego pausado: ", get_tree().paused)  # Debug
-
 func close_pause_menu() -> void:
-	print("Cerrando menú de pausa")  # Debug
-	
 	if pause_menu_instance:
 		pause_menu_instance.visible = false
 	
-	print("Juego reanudado: ", not get_tree().paused)  # Debug
-
-# Funciones públicas
 func pause_game() -> void:
-	if not is_paused:
+	if !is_paused:
 		open_pause_menu()
 
 func resume_game() -> void:

@@ -8,11 +8,6 @@ var teleporting_player: CharacterBody2D = null  # Referencia al jugador que se e
 var can_teleport: bool = true  # Controla si este teleport puede activarse
 
 func _ready() -> void:
-	# Verificamos y conectamos al destino
-	if destination_teleport.is_empty():
-		push_warning("No se ha configurado un destino para este teleport")
-		return
-		
 	destination = get_node_or_null(destination_teleport)
 	
 	# Conectamos las señales

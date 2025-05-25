@@ -1,7 +1,6 @@
 extends State
 
 func enter():
-	
 	actor.hitbox_component.monitoring = false
 	actor.hitbox_component.set_deferred("monitorable", false)
 	

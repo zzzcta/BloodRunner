@@ -175,13 +175,13 @@ func start_cooldown(action_name: String) -> void:
 #endregion
 
 #region signals
-func _on_level_started() -> void:
+func _on_level_started(_level: int) -> void:
 	decreasing_health = true
 
 func _on_level_finished() -> void:
 	decreasing_health = false
 
-func _on_player_entered_car_exit(door_exit_position: Vector2) -> void:
+func _on_player_entered_car_exit(door_exit_position: Vector2, _target_scene: String, _transition_message: String) -> void:
 	self.global_position = door_exit_position
 	var tween: Tween = create_tween()
 	tween.tween_property(player_sprite, "self_modulate", Color(1, 1, 1, 0), 0.08)

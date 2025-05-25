@@ -67,7 +67,7 @@ func _find_available_player(pool: Array[AudioStreamPlayer2D], main_player: Audio
 	
 	return oldest_player
 
-func play_sfx(sound_name: String, max_distance: int, position: Vector2 = Vector2.ZERO) -> void:
+func play_sfx(sound_name: String, max_distance: int = 2000, position: Vector2 = Vector2.ZERO, volume: float = 1.0, pitch: float = 1.0) -> void:
 	if !sound_name in sfx_sounds:
 		print("SFX sound not found: ", sound_name)
 		return
@@ -79,9 +79,11 @@ func play_sfx(sound_name: String, max_distance: int, position: Vector2 = Vector2
 	player.stream = sfx_sounds[sound_name]
 	player.global_position = position
 	player.max_distance = max_distance
+	player.volume_db = linear_to_db(volume)
+	player.pitch_scale = pitch
 	player.play()
 
-func play_combat_sound(sound_name: String, position: Vector2 = Vector2.ZERO) -> void:
+func play_combat_sound(sound_name: String, position: Vector2 = Vector2.ZERO, volume: float = 1.0, pitch: float = 1.0) -> void:
 	if !sound_name in combat_sounds:
 		print("Combat sound not found: ", sound_name)
 		return
@@ -90,20 +92,41 @@ func play_combat_sound(sound_name: String, position: Vector2 = Vector2.ZERO) -> 
 	
 	player.stream = combat_sounds[sound_name]
 	player.global_position = position
+	player.volume_db = linear_to_db(volume)
+	player.pitch_scale = pitch
 	player.play()
 
-func play_music(track_name: String, fade_in: bool = false) -> void:
+func play_music(track_name: String, volume: float, fade_in: bool = false) -> void:
 	if !track_name in music_tracks:
 		print("Music track not found: ", track_name)
 		return
 	
+	if music_player.playing:
+		stop_music()
+		
 	music_player.stream = music_tracks[track_name]
+	music_player.volume_db = linear_to_db(volume)
 	music_player.play()
 	
 	if fade_in:
 		music_player.volume_db = -80
 		var tween: Tween = create_tween()
-		tween.tween_property(music_player, "volume_db", 0, 1.0)
+		tween.tween_property(music_player, "volume_db", 0, 1.5)
+		
+func stop_music() -> void:
+	if music_player.playing:
+		music_player.volume_db = -80
+		var tween: Tween = create_tween()
+		tween.tween_property(music_player, "volume_db", 0, 2.0)
+		
 		
 func _load_audio_resources() -> void:
+	# SFX
 	sfx_sounds["fan"] = preload("res://Audio/sfx/fan.wav")
+	sfx_sounds["die"] = preload("res://Audio/sfx/Die.wav")
+	
+	# Musica
+	music_tracks["NaturalLife"] = preload("res://Audio/music/DavidKBD - HexaPuppies Pack - 05 - Natural Life - 3(1).ogg")
+	music_tracks["LightYearCity"] = preload("res://Audio/music/DavidKBD - Pink Bloom Pack - 09 - Lightyear City.ogg")
+	music_tracks["Portal to Underworld"] = preload("res://Audio/music/DavidKBD - Pink Bloom Pack - 02 - Portal to Underworld.ogg")
+	music_tracks["TheHiddenOne"] = preload("res://Audio/music/DavidKBD - Pink Bloom Pack - 07 - The Hidden One.ogg")

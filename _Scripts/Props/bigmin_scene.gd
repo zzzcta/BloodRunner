@@ -13,7 +13,7 @@ var opened : bool = false
 func _ready() -> void:
 	bigmin.bigmin_died.connect(_bigmin_dead)
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	if opened : return
 	
 	opened = true
