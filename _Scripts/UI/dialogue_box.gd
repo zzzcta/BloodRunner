@@ -20,7 +20,7 @@ func _ready() -> void:
 	set_visible(false)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if dialogue_ended and Input.is_key_pressed(KEY_E):
 		dialogue_ended = false
 		set_visible(false)

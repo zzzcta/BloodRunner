@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 	if player_ref == null: return
 	
 	var distance = global_position.distance_to(player_ref.global_position)
-	var distance_to_target : float = position.distance_to(player_ref.position)
+	var _distance_to_target : float = position.distance_to(player_ref.position)
 	
 	_aim(delta)
 	
@@ -171,7 +171,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	_detect_player(player_in_shape)
 
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_area_2d_body_exited(_body: Node2D) -> void:
 	player_in_shape = null
 
 

@@ -6,3 +6,4 @@ func _ready() -> void:
 func on_door_died() -> void:
 	super()
 	SignalBuss.start_level()
+	AudioManager.play_music("Portal to Underworld")

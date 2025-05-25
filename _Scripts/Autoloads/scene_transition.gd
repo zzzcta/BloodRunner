@@ -20,7 +20,8 @@ func _ready() -> void:
 
 func setup_transition_elements() -> void:
 	# Crear un nodo control para contener todos los elementos
-	var container = Control.new()
+	var container: Control = Control.new()
+	container.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	container.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(container)
 	
@@ -53,8 +54,6 @@ func set_transition_text(text: String, font_size: int = 24) -> void:
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	label.set_anchors_preset(Control.PRESET_FULL_RECT)
 	
-	# Configurar el tamaño y color de la fuente
-	var font = label.get_theme_font("font")
 	label.add_theme_font_size_override("font_size", font_size)
 	
 	label.add_theme_color_override("font_color", Color(1, 1, 1, 1))
