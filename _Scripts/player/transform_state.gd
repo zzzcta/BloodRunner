@@ -10,6 +10,8 @@ func enter():
 	
 	crosshair.visible = false
 	
+	AudioManager.play_sfx("transform", 2000, actor.global_position, 1, randf_range(0.9, 1.15))
+	
 	actor.hitbox_component.get_node("CollisionShape2D").scale = Vector2(0.2, 0.4)
 	actor.hitbox_component.get_node("CollisionShape2D").rotation_degrees = 90.0
 	
@@ -73,6 +75,8 @@ func handle_input(_event: InputEvent) -> void:
 	
 func exit() -> void:
 	actor.transform_duration_left = actor.transform_duration
+	
+	AudioManager.play_sfx("transform", 2000, actor.global_position, 1, randf_range(0.9, 1.15))
 	
 	actor.hitbox_component.get_node("CollisionShape2D").shape.radius =  float(11.5)
 	
