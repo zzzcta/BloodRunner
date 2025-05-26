@@ -17,6 +17,7 @@ func _on_ExitButton_pressed() -> void:
 
 func _ready() -> void:
 	AudioManager.play_music("NaturalLife", 0.1)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if main_menu_scene.is_empty():
 		%MenuButton.hide()
 	if OS.has_feature("web"):
