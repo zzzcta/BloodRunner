@@ -1,6 +1,9 @@
 extends State
 
 func enter():
+	
+	SignalBuss.player_die()
+		
 	actor.hitbox_component.monitoring = false
 	actor.hitbox_component.set_deferred("monitorable", false)
 	
