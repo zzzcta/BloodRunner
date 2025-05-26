@@ -103,7 +103,7 @@ script = ExtResource("1_msel0")
 speed = 200.0
 
 [node name="PunchComponent" parent="." instance=ExtResource("1_05ggi")]
-scale = Vector2(0.36134, 0.493835)
+scale = Vector2(0.345905, 0.190339)
 collision_layer = 4
 collision_mask = 3
 dead_time = 3.0
@@ -113,10 +113,7 @@ damage = 30.0
 position = Vector2(9.53674e-07, -0.999999)
 scale = Vector2(0.583333, 0.583333)
 sprite_frames = SubResource("SpriteFrames_lrkma")
-animation = &"explode"
 autoplay = "default"
-frame = 4
-frame_progress = 1.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_hp657")]
 max_health = 0.025
@@ -127,9 +124,7 @@ collision_layer = 4
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_dxfkx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_me15t")

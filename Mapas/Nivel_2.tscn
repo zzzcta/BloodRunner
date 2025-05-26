@@ -1075,11 +1075,7 @@ position = Vector2(1309, -1039)
 
 [node name="EnemyBase23" parent="EnemigosBase" instance=ExtResource("9_ujms2")]
 z_index = 4
-position = Vector2(1396, -1087)
-
-[node name="EnemyBase24" parent="EnemigosBase" instance=ExtResource("9_ujms2")]
-z_index = 4
-position = Vector2(1462, -1087)
+position = Vector2(1438, -1087)
 
 [node name="EnemyBase25" parent="EnemigosBase" instance=ExtResource("9_ujms2")]
 z_index = 4

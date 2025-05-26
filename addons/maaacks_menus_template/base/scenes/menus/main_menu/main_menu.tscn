@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6k5nnpbypshi"]
+[gd_scene load_steps=10 format=3 uid="uid://c6k5nnpbypshi"]
 
 [ext_resource type="Script" uid="uid://bhgs1upaahk3y" path="res://addons/maaacks_menus_template/base/scenes/menus/main_menu/main_menu.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://hmx6o472ropw" path="res://addons/maaacks_menus_template/base/scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="2_qvrrd"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_menus_template/base/scripts/ui_sound_controller.gd" id="6_bs342"]
 [ext_resource type="Script" uid="uid://dmkubt2nsnsbn" path="res://addons/maaacks_menus_template/base/scenes/menus/main_menu/config_version_label.gd" id="6_pdiij"]
 [ext_resource type="Texture2D" uid="uid://datk8ei1lwsy7" path="res://Recursos/Sprites/UI/Titulo.png" id="6_w6upw"]
+[ext_resource type="Texture2D" uid="uid://ejdsr7k704id" path="res://Recursos/portada.png" id="6_w26no"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -32,6 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("6_w26no")
 expand_mode = 1
 stretch_mode = 5
 
@@ -48,6 +50,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="VersionContainer" type="Control" parent="VersionMargin"]
+visible = false
 layout_mode = 2
 mouse_filter = 2
 
@@ -83,9 +86,9 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="MenuContainer/TitleMargin/TitleContainer"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+offset_right = 140.8
+offset_bottom = 140.8
 texture = ExtResource("6_w6upw")
 
 [node name="SubTitleMargin" type="MarginContainer" parent="MenuContainer"]
@@ -172,6 +175,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
 [node name="FlowControlContainer" type="MarginContainer" parent="."]
