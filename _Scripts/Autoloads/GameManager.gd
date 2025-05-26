@@ -20,9 +20,27 @@ func _ready() -> void:
 	SignalBuss.level_finished.connect(on_level_finished)
 	SignalBuss.player_entered_car_exit.connect(on_player_entered_car_exit)
 
-func _on_player_died () -> void:
+func _on_player_died() -> void:
+	await get_tree().create_timer(1.5).timeout
 	death_scene_instance = death_menu_scene.instantiate()
 	get_child(0).add_child(death_scene_instance)
+	
+	# fade in y escalado
+	death_scene_instance.modulate.a = 0.0  # Empezar invisible
+	death_scene_instance.scale = Vector2(0.8, 0.8)  # Empezar pequeño
+	
+	# Crear el tween
+	var tween = create_tween()
+	tween.set_parallel(true)
+	
+	# Fade in (opacidad)
+	tween.tween_property(death_scene_instance, "modulate:a", 1.0, 0.5)
+	# Scale up con bounce
+	tween.tween_property(death_scene_instance, "scale", Vector2(1.0, 1.0), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_BACK)
+	
+	# Parar musica
 	AudioManager.stop_music()
 	AudioManager.music_player.stream = null
 	health_instance.queue_free()

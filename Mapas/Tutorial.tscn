@@ -531,6 +531,9 @@ position = Vector2(0, -100)
 [node name="Player" parent="." instance=ExtResource("1_snwyg")]
 position = Vector2(-202, -15)
 
+[node name="SpritePlayer" parent="Player" index="0"]
+frame = 189
+
 [node name="HealthComponent" parent="Player" index="11"]
 max_health = 50.0
 
