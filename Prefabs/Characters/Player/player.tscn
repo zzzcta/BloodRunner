@@ -952,7 +952,7 @@ z_index = 1
 texture = ExtResource("5_b30ri")
 hframes = 14
 vframes = 14
-frame = 167
+frame = 189
 
 [node name="TransformFront" type="Sprite2D" parent="."]
 visible = false
