@@ -253,14 +253,14 @@ script = ExtResource("5_m445v")
 [node name="SightArea" type="Area2D" parent="."]
 scale = Vector2(0.6065, 0.6065)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 34
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SightArea"]
 shape = SubResource("CircleShape2D_5tl6s")
 
 [node name="RayCast2D" type="RayCast2D" parent="SightArea"]
 target_position = Vector2(143.446, 0)
-collision_mask = 35
+collision_mask = 3
 
 [node name="FallCast" type="RayCast2D" parent="."]
 position = Vector2(12, 20)
