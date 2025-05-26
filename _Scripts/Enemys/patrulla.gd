@@ -30,6 +30,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if not navigation_ready: return
+	if animation_player.current_animation == "death": return
 	if enemy_base.player_ref != null: return
 	if target == Vector2.ZERO: return
 	
