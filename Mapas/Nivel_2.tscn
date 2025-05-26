@@ -735,6 +735,9 @@ transition_message = "Dia ????"
 z_index = 5
 position = Vector2(-185, -15)
 
+[node name="SpritePlayer" parent="player_test" index="0"]
+frame = 189
+
 [node name="HealthComponent" parent="player_test" index="11"]
 max_health = 65.0
 
