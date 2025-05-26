@@ -35,7 +35,6 @@ stretch_mode = 5
 scroll_vertical = 0
 
 [node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" index="1"]
-custom_minimum_size = Vector2(640, 0)
 text = "[center][font_size=48]Colaboradores[/font_size]
 
 [font_size=64]Roles[/font_size]
@@ -128,6 +127,5 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Menu"
 
-[connection signal="meta_clicked" from="ScrollContainer/VBoxContainer/CreditsLabel" to="." method="_on_CreditsLabel_meta_clicked"]
 [connection signal="pressed" from="CenterContainer/EndMessagePanel/VBoxContainer/CenterContainer/HBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="pressed" from="CenterContainer/EndMessagePanel/VBoxContainer/CenterContainer/HBoxContainer/MenuButton" to="." method="_on_MenuButton_pressed"]
