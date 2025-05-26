@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://be2sry3bp483h"]
+[gd_scene load_steps=12 format=4 uid="uid://be2sry3bp483h"]
 
 [ext_resource type="Script" uid="uid://cpblj86124xol" path="res://_Scripts/Autoloads/GameManager.gd" id="1_6sxnc"]
 [ext_resource type="TileSet" uid="uid://c24lxocxen4eq" path="res://Prefabs/TileMaps/test.tres" id="1_jf0na"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d2vg2cnxxpf0k" path="res://Prefabs/Characters/Enemys/enemigo_distancia.tscn" id="7_i06tq"]
 [ext_resource type="PackedScene" uid="uid://byjy8hfyofb3h" path="res://Prefabs/Characters/Enemys/torreta.tscn" id="8_a2il4"]
 [ext_resource type="PackedScene" uid="uid://dngw5hfynrwvk" path="res://Prefabs/UI/crosshair.tscn" id="9_eunmb"]
+[ext_resource type="PackedScene" uid="uid://kpdg4ms7p11" path="res://Prefabs/Props/rejilla_sangre.tscn" id="10_a5v12"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_i3321"]
 vertices = PackedVector2Array(279.203, 15, 471.977, 5.59375, 414.617, 332.852, -87.7813, 324.172, -81.2031, 12.0703)
@@ -57,6 +58,9 @@ position = Vector2(522, 322)
 flip = true
 
 [node name="Crosshair" parent="." instance=ExtResource("9_eunmb")]
+
+[node name="RejillaSangre" parent="." instance=ExtResource("10_a5v12")]
+position = Vector2(-146, 294)
 
 [editable path="EnemigoDistancia"]
 [editable path="EnemyBase"]
