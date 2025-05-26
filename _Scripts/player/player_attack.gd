@@ -13,13 +13,6 @@ var attack_damage: float:
 		else:
 			_attack_damage = value
 
-var _attack_back_force: float
-var attack_back_force: float:
-	get:
-		return _attack_back_force
-	set(value):
-		_attack_back_force = value
-
 func _ready() -> void:
 	hitbox_component = get_node("HitBoxComponent") as HitBoxComponent
 	hitbox_component.attack.connect(_on_hitbox_component_attack)
