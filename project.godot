@@ -100,6 +100,8 @@ locale/locale_filter_mode=0
 2d_physics/layer_4="AtaquesPlayer"
 2d_physics/layer_5="Transformacion"
 2d_physics/layer_6="Entorno"
+2d_physics/layer_7="Muertos"
+2d_physics/layer_8="ProyectillesEnemigos"
 
 [maaacks_game_template]
 
