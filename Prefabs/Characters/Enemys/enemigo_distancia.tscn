@@ -171,6 +171,8 @@ position = Vector2(-4.5, -1.5)
 shape = SubResource("RectangleShape2D_a5mn7")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -208,7 +210,7 @@ shape = SubResource("CircleShape2D_5c2m8")
 
 [node name="RayCast2D" type="RayCast2D" parent="SightArea"]
 target_position = Vector2(200, 0)
-collision_mask = 3
+collision_mask = 35
 
 [node name="FallCast" type="RayCast2D" parent="."]
 position = Vector2(12, 20)
