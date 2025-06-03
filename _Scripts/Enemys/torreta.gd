@@ -56,7 +56,7 @@ func _process(delta: float) -> void:
 
 func look_to_player() -> void:
 	var direction : Vector2 = (target_ref.global_position - arriba.global_position).normalized()
-	var reference_dir = arriba.transform.x if not flip else -arriba.transform.x
+	# var reference_dir = arriba.transform.x if not flip else -arriba.transform.x
 	var angle_to_target = rad_to_deg(direction.angle())
 	var min_angle = 0 + range_vision
 	var max_angle = 270 + range_vision
