@@ -20,12 +20,16 @@
 [ext_resource type="PackedScene" uid="uid://dlpbpafmu32sf" path="res://Prefabs/Props/car_in_level.tscn" id="18_jucgn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jucgn"]
-vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+vertices = PackedVector2Array(7.46875, 8, -7.46875, 7.46875, -7.46875, -8, 7.46875, -8)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-7.46667, -8, 7.46667, -8, 7.46667, 8, -7.46667, 7.46667)])
 agent_radius = 0.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8o70r"]
+vertices = PackedVector2Array(7.46875, 8, -7.46875, 7.46875, -7.46875, -8, 7.46875, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-7.46667, -8, 7.46667, -8, 7.46667, 8, -7.46667, 7.46667)])
+agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jucgn"]
 texture = ExtResource("1_dcs7f")
