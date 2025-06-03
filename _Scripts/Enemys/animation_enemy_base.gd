@@ -7,9 +7,6 @@ extends AnimationPlayer
 var previous_state = null
 var can_animate_state : bool = true
 
-func _process(delta: float) -> void:
-	print("Animando " , current_animation)
-
 func animate(state,direction) -> void:
 	if not can_animate_state: return
 	print("Entrando en animacion")
