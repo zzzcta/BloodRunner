@@ -30,8 +30,6 @@ var attack_instance : PackedScene
 var can_change_state : bool = true
 var player_died : bool = false
 
-
-
 func _ready() -> void:
 	NavigationServer2D.map_changed.connect(_on_navigation_ready)
 	health_component.hit.connect(_on_hit)
@@ -153,9 +151,9 @@ func _on_hit() -> void:
 	change_state(4)
 	AudioManager.play_sfx("hit", 450, global_position, 1, randf_range(0.90, 1.1))
 
-
 func _death() -> void:
 	player_died = true
+	$Patrulla.queue_free()
 	collision_layer = 0
 	set_collision_layer_value(7, true) 
 	SignalBuss.enemy_die(player_health_recover, self.global_position)
