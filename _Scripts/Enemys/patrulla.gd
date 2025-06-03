@@ -49,9 +49,9 @@ func _process(delta: float) -> void:
 		
 	move_to_target(delta,target)
 
-func move_to_target(delta, target) -> void:
+func move_to_target(delta, agent_target) -> void:
 	if not navigation_ready: return
-	agent.target_position = target
+	agent.target_position = agent_target
 	var next_position = agent.get_next_path_position()
 	var direction = (next_position - enemy_base.global_position).normalized()
 	
