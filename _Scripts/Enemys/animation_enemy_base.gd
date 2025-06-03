@@ -9,7 +9,6 @@ var can_animate_state : bool = true
 
 func animate(state,direction) -> void:
 	if not can_animate_state: return
-	print("Entrando en animacion")
 	change_dir(direction)
 	
 	if previous_state != 4 and state == 4: enemy_base.can_change_state = true
@@ -31,8 +30,6 @@ func animate(state,direction) -> void:
 			enemy_base.can_change_state = false
 		_:
 			play("idle")
-	#print(current_animation)
-
 
 func change_dir(direction:int) -> void:
 	if direction == -1:
@@ -41,7 +38,6 @@ func change_dir(direction:int) -> void:
 	else:
 		sprite_2d.flip_h = false
 		enemy_base.attack_pos = "right"
-
 
 func end_of_attack_anim() -> void:
 	enemy_base.can_change_state = true
