@@ -13,7 +13,6 @@ func _ready() -> void:
 
 func damage(attack: Attack):
 	current_health -= attack.attack_damage
-	
 	if current_health <= 0:
 		emit_signal("died")
 	else:
