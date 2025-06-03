@@ -158,12 +158,6 @@ func _death() -> void:
 	set_collision_layer_value(7, true) 
 	SignalBuss.enemy_die(player_health_recover, self.global_position)
 	AudioManager.play_sfx("die", 450, global_position, 1, randf_range(0.95, 1.1))
-	
-	print("Enemigo ", name, " muerto.")
-	can_change_state = false
-	animation_player.can_animate_state = false
-	state = 5
 	animation_player.play("death")
-	
 	await animation_player.animation_finished
 	queue_free()
