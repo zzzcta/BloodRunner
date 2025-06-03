@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum EnemyState {IDLE,CHASING,ATTACK,JUMP,HIT}
+enum EnemyState {IDLE,CHASING,ATTACK,JUMP,HIT,DEATH}
 
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -46,7 +46,6 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	
 	if player_died: return
-	
 	if player_in_shape and player_ref == null:
 		_detect_player(player_in_shape)
 		
@@ -84,6 +83,7 @@ func move_to_player(delta) -> void:
 
 
 func change_state(new_state)->void:
+	if state == 5: return
 	if can_change_state: state = new_state
 	
 	if new_state == 4: state = new_state
@@ -158,6 +158,12 @@ func _death() -> void:
 	set_collision_layer_value(7, true) 
 	SignalBuss.enemy_die(player_health_recover, self.global_position)
 	AudioManager.play_sfx("die", 450, global_position, 1, randf_range(0.95, 1.1))
+	
+	print("Enemigo ", name, " muerto.")
+	can_change_state = false
+	animation_player.can_animate_state = false
+	state = 5
 	animation_player.play("death")
+	
 	await animation_player.animation_finished
 	queue_free()

@@ -5,19 +5,19 @@ extends AnimationPlayer
 
 #enum EnemyState {IDLE,CHASING,ATTACK,JUMP,IDLE}
 var previous_state = null
+var can_animate_state : bool = true
+
+func _process(delta: float) -> void:
+	print("Animando " , current_animation)
 
 func animate(state,direction) -> void:
+	if not can_animate_state: return
+	print("Entrando en animacion")
 	change_dir(direction)
-	
-	
-	#if previous_state == 4 and state == 4:
-		#print("HAY")
 	
 	if previous_state != 4 and state == 4: enemy_base.can_change_state = true
 	if previous_state == state or enemy_base.can_change_state == false: return
 	previous_state = state
-	
-	#print("Animando " , state)
 	
 	match state:
 		0:
