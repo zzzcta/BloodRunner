@@ -137,7 +137,7 @@ func wrap_angle(angle: float) -> float:
 func _detect_player(body:Node2D) -> void:
 	var direction = global_position.direction_to(body.global_position) 
 	var circleShape = collision_shape_2d.shape as CircleShape2D
-	var max_distance = circleShape.radius
+	max_distance = circleShape.radius
 	
 	ray_cast_2d.target_position = direction * max_distance 
 	
