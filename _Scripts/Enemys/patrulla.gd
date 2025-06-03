@@ -15,6 +15,9 @@ var navigation_ready : bool = false
 var target_reached : bool = false
 var target : Vector2 = Vector2.ZERO
 
+var check_timer: float = 0.0
+var check_interval: float = 0.15
+
 func _ready() -> void:
 	enemy_base = get_parent() as CharacterBody2D
 	agent = enemy_base.get_node("NavigationAgent2D")
@@ -27,19 +30,23 @@ func _ready() -> void:
 	
 	target = _select_next_point()
 
-
 func _process(delta: float) -> void:
 	if not navigation_ready: return
 	if enemy_base.player_ref != null: return
 	if target == Vector2.ZERO: return
 	
-	var distance = enemy_base.global_position.distance_to(target)
+	check_timer += delta
 	
-	if distance < 3: 
-		_on_target_reached()
-	else:
-		move_to_target(delta,target)
-
+	if check_timer >= check_interval:
+		check_timer = 0
+		
+		var distance: float = enemy_base.global_position.distance_to(target)
+		
+		if distance < 3: 
+			_on_target_reached()
+			return
+		
+	move_to_target(delta,target)
 
 func move_to_target(delta, target) -> void:
 	if not navigation_ready: return
