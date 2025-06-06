@@ -44,6 +44,7 @@ var cooldowns: Dictionary[String, float] = {
 @onready var ray_cast_up: RayCast2D = $RayCastUp 
 @onready var ray_cast_down: RayCast2D = $RayCastDown
 @onready var coyote_timer: Timer = $CoyoteTimer
+@onready var camera_2d: Camera2D = $Camera2D
 #endregion
 
 var player_look_direction: Vector2
@@ -69,6 +70,8 @@ func _ready() -> void:
 	SignalBuss.level_started.connect(_on_level_started)
 	SignalBuss.level_finished.connect(_on_level_finished)
 	SignalBuss.player_entered_car_exit.connect(_on_player_entered_car_exit)
+	SignalBuss.turned_sprite_left.connect(_on_turned_sprite_left)
+	SignalBuss.turned_sprite_right.connect(_on_turned_sprite_right)
 	# Señales internas
 	state_machine.state_changed.connect(_on_state_changed) # Para monitoreo
 	health_component.died.connect(_on_dead)
@@ -166,7 +169,13 @@ func _on_dead() -> void:
 	if !is_dead:
 		SignalBuss.update_health(health_component.current_health, health_component.max_health)
 		state_machine.change_state("dead")
-
+	
+	await get_tree().create_timer(1.5).timeout
+	
+	var tween: Tween = create_tween()
+	
+	tween.tween_property(camera_2d, "zoom", Vector2(2.2, 2.2), 0.8)
+	
 #region funciones cooldown habilidades
 ## En el caso de que el cooldown haya terminado devolvemos true 
 func can_perform_action(action_name: String) -> bool:
@@ -200,7 +209,6 @@ func _on_enemy_died(player_health_recover: float, _enemy_die_position: Vector2) 
 
 func _on_player_hit() -> void:
 	state_machine.change_state("hit")
-#endregion
 
 func _on_coyote_timer_timeout() -> void:
 	coyote_timer_active = false
@@ -210,3 +218,13 @@ func on_start_dialogue() -> void:
 	
 func on_finish_dialogue() -> void:
 	state_machine.change_state("idle")
+
+func _on_turned_sprite_left() -> void:
+	if state_machine.current_state.name not in ["Move", "Jump", "Fall"]:
+		flip_sprite(true)
+	
+func _on_turned_sprite_right() -> void:
+	if state_machine.current_state.name not in ["Move", "Jump", "Fall"]:
+		flip_sprite(false)
+	
+#endregion

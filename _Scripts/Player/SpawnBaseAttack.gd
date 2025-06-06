@@ -1,6 +1,7 @@
 extends Marker2D
 
 
+
 var radio: float = 30.0  # Distancia desde el padre
 
 func _process(_delta):
@@ -15,3 +16,4 @@ func _process(_delta):
 	
 	# rotar el marker para que "mire" hacia el cursor
 	look_at(mouse_position)
+	

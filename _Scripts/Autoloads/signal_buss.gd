@@ -11,8 +11,17 @@ signal enemy_died(player_health_recover, enemy_die_position)
 
 signal player_died()
 
+signal turned_sprite_right()
+signal turned_sprite_left()
+
 func player_die() -> void:
 	emit_signal("player_died")
+	
+func turn_sprite_right() -> void:
+	emit_signal("turned_sprite_right")
+
+func turn_sprite_left() -> void:
+	emit_signal("turned_sprite_left")
 
 func enemy_die(player_health_recover: float, enemy_die_position: Vector2) -> void:
 	emit_signal("enemy_died", player_health_recover, enemy_die_position)

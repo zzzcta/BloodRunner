@@ -1037,7 +1037,7 @@ wait_time = 0.15
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -15)
-zoom = Vector2(1.8, 1.8)
+zoom = Vector2(1.75, 1.75)
 
 [node name="HitboxComponent" parent="." instance=ExtResource("7_ms580")]
 collision_layer = 2
