@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://cfew82hkh4lm1"]
+[gd_scene load_steps=39 format=4 uid="uid://cfew82hkh4lm1"]
 
 [ext_resource type="Texture2D" uid="uid://fbmmtli3gklo" path="res://Recursos/TileSet/Tiles.png" id="1_7xd25"]
 [ext_resource type="PackedScene" uid="uid://br76tuopv06f8" path="res://Prefabs/blood_enemys.tscn" id="1_ignam"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://cbubjqnrm73ug" path="res://Prefabs/Characters/Player/player.tscn" id="3_0ltj2"]
 [ext_resource type="PackedScene" uid="uid://byjy8hfyofb3h" path="res://Prefabs/Characters/Enemys/torreta.tscn" id="4_1lfn4"]
 [ext_resource type="Texture2D" uid="uid://jkbdmejmm0p7" path="res://Recursos/TileSet/Props-01.png" id="5_0ji1w"]
-[ext_resource type="PackedScene" uid="uid://dngw5hfynrwvk" path="res://Prefabs/UI/crosshair.tscn" id="7_1lfn4"]
 [ext_resource type="PackedScene" uid="uid://duji41jrynl4v" path="res://Prefabs/Props/rejilla_tp.tscn" id="8_06qmo"]
 [ext_resource type="PackedScene" uid="uid://l13vchhleoe" path="res://Prefabs/Characters/Enemys/enemy_base.tscn" id="9_ujms2"]
 [ext_resource type="PackedScene" uid="uid://kpdg4ms7p11" path="res://Prefabs/Props/rejilla_sangre.tscn" id="13_qrjvj"]
@@ -635,7 +634,7 @@ transition_message = "Dia ????"
 
 [node name="player_test" parent="." instance=ExtResource("3_0ltj2")]
 z_index = 5
-position = Vector2(-188, -15)
+position = Vector2(-185, -14)
 
 [node name="HealthComponent" parent="player_test" index="11"]
 max_health = 65.0
@@ -1225,8 +1224,6 @@ offset_left = -200.0
 offset_top = -76.0
 offset_right = 200.0
 offset_bottom = -11.0
-
-[node name="Crosshair" parent="." instance=ExtResource("7_1lfn4")]
 
 [node name="NoTeAlejes" type="RichTextLabel" parent="."]
 z_index = 2
