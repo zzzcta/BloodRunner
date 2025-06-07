@@ -635,13 +635,10 @@ transition_message = "Dia ????"
 
 [node name="player_test" parent="." instance=ExtResource("3_0ltj2")]
 z_index = 5
-position = Vector2(-178, -18)
+position = Vector2(-188, -15)
 
 [node name="HealthComponent" parent="player_test" index="11"]
 max_health = 65.0
-
-[node name="Camera2D" parent="player_test" index="15"]
-zoom = Vector2(1.5, 1.5)
 
 [node name="Mapa" type="Node" parent="."]
 
