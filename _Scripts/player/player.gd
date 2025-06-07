@@ -45,6 +45,7 @@ var cooldowns: Dictionary[String, float] = {
 @onready var ray_cast_down: RayCast2D = $RayCastDown
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var camera_2d: Camera2D = $Camera2D
+@onready var crosshair: CanvasLayer = $Crosshair
 #endregion
 
 var player_look_direction: Vector2
@@ -194,6 +195,7 @@ func _on_level_finished() -> void:
 	decreasing_health = false
 
 func _on_player_entered_car_exit(door_exit_position: Vector2, _target_scene: String, _transition_message: String) -> void:
+	crosshair.visible = false
 	self.global_position = door_exit_position
 	var tween: Tween = create_tween()
 	tween.tween_property(player_sprite, "self_modulate", Color(1, 1, 1, 0), 0.08)
@@ -214,10 +216,18 @@ func _on_coyote_timer_timeout() -> void:
 	coyote_timer_active = false
 	
 func on_start_dialogue() -> void:
+	SignalBuss.disconnect("turned_sprite_left", _on_turned_sprite_left)
+	SignalBuss.disconnect("turned_sprite_right", _on_turned_sprite_right)
+	crosshair.visible = false
 	state_machine.change_state("inactive")
 	
+	
 func on_finish_dialogue() -> void:
+	SignalBuss.connect("turned_sprite_left", _on_turned_sprite_left)
+	SignalBuss.connect("turned_sprite_right", _on_turned_sprite_right)
+	crosshair.visible = true
 	state_machine.change_state("idle")
+	
 
 func _on_turned_sprite_left() -> void:
 	if state_machine.current_state.name not in ["Move", "Jump", "Fall"]:

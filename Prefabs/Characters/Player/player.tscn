@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cbubjqnrm73ug"]
+[gd_scene load_steps=50 format=3 uid="uid://cbubjqnrm73ug"]
 
 [ext_resource type="Script" uid="uid://wi74q6nvn6ys" path="res://_Scripts/Player/player.gd" id="1_y6xdh"]
 [ext_resource type="Script" uid="uid://dmfhj3tajaetn" path="res://_Scripts/state_machine.gd" id="2_5wxv7"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://cne0rpint0san" path="res://_Scripts/Player/activation_state.gd" id="15_r1ef5"]
 [ext_resource type="Script" uid="uid://cyymcetmsqvf4" path="res://_Scripts/Player/hit_state.gd" id="16_dd6tj"]
 [ext_resource type="Script" uid="uid://drh0ctouo2y6y" path="res://_Scripts/Player/inactive_state.gd" id="17_b68fk"]
+[ext_resource type="PackedScene" uid="uid://dngw5hfynrwvk" path="res://Prefabs/UI/crosshair.tscn" id="18_8i30d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b30ri"]
 radius = 11.5
@@ -1038,6 +1039,8 @@ wait_time = 0.15
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -15)
 zoom = Vector2(1.75, 1.75)
+
+[node name="Crosshair" parent="." instance=ExtResource("18_8i30d")]
 
 [node name="HitboxComponent" parent="." instance=ExtResource("7_ms580")]
 collision_layer = 2
