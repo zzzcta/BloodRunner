@@ -8,6 +8,8 @@ extends Node
 
 @export_file("*.tscn") var target_scene : String
 
+var loading : bool = false
+
 func _ready() -> void:
 	AudioManager.play_music("TheHiddenOne", 0.1, true)
 	animated_sprite_2d.play("idle_brazo")
@@ -45,5 +47,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	$AnimatedSprite2D.position.x -= 500.0 * delta
 	
-	if skip.is_visible() and Input.is_key_pressed(KEY_TAB):
+	if skip.is_visible() and Input.is_key_pressed(KEY_TAB) and not loading:
+		loading = true
 		SceneTransition.change_scene(target_scene)
