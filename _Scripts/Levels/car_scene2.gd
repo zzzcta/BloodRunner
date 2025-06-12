@@ -4,6 +4,7 @@ extends Node
 @onready var camera_finish: Marker2D = $AnimatedSprite2D/CameraFinishPosition
 @onready var control: DialogueBox = $CanvasLayer/dialogue_box
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var skip: Control = $CanvasLayer/Skip
 
 @export_file("*.tscn") var target_scene : String
 
@@ -21,7 +22,7 @@ func _ready() -> void:
 	tween.tween_property($AnimatedSprite2D/Camera2D, "zoom", Vector2(2.0, 2.0), 3).set_trans(Tween.TRANS_CUBIC)
 	
 	await get_tree().create_timer(4.0).timeout
-	
+	skip.set_visible(true)
 	control.init_dialogue("AUX6B_011","AUX6B")
 	await control.dialogue_end
 	control.init_dialogue("AUX6B_012","AUX6B")
@@ -43,3 +44,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	$AnimatedSprite2D.position.x -= 500.0 * delta
+	
+	if skip.is_visible() and Input.is_key_pressed(KEY_TAB):
+		SceneTransition.change_scene(target_scene)
