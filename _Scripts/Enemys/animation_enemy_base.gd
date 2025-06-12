@@ -5,19 +5,15 @@ extends AnimationPlayer
 
 #enum EnemyState {IDLE,CHASING,ATTACK,JUMP,IDLE}
 var previous_state = null
+var can_animate_state : bool = true
 
 func animate(state,direction) -> void:
+	if not can_animate_state: return
 	change_dir(direction)
-	
-	
-	#if previous_state == 4 and state == 4:
-		#print("HAY")
 	
 	if previous_state != 4 and state == 4: enemy_base.can_change_state = true
 	if previous_state == state or enemy_base.can_change_state == false: return
 	previous_state = state
-	
-	#print("Animando " , state)
 	
 	match state:
 		0:
@@ -34,8 +30,6 @@ func animate(state,direction) -> void:
 			enemy_base.can_change_state = false
 		_:
 			play("idle")
-	#print(current_animation)
-
 
 func change_dir(direction:int) -> void:
 	if direction == -1:
@@ -44,7 +38,6 @@ func change_dir(direction:int) -> void:
 	else:
 		sprite_2d.flip_h = false
 		enemy_base.attack_pos = "right"
-
 
 func end_of_attack_anim() -> void:
 	enemy_base.can_change_state = true

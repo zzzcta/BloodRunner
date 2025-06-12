@@ -5,7 +5,7 @@ func enter():
 	
 	if actor.is_on_floor() or actor.coyote_timer_active:
 		actor.jump()
-		AudioManager.play_sfx("jump", 2000, actor.global_position, 2.0, randfn(0.95, 1.1))
+		AudioManager.play_sfx("jump", 2000, actor.global_position, 2.0, randf_range(0.9, 1.2))
 	
 func update(_delta: float):
 	pass

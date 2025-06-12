@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum EnemyState {IDLE,CHASING,ATTACK,JUMP,HIT}
+enum EnemyState {IDLE,CHASING,ATTACK,JUMP,HIT,DEATH}
 
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -30,8 +30,6 @@ var attack_instance : PackedScene
 var can_change_state : bool = true
 var player_died : bool = false
 
-
-
 func _ready() -> void:
 	NavigationServer2D.map_changed.connect(_on_navigation_ready)
 	health_component.hit.connect(_on_hit)
@@ -48,7 +46,6 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	
 	if player_died: return
-	
 	if player_in_shape and player_ref == null:
 		_detect_player(player_in_shape)
 		
@@ -86,6 +83,7 @@ func move_to_player(delta) -> void:
 
 
 func change_state(new_state)->void:
+	if state == 5: return
 	if can_change_state: state = new_state
 	
 	if new_state == 4: state = new_state
@@ -153,13 +151,13 @@ func _on_hit() -> void:
 	change_state(4)
 	AudioManager.play_sfx("hit", 450, global_position, 1, randf_range(0.90, 1.1))
 
-
 func _death() -> void:
 	player_died = true
+	$Patrulla.queue_free()
+	collision_layer = 0
+	set_collision_layer_value(7, true) 
 	SignalBuss.enemy_die(player_health_recover, self.global_position)
 	AudioManager.play_sfx("die", 450, global_position, 1, randf_range(0.95, 1.1))
-	
 	animation_player.play("death")
-	
 	await animation_player.animation_finished
 	queue_free()

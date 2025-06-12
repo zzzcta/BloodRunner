@@ -1,14 +1,12 @@
 extends State
 
-@onready var crosshair: CanvasLayer = get_tree().current_scene.get_node("Crosshair")
-
 func enter():
 	actor.transform_duration_left = actor.transform_duration
 	
 	actor.transform_front_sprite.visible = true
 	actor.transform_back_sprite.visible = true
 	
-	crosshair.visible = false
+	actor.crosshair.visible = false
 	
 	AudioManager.play_sfx("transform", 2000, actor.global_position, 1, randf_range(0.9, 1.15))
 	
@@ -84,7 +82,7 @@ func exit() -> void:
 		actor.transform_front_sprite.visible = true
 		actor.transform_back_sprite.visible = true
 		
-		crosshair.visible = true
+		actor.crosshair.visible = true
 		
 		if actor.is_on_floor():
 			actor.play_animation(actor.transform_front, "grt_front", true)

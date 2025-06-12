@@ -33,5 +33,9 @@ func handle_input(_event: InputEvent) -> void:
 		transition_to("transform")
 	
 func exit() -> void:
-	pass
+	if get_viewport().get_mouse_position().x > 320:
+		actor.flip_sprite(false)
+			
+	if get_viewport().get_mouse_position().x < 320:
+		actor.flip_sprite(true)
 	

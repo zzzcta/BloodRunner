@@ -5,7 +5,6 @@
 
 [node name="Credits" instance=ExtResource("1_8n0nl")]
 script = ExtResource("2_c8xcy")
-attribution_file_path = "res://ATTRIBUTION.md"
 
 [node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" index="1"]
 text = "[center][font_size=48]Colaboradores[/font_size]
@@ -19,31 +18,44 @@ Vanessa Ramirez Carrion | Arte / Diseño
 Abel Ahimsa Martín Crego | Arte / Animación
 
 [font_size=48]Sourced[/font_size]
-###Assets
+[font_size=32]Assets[/font_size]
 Author: Anokolisa
-Source: [Domain : webpage.html]https://anokolisa.itch.io/sidescroller-shooter-central-city
+Source: [url=https://anokolisa.itch.io/sidescroller-shooter-central-city]Domain : webpage.html[/url]
 License:
 [font_size=32]Musica[/font_size]
 Author: DavidKBD 
 Source: [url=https://www.davidkbd.com/music-packs]Domain : webpage.html[/url]  
 License: [url=https://creativecommons.org/licenses/by/4.0/]CC By 4.0[/url]
 [font_size=32]SFX[/font_size]
-Author:  
-Source: 
-License:
+Author: simoneyoh3998
+Source: [url=https://freesound.org/people/simoneyoh3998/sounds/500727/]Domain : webpage.html[/url]
 
-Author:  
-Source: 
-License:
+Author: DWOBoyle
+Source: [url= https://freesound.org/people/DWOBoyle/sounds/458279/ ]Domain : webpage.html[/url]
 
-Author:  
-Source: 
-License:
+Author:  T.42
+Source: [url=https://freesound.org/people/T.42/sounds/194195/ ]Domain : webpage.html[/url]
 
-Author:  
-Source: 
-License:
+Author:  heltonyan
+Source: [url=https://freesound.org/people/heltonyan/sounds/723439/ ]Domain : webpage.html[/url]
 
+Author: Alderman2k
+Source: [url=https:https://freesound.org/people/Alderman2k/sounds/494771/ ]Domain : webpage.html[/url]
+
+Author: deleted_user_3448698
+Source: [url=https://freesound.org/people/deleted_user_3448698/sounds/185807/ ]Domain : webpage.html[/url]
+
+Author: OGsoundFX
+Source: [url=https://freesound.org/people/OGsoundFX/sounds/423116/ ]Domain : webpage.html[/url]
+
+Author: NovaSoundTechnology
+Source: [url=https://freesound.org/people/NovaSoundTechnology/sounds/653049/ ]Domain : webpage.html[/url]
+
+Author: LittleRobotSoundFactory
+Source: [url=//freesound.org/people/LittleRobotSoundFactory/sounds/270328/ ]Domain : webpage.html[/url]
+
+Author: JustInvoke
+Source: [url=https://freesound.org/people/JustInvoke/sounds/446106/]Domain : webpage.html[/url]
 
 [font_size=24]Godot Engine Logo[/font_size]
 Author: Andrea Calabró  

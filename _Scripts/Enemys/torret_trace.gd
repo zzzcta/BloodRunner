@@ -17,6 +17,7 @@ func _physics_process(delta: float) -> void:
 func wall_col() -> void:
 	fly = false
 	animated_sprite_2d.play("explode")
+	AudioManager.play_sfx("bullet_died", 300, global_position, 1.0, randf_range(0.85, 1.2))
 	await animated_sprite_2d.animation_finished
 	queue_free()
 

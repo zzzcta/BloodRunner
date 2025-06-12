@@ -11,7 +11,7 @@ script = ExtResource("1_5j1tx")
 [node name="HitBoxComponent" type="Area2D" parent="."]
 scale = Vector2(1.25, 1.25)
 collision_layer = 8
-collision_mask = 36
+collision_mask = 164
 script = ExtResource("2_6r0gh")
 metadata/_custom_type_script = "uid://biw6560ujx4yv"
 
