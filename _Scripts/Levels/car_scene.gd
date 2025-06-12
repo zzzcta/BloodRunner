@@ -4,10 +4,12 @@ extends Node2D
 @onready var camera_finish: Marker2D = $AnimatedSprite2D/CameraFinishPosition
 @onready var control: DialogueBox = $CanvasLayer/dialogue_box
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var skip: Control = $CanvasLayer/Skip
 
 @export_file("*.tscn") var target_scene : String
 @export var transition_message: String
 
+var loading : bool = false
 
 func _ready() -> void:
 	AudioManager.play_music("TheHiddenOne", 0.1, true)
@@ -23,6 +25,7 @@ func _ready() -> void:
 	
 	
 	await get_tree().create_timer(8.0).timeout
+	skip.set_visible(true)
 	control.init_dialogue("AUX6B_001","AUX6B")
 	await control.dialogue_end
 	await get_tree().create_timer(2.0).timeout
@@ -59,3 +62,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	$AnimatedSprite2D.position.x -= 500.0 * delta
+	
+	if skip.is_visible() and Input.is_key_pressed(KEY_TAB) and not loading:
+		loading = true
+		SceneTransition.change_scene(target_scene, transition_message)

@@ -634,7 +634,7 @@ transition_message = "Dia ????"
 
 [node name="player_test" parent="." instance=ExtResource("3_0ltj2")]
 z_index = 5
-position = Vector2(-185, -14)
+position = Vector2(-66, -26)
 
 [node name="HealthComponent" parent="player_test" index="11"]
 max_health = 65.0
@@ -1224,6 +1224,29 @@ offset_left = -200.0
 offset_top = -76.0
 offset_right = 200.0
 offset_bottom = -11.0
+
+[node name="Skip" type="Control" parent="CanvasLayer"]
+visible = false
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -209.0
+offset_top = 8.0
+offset_right = -9.0
+offset_bottom = 33.0
+grow_horizontal = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Skip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pulsa \"Tab\" para saltar..."
+scroll_active = false
 
 [node name="NoTeAlejes" type="RichTextLabel" parent="."]
 z_index = 2

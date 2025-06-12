@@ -6,13 +6,23 @@ extends Node
 @onready var kill_bigmin: Node2D = $"../kill_bigmin"
 @onready var bigmin: CharacterBody2D = $"../Bigmin"
 @onready var abajo: RichTextLabel = $"../Abajo"
+@onready var skip: Control = $"../../CanvasLayer/Skip"
 
 
 var opened : bool = false
 
 func _ready() -> void:
-	
 	bigmin.bigmin_died.connect(_bigmin_dead)
+
+func _process(delta: float) -> void:
+	if skip.is_visible() and Input.is_key_pressed(KEY_TAB):
+		print("AAAH")
+		dialogue_box.set_visible(false)
+		bigmin.muelto()
+		camera_2d.position = Vector2.ZERO
+		player_test.on_finish_dialogue()
+		kill_bigmin.activate()
+		_bigmin_dead()
 
 func _on_body_entered(_body: Node2D) -> void:
 	if opened : return
@@ -30,6 +40,7 @@ func _on_body_entered(_body: Node2D) -> void:
 	
 	await get_tree().create_timer(2.0).timeout
 	dialogue_box.init_dialogue("BIGMIN_001","Bigmin")
+	skip.set_visible(true)
 	
 	await dialogue_box.dialogue_end
 	dialogue_box.init_dialogue("BIGMIN_002","Bigmin")

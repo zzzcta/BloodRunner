@@ -300,3 +300,26 @@ zoom = Vector2(1.25, 1.25)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="dialogue_box" parent="CanvasLayer" instance=ExtResource("4_2ddkp")]
+
+[node name="Skip" type="Control" parent="CanvasLayer"]
+visible = false
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -209.0
+offset_top = 8.0
+offset_right = -9.0
+offset_bottom = 33.0
+grow_horizontal = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Skip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pulsa \"Tab\" para saltar..."
+scroll_active = false
