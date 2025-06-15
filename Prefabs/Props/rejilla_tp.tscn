@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://duji41jrynl4v"]
+
+[ext_resource type="Script" uid="uid://dxapv32u3y6lw" path="res://_Scripts/Props/rejilla_tp.gd" id="1_cub8h"]
+[ext_resource type="Texture2D" uid="uid://bhqflcu7r0mvy" path="res://Recursos/Sprites/Props/rendija_tp.png" id="2_0dlny"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cub8h"]
+size = Vector2(30, 32)
+
+[node name="RejillaTp" type="Node2D"]
+script = ExtResource("1_cub8h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0dlny")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 8
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_cub8h")
+
+[node name="Marker2D" type="Marker2D" parent="."]

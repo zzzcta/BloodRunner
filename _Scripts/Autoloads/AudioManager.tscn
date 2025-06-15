@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcs2gxuoagxo1"]
+
+[ext_resource type="Script" uid="uid://c2pj3qnwrxkyf" path="res://_Scripts/Autoloads/audio_manager.gd" id="1_t2v4v"]
+[ext_resource type="AudioStream" uid="uid://b3vfw1x7ya1d6" path="res://Audio/sfx/fan.wav" id="2_p5q5l"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_t2v4v")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_p5q5l")
+attenuation = 0.5
+bus = &"SFX"
+
+[node name="CombatPlayer" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"

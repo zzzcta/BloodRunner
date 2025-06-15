@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://xcjoqk563ols"]
+
+[sub_resource type="GDScript" id="GDScript_f4hbx"]
+script/source = "extends Node2D
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	call_deferred(\"_load_scene_deferred\")
+
+func _load_scene_deferred() -> void:
+	SceneTransition.change_scene(\"res://Mapas/conexion_1.tscn\", \"fffffffffff\")
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3j1v3"]
+
+[node name="CarOut" type="Node2D"]
+script = SubResource("GDScript_f4hbx")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_3j1v3")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

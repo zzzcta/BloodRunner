@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dngw5hfynrwvk"]
+
+[ext_resource type="Script" uid="uid://bo8lg6c6ibq0b" path="res://_Scripts/Player/crosshair.gd" id="1_1dtup"]
+[ext_resource type="Texture2D" uid="uid://brnby7pteyybj" path="res://Recursos/Sprites/UI/Crosshair.png" id="2_aeo30"]
+
+[node name="Crosshair" type="CanvasLayer"]
+script = ExtResource("1_1dtup")
+
+[node name="Crosshair" type="Sprite2D" parent="."]
+texture = ExtResource("2_aeo30")

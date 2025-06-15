@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://6wotdaqcdew2"]
+
+[ext_resource type="PackedScene" uid="uid://dhmilqoeflyd2" path="res://Componentes/punch_component.tscn" id="1_pupu2"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_uhpk7"]
+
+[node name="EnemyPunchTrace2" type="Node2D"]
+
+[node name="PunchComponent" parent="." instance=ExtResource("1_pupu2")]
+scale = Vector2(0.735334, 0.77129)
+collision_layer = 0
+collision_mask = 2
+dead_time = 0.2
+damage = 20.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(16, 6)
+texture = SubResource("PlaceholderTexture2D_uhpk7")

@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://bxxp3xne2v7oa"]
+
+[ext_resource type="Script" uid="uid://wi74q6nvn6ys" path="res://_Scripts/player/player.gd" id="1_y6xdh"]
+[ext_resource type="Script" uid="uid://dmfhj3tajaetn" path="res://_Scripts/state_machine.gd" id="2_5wxv7"]
+[ext_resource type="Script" uid="uid://sdnm7c3581hd" path="res://_Scripts/player/idle_state.gd" id="3_y5hcb"]
+[ext_resource type="Script" uid="uid://cke0u5yvlug3f" path="res://_Scripts/player/move_state.gd" id="4_2nftw"]
+[ext_resource type="Script" uid="uid://daxmalqmx8vyj" path="res://_Scripts/player/jump_state.gd" id="5_knrd4"]
+[ext_resource type="Script" uid="uid://bjkbgjq1ucuu" path="res://_Scripts/player/base_attack.gd" id="6_hck1p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of3e5"]
+size = Vector2(15, 30)
+
+[sub_resource type="Animation" id="Animation_y5hcb"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_3icqa"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y6xdh"]
+_data = {
+&"RESET": SubResource("Animation_y5hcb"),
+&"idle": SubResource("Animation_3icqa")
+}
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_y6xdh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_of3e5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_y6xdh")
+}
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_5wxv7")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_y5hcb")
+
+[node name="Move" type="Node" parent="StateMachine"]
+script = ExtResource("4_2nftw")
+
+[node name="Jump" type="Node" parent="StateMachine"]
+script = ExtResource("5_knrd4")
+
+[node name="BaseAttack" type="Node" parent="StateMachine"]
+script = ExtResource("6_hck1p")
+
+[node name="RangeAttack" type="Node" parent="StateMachine"]
+
+[node name="Transform" type="Node" parent="StateMachine"]
+
+[node name="Die" type="Node" parent="StateMachine"]

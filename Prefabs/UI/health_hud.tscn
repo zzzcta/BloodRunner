@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://vllsdp8yq8kj"]
+
+[ext_resource type="Script" uid="uid://cxianccf7h7j3" path="res://_Scripts/UI/vida_hud.gd" id="1_dd4h3"]
+[ext_resource type="Texture2D" uid="uid://lur1j8mhpb4s" path="res://Recursos/Sprites/UI/PlayerHealth/Over.png" id="2_ydkwx"]
+[ext_resource type="Texture2D" uid="uid://calyo4al10jla" path="res://Recursos/Sprites/UI/PlayerHealth/Under.png" id="3_fnp5u"]
+[ext_resource type="Texture2D" uid="uid://cxa4wg4cqlj56" path="res://Recursos/Sprites/UI/PlayerHealth/Progress.png" id="4_72xar"]
+
+[node name="HealthHud" type="CanvasLayer"]
+script = ExtResource("1_dd4h3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -48.0
+offset_right = 24.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(182.5, 14)
+texture = ExtResource("2_ydkwx")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+max_value = 360.0
+step = 0.1
+value = 360.0
+texture_under = ExtResource("3_fnp5u")
+texture_progress = ExtResource("4_72xar")
+texture_progress_offset = Vector2(3, 3)

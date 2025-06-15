@@ -1,0 +1,130 @@
+[gd_scene load_steps=19 format=3 uid="uid://cxf5jjkjutjpo"]
+
+[ext_resource type="PackedScene" uid="uid://dhmilqoeflyd2" path="res://Componentes/punch_component.tscn" id="1_05ggi"]
+[ext_resource type="Script" uid="uid://b7xiskw2d247t" path="res://_Scripts/Enemys/torret_trace.gd" id="1_msel0"]
+[ext_resource type="Texture2D" uid="uid://1das34rtv2sg" path="res://Recursos/Sprites/Props/Bala_Enemigo-Sheet.png" id="3_y22gm"]
+[ext_resource type="PackedScene" uid="uid://c00f00wc0vjva" path="res://Componentes/health_component.tscn" id="4_hp657"]
+[ext_resource type="PackedScene" uid="uid://b25ondfso70wi" path="res://Componentes/hitbox_component.tscn" id="5_me15t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp657"]
+atlas = ExtResource("3_y22gm")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_me15t"]
+atlas = ExtResource("3_y22gm")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxfkx"]
+atlas = ExtResource("3_y22gm")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34sy5"]
+atlas = ExtResource("3_y22gm")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np3om"]
+atlas = ExtResource("3_y22gm")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y22gm"]
+atlas = ExtResource("3_y22gm")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrkma"]
+atlas = ExtResource("3_y22gm")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bel5"]
+atlas = ExtResource("3_y22gm")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nypen"]
+atlas = ExtResource("3_y22gm")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yni8g"]
+atlas = ExtResource("3_y22gm")
+region = Rect2(192, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lrkma"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_hp657")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_me15t")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_dxfkx")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_34sy5")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_np3om")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_y22gm")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_lrkma")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_7bel5")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_nypen")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_yni8g")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxfkx"]
+size = Vector2(11, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_me15t"]
+size = Vector2(7, 2)
+
+[node name="TorretTrace" type="RigidBody2D"]
+collision_layer = 128
+collision_mask = 9
+gravity_scale = 0.0
+script = ExtResource("1_msel0")
+speed = 200.0
+
+[node name="PunchComponent" parent="." instance=ExtResource("1_05ggi")]
+scale = Vector2(0.345905, 0.190339)
+collision_layer = 4
+collision_mask = 3
+dead_time = 3.0
+damage = 30.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(9.53674e-07, -0.999999)
+scale = Vector2(0.583333, 0.583333)
+sprite_frames = SubResource("SpriteFrames_lrkma")
+autoplay = "default"
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_hp657")]
+max_health = 0.025
+
+[node name="HitboxComponent" parent="." instance=ExtResource("5_me15t")]
+scale = Vector2(1.39733, 1.57333)
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("RectangleShape2D_dxfkx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_me15t")

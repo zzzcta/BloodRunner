@@ -1,0 +1,64 @@
+[gd_scene load_steps=13 format=4 uid="uid://be2sry3bp483h"]
+
+[ext_resource type="Script" uid="uid://cpblj86124xol" path="res://_Scripts/Levels/level.gd" id="1_6sxnc"]
+[ext_resource type="TileSet" uid="uid://c24lxocxen4eq" path="res://Prefabs/TileMaps/test.tres" id="1_jf0na"]
+[ext_resource type="PackedScene" uid="uid://l13vchhleoe" path="res://Prefabs/Characters/Enemys/enemy_base.tscn" id="3_3dt7c"]
+[ext_resource type="PackedScene" uid="uid://dngw5hfynrwvk" path="res://Prefabs/UI/crosshair.tscn" id="3_3hvkn"]
+[ext_resource type="PackedScene" uid="uid://cbubjqnrm73ug" path="res://Prefabs/Characters/Player/player.tscn" id="3_xypa8"]
+[ext_resource type="PackedScene" uid="uid://byjy8hfyofb3h" path="res://Prefabs/Characters/Enemys/torreta.tscn" id="5_l8itx"]
+[ext_resource type="PackedScene" uid="uid://bclotswb7kp4u" path="res://Prefabs/Props/RejillaVentilacion.tscn" id="6_i06tq"]
+[ext_resource type="PackedScene" uid="uid://duji41jrynl4v" path="res://Prefabs/Props/rejilla_tp.tscn" id="7_a2il4"]
+[ext_resource type="PackedScene" uid="uid://bihclwmtyk702" path="res://Prefabs/Props/door_start_level.tscn" id="8_a2il4"]
+[ext_resource type="PackedScene" uid="uid://da13veskah1ov" path="res://Prefabs/Props/door_finish_level.tscn" id="10_a5v12"]
+[ext_resource type="PackedScene" uid="uid://xcjoqk563ols" path="res://Prefabs/Props/car_out.tscn" id="11_6sxnc"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_i3321"]
+vertices = PackedVector2Array(279.203, 15, 471.977, 5.59375, 414.617, 332.852, -87.7813, 324.172, -81.2031, 12.0703)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(279, 5, 484, -5, 423, 343, -98, 334, -91, 2)])
+
+[node name="Testing_Santiago" type="Node2D"]
+script = ExtResource("1_6sxnc")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(112, 260)
+tile_map_data = PackedByteArray("AAAAAAAAAAADAB4AAAABAAAAAAADAB4AAAACAAAAAAADAB4AAAADAAAAAAADAB4AAAAEAAAAAAADAB4AAAAFAAAAAAADAB4AAAAGAAAAAAADAB4AAAAHAAAAAAADAB4AAAAIAAAAAAADAB4AAAAAAP//AAADAB0AAAABAP//AAADAB0AAAACAP//AAADAB0AAAADAP//AAADAB0AAAAEAP//AAADAB0AAAAFAP//AAADAB0AAAAGAP//AAADAB0AAAAIAP//AAADAB0AAAAHAP//AAADAB0AAAAJAP//AAADAB0AAAAKAP//AAADAB0AAAALAP//AAADAB0AAAAMAP//AAADAB0AAAANAP//AAADAB0AAAAOAP//AAADAB0AAAAPAP//AAADAB0AAAD/////AAADAB0AAAD+////AAADAB0AAAD9////AAADAB0AAAD8////AAADAB0AAAD7////AAADAB0AAAD6////AAADAB0AAAD5////AAADAB0AAAD4////AAADAB0AAAD//wAAAAADAB4AAAD+/wAAAAADAB4AAAD9/wAAAAADAB4AAAD8/wAAAAADAB4AAAD7/wAAAAADAB4AAAD6/wAAAAADAB4AAAD5/wAAAAADAB4AAAAJAAAAAAADAB4AAAAKAAAAAAADAB4AAAALAAAAAAADAB4AAAAMAAAAAAADAB4AAAANAAAAAAADAB4AAAAOAAAAAAADAB4AAAAPAAAAAAADAB4AAAD4/wAAAAADAB4AAAD3/wAAAAADAB4AAAD1/wYAAAADAB4AAAD0/wYAAAADAB4AAADz/wYAAAADAB4AAADy/wYAAAADAB4AAADx/wYAAAADAB4AAADw/wYAAAADAB4AAADv/wYAAAADAB4AAADu/wYAAAADAB4AAADv/wcAAAADAB4AAADw/wcAAAADAB4AAADx/wcAAAADAB4AAADy/wcAAAADAB4AAADz/wcAAAADAB4AAAD0/wcAAAADAB4AAAD1/wcAAAADAB4AAADu/wcAAAADAB4AAAD3////AAADAB0AAAD8/wMAAAADAB0AAAD9/wMAAAADAB0AAAD+/wMAAAADAB0AAAD//wMAAAADAB0AAAAAAAMAAAADAB0AAAABAAMAAAADAB0AAAACAAMAAAADAB0AAAADAAMAAAADAB0AAAAEAAMAAAADAB0AAAAFAAMAAAADAB0AAAAGAAMAAAADAB0AAAAHAAMAAAADAB0AAAAIAAMAAAADAB0AAAAJAAMAAAADAB0AAAAKAAMAAAADAB0AAAALAAMAAAADAB0AAAAMAAYAAAADAB0AAAANAAYAAAADAB0AAAAOAAYAAAADAB0AAAAPAAYAAAADAB0AAAAQAAYAAAADAB0AAAARAAYAAAADAB0AAAASAAYAAAADAB0AAAATAAYAAAADAB0AAAAUAAYAAAADAB0AAAAVAAYAAAADAB0AAAAWAAUAAAADAB0AAAAXAAUAAAADAB0AAAAYAAUAAAADAB0AAAAZAAUAAAADAB0AAAAaAAUAAAADAB0AAAAbAAUAAAADAB0AAAAcAAUAAAADAB0AAAAdAAUAAAADAB0AAADu/wUAAAADAB0AAADv/wUAAAADAB0AAADw/wUAAAADAB0AAADx/wUAAAADAB0AAADy/wUAAAADAB0AAADz/wUAAAADAB0AAAD0/wUAAAADAB0AAAD1/wUAAAADAB0AAADt/wQAAAADAB0AAADs/wQAAAADAB0AAADr/wQAAAADAB0AAADq/wQAAAADAB0AAADp/wQAAAADAB0AAADo/wQAAAADAB0AAADn/wQAAAADAB0AAADm/wQAAAADAB0AAADt/wUAAAADAB4AAADs/wUAAAADAB4AAADs/wYAAAADAB4AAADr/wUAAAADAB4AAADq/wUAAAADAB4AAADp/wUAAAADAB4AAADo/wUAAAADAB4AAADn/wUAAAADAB4AAADm/wUAAAADAB4AAADt/wYAAAADAB4AAADr/wYAAAADAB4AAADq/wYAAAADAB4AAADp/wYAAAADAB4AAADo/wYAAAADAB4AAADn/wYAAAADAB4AAADm/wYAAAADAB4AAAD8/wQAAAADAB4AAAD9/wQAAAADAB4AAAD+/wQAAAADAB4AAAD//wQAAAADAB4AAAAAAAQAAAADAB4AAAABAAQAAAADAB4AAAACAAQAAAADAB4AAAADAAQAAAADAB4AAAAEAAQAAAADAB4AAAAFAAQAAAADAB4AAAAGAAQAAAADAB4AAAAHAAQAAAADAB4AAAAIAAQAAAADAB4AAAAJAAQAAAADAB4AAAAKAAQAAAADAB4AAAALAAQAAAADAB4AAAAMAAcAAAADAB4AAAANAAcAAAADAB4AAAAOAAcAAAADAB4AAAAPAAcAAAADAB4AAAAQAAcAAAADAB4AAAARAAcAAAADAB4AAAASAAcAAAADAB4AAAATAAcAAAADAB4AAAAUAAcAAAADAB4AAAAVAAcAAAADAB4AAAAWAAYAAAADAB4AAAAXAAYAAAADAB4AAAAYAAYAAAADAB4AAAAZAAYAAAADAB4AAAAaAAYAAAADAB4AAAAbAAYAAAADAB4AAAAcAAYAAAADAB4AAAAdAAYAAAADAB4AAAD2/wUAAAADAB0AAAD3/wUAAAADAB0AAAD4/wUAAAADAB0AAAD5/wUAAAADAB0AAAD5/wYAAAADAB4AAAD4/wYAAAADAB4AAAD3/wYAAAADAB4AAAD2/wYAAAADAB4AAAD2/wcAAAADAB4AAAD3/wcAAAADAB4AAAD4/wcAAAADAB4AAAD5/wcAAAADAB4AAAD0/wIAAAADAB4AAADz/wIAAAADAB4AAAD0/wEAAAADAB0AAADz/wEAAAADAB0AAAASAAIAAAADAB0AAAARAAIAAAADAB0AAAARAAMAAAADAB4AAAASAAMAAAADAB4AAAA=")
+tile_set = ExtResource("1_jf0na")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_i3321")
+
+[node name="EnemyBase" parent="." instance=ExtResource("3_3dt7c")]
+position = Vector2(234, 86)
+
+[node name="Player" parent="." instance=ExtResource("3_xypa8")]
+position = Vector2(-81, 256)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2, 2)
+
+[node name="Torreta" parent="." instance=ExtResource("5_l8itx")]
+position = Vector2(166, 228)
+
+[node name="RejillaVentilacion" parent="." instance=ExtResource("6_i06tq")]
+position = Vector2(-224, 319)
+
+[node name="RejillaTp" parent="." instance=ExtResource("7_a2il4")]
+position = Vector2(-138, 313)
+destination_teleport = NodePath("../RejillaTp2")
+
+[node name="RejillaTp2" parent="." instance=ExtResource("7_a2il4")]
+position = Vector2(0, 216)
+destination_teleport = NodePath("../RejillaTp")
+
+[node name="Door" parent="." instance=ExtResource("8_a2il4")]
+position = Vector2(134, 292)
+
+[node name="DoorFinishLevel" parent="." instance=ExtResource("10_a5v12")]
+position = Vector2(-30, 324)
+
+[node name="CarOut" parent="." instance=ExtResource("11_6sxnc")]
+position = Vector2(573, 290)
+
+[node name="Crosshair" parent="." instance=ExtResource("3_3hvkn")]
