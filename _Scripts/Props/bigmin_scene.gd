@@ -14,7 +14,7 @@ var opened : bool = false
 func _ready() -> void:
 	bigmin.bigmin_died.connect(_bigmin_dead)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if skip.is_visible() and Input.is_key_pressed(KEY_TAB):
 		print("AAAH")
 		dialogue_box.set_visible(false)
