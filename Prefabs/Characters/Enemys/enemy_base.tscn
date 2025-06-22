@@ -253,5 +253,9 @@ position = Vector2(12, 20)
 target_position = Vector2(0, 17)
 hit_from_inside = true
 
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-2.5, -9.5)
+scale = Vector2(1.25, 2.35)
+
 [connection signal="body_entered" from="SightArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="SightArea" to="." method="_on_area_2d_body_exited"]
